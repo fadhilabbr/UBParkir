@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - ParkirUB</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS Khusus Halaman Dashboard -->
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <!-- Backdrop untuk Navigasi Mobile -->
+  <div class="dash-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="dash-layout">
+    
+    <!-- ======================================================================
+         SIDEBAR NAVIGASI KIRI
+         ====================================================================== -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <!-- Logo Brand -->
+      <a href="dashboard.html" class="d-inline-flex align-items-center gap-2 mb-4 ps-2 text-decoration-none">
+        <div style="width: 36px; height: 36px; background-color: #F2B601; color: #0F2A4A; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem;">
+          P
+        </div>
+        <span class="fs-5 fw-bold text-white">ParkirUB</span>
+      </a>
+
+      <!-- Menu Navigasi -->
+      <nav class="d-flex flex-column gap-2 flex-grow-1">
+        <!-- Dashboard (Active) -->
+        <a href="dashboard.html" class="sidebar-nav-link active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- Area Parkir -->
+        <a href="#" class="sidebar-nav-link" id="navAreaParkir">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Area Parkir</span>
+        </a>
+
+        <!-- Prediksi -->
+        <a href="#" class="sidebar-nav-link" id="navPrediksi">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          <span>Prediksi</span>
+        </a>
+
+        <!-- Laporan -->
+        <a href="#" class="sidebar-nav-link" id="navLaporan">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+            <line x1="4" y1="22" x2="4" y2="15"></line>
+          </svg>
+          <span>Laporan</span>
+        </a>
+
+        <!-- Profil -->
+        <a href="#" class="sidebar-nav-link" id="navProfil">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Profil</span>
+        </a>
+      </nav>
+
+      <!-- Tombol Keluar / Logout -->
+      <div class="pt-3 border-top border-white border-opacity-10">
+        <a href="index.html" class="sidebar-nav-link text-danger">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Keluar</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ======================================================================
+         KONTEN UTAMA DASHBOARD
+         ====================================================================== -->
+    <main class="dash-content">
+      
+      <!-- Top Header: Sapaan & Profil -->
+      <header class="d-flex align-items-start justify-content-between mb-4">
+        <div class="d-flex align-items-center gap-3">
+          <!-- Tombol Hamburger Mobile -->
+          <button type="button" class="btn btn-light d-lg-none border shadow-sm px-2 py-1" id="btnToggleSidebar" aria-label="Buka Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <div>
+            <h1 class="fw-bold text-dark mb-1" style="font-size: 1.75rem; letter-spacing: -0.4px;">Selamat pagi, Rifqi</h1>
+            <p class="text-secondary small mb-0">Slot parkir di area pilihanmu saat ini</p>
+          </div>
+        </div>
+
+        <!-- Pill Profil Pengguna -->
+        <div class="dropdown">
+          <a href="#" class="d-flex align-items-center gap-2 bg-white text-dark text-decoration-none border rounded-pill py-1 px-3 shadow-sm" data-bs-toggle="dropdown" aria-expanded="false">
+            <div style="width: 32px; height: 32px; background-color: #0F2A4A; color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem;">
+              RF
+            </div>
+            <span class="fw-semibold small">Rifqi Fadhil Abrar</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 rounded-3 mt-2">
+            <li class="px-3 py-2 border-bottom">
+              <div class="fw-bold small text-dark">Rifqi Fadhil Abrar</div>
+              <div class="text-muted small">rifqi@student.ub.ac.id</div>
+            </li>
+            <li><a class="dropdown-item small py-2 mt-1" href="#"><i class="bi bi-person me-2"></i>Pengaturan Akun</a></li>
+            <li><a class="dropdown-item small py-2 text-danger" href="index.html"><i class="bi bi-box-arrow-left me-2"></i>Keluar SSO</a></li>
+          </ul>
+        </div>
+      </header>
+
+      <!-- Section: Area Pilihanmu (3 Kartu Slot Parkir) -->
+      <section class="mb-4">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h2 class="fw-bold text-dark fs-6 mb-0">Area pilihanmu</h2>
+          <a href="#" class="text-primary fw-semibold text-decoration-none small" id="linkAturArea">Atur area (maks 3)</a>
+        </div>
+
+        <div class="row g-3">
+          
+          <!-- Card 1: Parkir FILKOM -->
+          <div class="col-12 col-md-4">
+            <div class="card border-0 shadow-sm p-3 h-100" style="border-radius: 16px;">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h3 class="fw-bold text-dark fs-6 mb-0">Parkir FILKOM</h3>
+                <span class="badge rounded-pill fw-bold" style="background-color: #FEF3C7; color: #B45309; font-size: 0.72rem;">Hampir penuh</span>
+              </div>
+              <div class="d-flex align-items-baseline gap-2 mb-3">
+                <span class="fw-bold text-dark" style="font-size: 2.25rem; line-height: 1;">12</span>
+                <span class="text-muted small">slot tersisa dari 150</span>
+              </div>
+              <!-- Progress Bar: (150-12)/150 = 92% -->
+              <div class="progress" style="height: 6px; background-color: #E5E7EB; border-radius: 10px;">
+                <div class="progress-bar rounded-pill" style="width: 92%; background-color: #F59E0B;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Parkir Fakultas Teknik -->
+          <div class="col-12 col-md-4">
+            <div class="card border-0 shadow-sm p-3 h-100" style="border-radius: 16px;">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h3 class="fw-bold text-dark fs-6 mb-0">Parkir Fakultas Teknik</h3>
+                <span class="badge rounded-pill fw-bold" style="background-color: #DCFCE7; color: #15803D; font-size: 0.72rem;">Lega</span>
+              </div>
+              <div class="d-flex align-items-baseline gap-2 mb-3">
+                <span class="fw-bold text-dark" style="font-size: 2.25rem; line-height: 1;">64</span>
+                <span class="text-muted small">slot tersisa dari 200</span>
+              </div>
+              <!-- Progress Bar: (200-64)/200 = 68% -->
+              <div class="progress" style="height: 6px; background-color: #E5E7EB; border-radius: 10px;">
+                <div class="progress-bar rounded-pill" style="width: 68%; background-color: #10B981;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Parkir FEB -->
+          <div class="col-12 col-md-4">
+            <div class="card border-0 shadow-sm p-3 h-100" style="border-radius: 16px;">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h3 class="fw-bold text-dark fs-6 mb-0">Parkir FEB</h3>
+                <span class="badge rounded-pill fw-bold" style="background-color: #FEE2E2; color: #B91C1C; font-size: 0.72rem;">Penuh</span>
+              </div>
+              <div class="d-flex align-items-baseline gap-2 mb-3">
+                <span class="fw-bold text-dark" style="font-size: 2.25rem; line-height: 1;">0</span>
+                <span class="text-muted small">slot tersisa dari 120</span>
+              </div>
+              <!-- Progress Bar: 120/120 = 100% -->
+              <div class="progress" style="height: 6px; background-color: #E5E7EB; border-radius: 10px;">
+                <div class="progress-bar rounded-pill" style="width: 100%; background-color: #EF4444;"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section: Prediksi Jam Padat & Menu Cepat -->
+      <section class="row g-3">
+        
+        <!-- Kolom Kiri: Prediksi Jam Padat FILKOM (8 Kolom di Layar Lebar) -->
+        <div class="col-12 col-lg-8">
+          <div class="card border-0 shadow-sm p-3 p-sm-4 h-100" style="border-radius: 18px;">
+            <div class="d-flex align-items-start justify-content-between mb-3">
+              <div>
+                <h3 class="fw-bold text-dark fs-6 mb-1">Prediksi jam padat · FILKOM</h3>
+                <p class="text-muted small mb-0">Tingkat keterisian per jam, berdasarkan data historis</p>
+              </div>
+              <a href="#" class="text-primary fw-semibold text-decoration-none small" id="linkPrediksiLengkap">Prediksi lengkap</a>
+            </div>
+
+            <!-- Bar Chart (Pure CSS & HTML) -->
+            <div class="chart-container">
+              <!-- Jam 06 -->
+              <div class="chart-col">
+                <div class="chart-bar-wrap">
+                  <div class="chart-bar" style="height: 20%; background-color: #C8D5E5;" data-time="06:00" data-val="20% terisi"></div>
+                </div>
+                <span class="chart-time-label">06</span>
+              </div>
+
+              <!-- Jam 07 -->
+              <div class="chart-col">
+                <div class="chart-bar-wrap">
+                  <div class="chart-bar" style="height: 38%; background-color: #C8D5E5;" data-time="07:00" data-val="38% terisi"></div>
+                </div>
+                <span class="chart-time-label">07</span>
+              </div>
+
+              <!-- Jam 08 (Kuning / Mulai Padat) -->
+              <div class="chart-col">
+                <div class="chart-bar-wrap">
+                  <div class="chart-bar" style="height: 72%; background-color: #F2B601;" data-time="08:00" data-val="72% terisi (Mulai Padat)"></div>
+                </div>
+                <span class="chart-time-label">08</span>
+              </div>
+
+              <!-- Jam 09 (Merah / Puncak Terpadat) -->
+              <div class="chart-col">
+                <div class="chart-bar-wrap">
+                  <div class="chart-bar" style="height: 96%; background-color: #DC2626;" data-time="09:00" data-val="96% terisi (Puncak Terpadat)"></div>
+                </div>
+                <span class="chart-time-label">09</span>
+              </div>
+
+              <!-- Jam 10 -->
+              <div class="chart-col">
+                <div class="chart-bar-wrap">
+                  <div class="chart-bar" style="height: 98%; background-color: #C8D5E5;" data-time="10:00" data-val="98% terisi"></div>
+                </div>
+                <span class="chart-time-label">10</span>
+              </div>
+
+              <!-- Jam 11 -->
+              <div class="chart-col">
+                <div class="chart-bar-wrap">
+                  <div class="chart-bar" style="height: 88%; background-color: #C8D5E5;" data-time="11:00" data-val="88% terisi"></div>
+                </div>
+                <span class="chart-time-label">11</span>
+              </div>
+
+              <!-- Jam 12 -->
+              <div class="chart-col">
+                <div class="chart-bar-wrap">
+                  <div class="chart-bar" style="height: 82%; background-color: #C8D5E5;" data-time="12:00" data-val="82% terisi"></div>
+                </div>
+                <span class="chart-time-label">12</span>
+              </div>
+
+              <!-- Jam 13 -->
+              <div class="chart-col">
+                <div class="chart-bar-wrap">
+                  <div class="chart-bar" style="height: 80%; background-color: #C8D5E5;" data-time="13:00" data-val="80% terisi"></div>
+                </div>
+                <span class="chart-time-label">13</span>
+              </div>
+
+              <!-- Jam 14 -->
+              <div class="chart-col">
+                <div class="chart-bar-wrap">
+                  <div class="chart-bar" style="height: 70%; background-color: #C8D5E5;" data-time="14:00" data-val="70% terisi"></div>
+                </div>
+                <span class="chart-time-label">14</span>
+              </div>
+
+              <!-- Jam 15 -->
+              <div class="chart-col">
+                <div class="chart-bar-wrap">
+                  <div class="chart-bar" style="height: 58%; background-color: #C8D5E5;" data-time="15:00" data-val="58% terisi"></div>
+                </div>
+                <span class="chart-time-label">15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kolom Kanan: Menu Cepat (4 Kolom di Layar Lebar) -->
+        <div class="col-12 col-lg-4">
+          <div class="p-3 p-sm-4 text-white h-100 d-flex flex-column" style="background-color: #0F2A4A; border-radius: 18px;">
+            <h3 class="fw-bold text-white fs-6 mb-3">Menu cepat</h3>
+            <div class="d-flex flex-column gap-2 flex-grow-1 justify-content-center">
+              
+              <button type="button" class="quick-menu-btn" onclick="alert('Menampilkan daftar seluruh area parkir di UB.');">
+                <span>Semua area parkir UB</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F2B601" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+
+              <button type="button" class="quick-menu-btn" onclick="alert('Rekomendasi area alternatif: Parkir FT (Tersedia 64 slot).');">
+                <span>Cari area alternatif</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F2B601" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+
+              <button type="button" class="quick-menu-btn" onclick="alert('Formulir pelaporan kejadian atau kendala tiket parkir.');">
+                <span>Laporkan kejadian</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F2B601" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Modal Interaktif: Atur Area Pilihan -->
+  <div class="modal fade" id="modalAturArea" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow" style="border-radius: 18px;">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold text-dark">Atur Area Pilihan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted small mb-3">Pilih maksimal 3 area parkir favorit untuk ditampilkan di dashboard Anda.</p>
+          <div class="list-group">
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" checked>
+              <span><strong>Parkir FILKOM</strong> <small class="text-muted d-block">Kapasitas 150 motor/mobil</small></span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" checked>
+              <span><strong>Parkir Fakultas Teknik</strong> <small class="text-muted d-block">Kapasitas 200 motor/mobil</small></span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" checked>
+              <span><strong>Parkir FEB</strong> <small class="text-muted d-block">Kapasitas 120 motor/mobil</small></span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox">
+              <span><strong>Parkir FIA</strong> <small class="text-muted d-block">Kapasitas 180 motor/mobil</small></span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox">
+              <span><strong>Parkir Gedung Samantha Krida</strong> <small class="text-muted d-block">Kapasitas 300 motor/mobil</small></span>
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-secondary btn-sm rounded-3" data-bs-dismiss="modal">Tutup</button>
+          <button type="button" class="btn btn-primary btn-sm rounded-3 px-3" data-bs-dismiss="modal" onclick="alert('Pengaturan area berhasil disimpan!');">Simpan Pengaturan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5.3.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
