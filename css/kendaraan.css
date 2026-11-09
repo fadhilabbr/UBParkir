@@ -1,0 +1,242 @@
+/* ==========================================================================
+   UBParkir - Data Kendaraan Page Style (kendaraan.css)
+   Khusus Halaman Pengisian Informasi Kendaraan Mahasiswa
+   ========================================================================== */
+
+:root {
+  --primary-navy: #0F2A4A;
+  --sidebar-active: #1D3757;
+  --bg-light: #F3F5F8;
+  --accent-yellow: #F2B601;
+  --btn-blue: #1E5BD8;
+  --btn-blue-hover: #164cc0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-light);
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Layout */
+.dash-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.dash-sidebar {
+  width: 220px;
+  min-width: 220px;
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.25rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 100;
+  transition: transform 0.25s ease-in-out;
+}
+
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  color: #94A3B8;
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.18s ease;
+}
+
+.sidebar-nav-link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-nav-link.active {
+  background-color: var(--sidebar-active);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Content Area */
+.dash-content {
+  flex-grow: 1;
+  padding: 2.25rem 2.75rem;
+  max-width: 1300px;
+}
+
+/* Breadcrumb Link */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--btn-blue);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  transition: opacity 0.2s ease;
+}
+
+.back-link:hover {
+  opacity: 0.8;
+  color: var(--btn-blue-hover);
+}
+
+/* Form Container Card */
+.vehicle-form-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+  border: 1px solid #E2E8F0;
+}
+
+/* Segmented Buttons (Motor / Mobil) */
+.veh-type-btn {
+  width: 135px;
+  padding: 0.65rem 1.25rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid #E2E8F0;
+  background-color: #ffffff;
+  color: #111827;
+  transition: all 0.18s ease;
+  user-select: none;
+}
+
+.veh-type-btn:hover {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.veh-type-btn.active {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  border-color: var(--primary-navy);
+}
+
+/* Form Controls */
+.form-label-custom {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #111827;
+  display: block;
+  margin-bottom: 0.45rem;
+}
+
+.form-control-custom {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #111827;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.form-control-custom:focus {
+  outline: none;
+  border-color: var(--btn-blue);
+  box-shadow: 0 0 0 3px rgba(30, 91, 216, 0.12);
+}
+
+.form-control-custom::placeholder {
+  color: #94A3B8;
+  font-size: 0.88rem;
+}
+
+/* Action Buttons */
+.btn-save-vehicle {
+  background-color: var(--btn-blue);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 2.25rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  min-width: 180px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-save-vehicle:hover {
+  background-color: var(--btn-blue-hover);
+}
+
+.btn-cancel-vehicle {
+  background-color: #ffffff;
+  color: #334155;
+  border: 1px solid #CBD5E1;
+  border-radius: 12px;
+  padding: 0.75rem 2rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  min-width: 130px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s ease;
+}
+
+.btn-cancel-vehicle:hover {
+  background-color: #F8FAFC;
+  border-color: #94A3B8;
+  color: #0F172A;
+}
+
+/* Side Info Card (Kenapa perlu diisi?) */
+.side-info-card {
+  background-color: var(--primary-navy);
+  border-radius: 20px;
+  padding: 2rem 1.75rem;
+  color: #ffffff;
+  box-shadow: 0 4px 18px rgba(15, 42, 74, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .dash-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+  }
+  .dash-sidebar.show {
+    transform: translateX(0);
+  }
+  .dash-content {
+    padding: 1.5rem 1.25rem;
+  }
+  .dash-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+  }
+  .dash-backdrop.show {
+    display: block;
+  }
+}
+

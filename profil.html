@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil - ParkirUB</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS Khusus Halaman Profil -->
+  <link rel="stylesheet" href="css/profil.css">
+</head>
+<body>
+
+  <!-- Backdrop untuk Navigasi Mobile -->
+  <div class="dash-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="dash-layout">
+    
+    <!-- ======================================================================
+         SIDEBAR NAVIGASI
+         ====================================================================== -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <!-- Logo Brand -->
+      <a href="dashboard.html" class="d-inline-flex align-items-center gap-2 mb-4 ps-2 text-decoration-none">
+        <div style="width: 36px; height: 36px; background-color: #F2B601; color: #0F2A4A; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem;">
+          P
+        </div>
+        <span class="fs-5 fw-bold text-white">ParkirUB</span>
+      </a>
+
+      <!-- Menu Navigasi -->
+      <nav class="d-flex flex-column gap-2 flex-grow-1">
+        <!-- Dashboard -->
+        <a href="dashboard.html" class="sidebar-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- Area Parkir -->
+        <a href="area-parkir.html" class="sidebar-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Area Parkir</span>
+        </a>
+
+        <!-- Prediksi -->
+        <a href="prediksi.html" class="sidebar-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          <span>Prediksi</span>
+        </a>
+
+        <!-- Laporan -->
+        <a href="laporan.html" class="sidebar-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+            <line x1="4" y1="22" x2="4" y2="15"></line>
+          </svg>
+          <span>Laporan</span>
+        </a>
+
+        <!-- Profil (Active) -->
+        <a href="profil.html" class="sidebar-nav-link active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Profil</span>
+        </a>
+      </nav>
+
+      <!-- Logout Sidebar -->
+      <div class="pt-3 border-top border-white border-opacity-10">
+        <a href="#" class="sidebar-nav-link text-danger" id="sidebarLogoutLink">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Keluar</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ======================================================================
+         KONTEN UTAMA: PROFIL
+         ====================================================================== -->
+    <main class="dash-content">
+      
+      <!-- Top Header -->
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <!-- Mobile Hamburger -->
+        <button type="button" class="btn btn-light d-lg-none border shadow-sm px-2 py-1" id="btnToggleSidebar" aria-label="Buka Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <h1 class="fw-bold text-dark mb-0" style="font-size: 2.15rem; letter-spacing: -0.5px;">Profil</h1>
+      </div>
+
+      <!-- Grid 2 Kolom Profil (Sesuai Mockup UI) -->
+      <div class="row g-4 align-items-start">
+        
+        <!-- ==================================================================
+             KOLOM KIRI: KARTU IDENTITAS USER (DARK NAVY)
+             ================================================================== -->
+        <div class="col-12 col-lg-4 col-xl-3" style="max-width: 360px;">
+          <div class="profile-user-card">
+            
+            <!-- Avatar Bulat Kuning RF -->
+            <div class="profile-avatar-circle">
+              RF
+            </div>
+
+            <!-- Nama Mahasiswa -->
+            <h2 class="profile-user-name">Rifqi Fadhil Abrar</h2>
+
+            <!-- NIM -->
+            <div class="profile-user-nim">255150200111015</div>
+
+            <!-- Status Mahasiswa -->
+            <div class="profile-user-status">Mahasiswa aktif · Universitas Brawijaya</div>
+
+            <!-- Tombol Logout -->
+            <button type="button" class="btn-profile-logout" id="btnProfileLogout">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+              <span>Logout</span>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- ==================================================================
+             KOLOM KANAN: KARTU DAFTAR MENU (WHITE CARD)
+             ================================================================== -->
+        <div class="col-12 col-lg-8 col-xl-7">
+          <div class="profile-menu-card">
+            
+            <!-- Row 1: Data Kendaraan -->
+            <a href="data-kendaraan.html" class="profile-menu-row" id="btnMenuDataKendaraan">
+              <div class="d-flex align-items-center gap-3">
+                <div class="profile-menu-icon-box">
+                  <!-- Car / License Plate Icon -->
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="9" rx="2"></rect>
+                    <path d="M7 11V7a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v4"></path>
+                    <circle cx="7.5" cy="15.5" r="1.5"></circle>
+                    <circle cx="16.5" cy="15.5" r="1.5"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <div class="profile-menu-title">Data Kendaraan</div>
+                  <div class="profile-menu-sub">Nomor plat dan ciri-ciri kendaraan</div>
+                </div>
+              </div>
+              <!-- Right Chevron -->
+              <svg class="profile-menu-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+
+            <!-- Row 2: Pengaturan Dashboard -->
+            <a href="pengaturan-dashboard.html" class="profile-menu-row" id="btnMenuPengaturanDashboard">
+              <div class="d-flex align-items-center gap-3">
+                <div class="profile-menu-icon-box">
+                  <!-- 4-Square Grid Icon -->
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+                    <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+                    <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+                    <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+                  </svg>
+                </div>
+                <div>
+                  <div class="profile-menu-title">Pengaturan Dashboard</div>
+                  <div class="profile-menu-sub" id="labelAreaCount">3 area ditampilkan</div>
+                </div>
+              </div>
+              <!-- Right Chevron -->
+              <svg class="profile-menu-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+
+            <!-- Row 3: Opsi Navigasi -->
+            <a href="opsi-navigasi.html" class="profile-menu-row" id="btnMenuOpsiNavigasi">
+              <div class="d-flex align-items-center gap-3">
+                <div class="profile-menu-icon-box">
+                  <!-- Navigation Arrow / Compass Icon -->
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                  </svg>
+                </div>
+                <div>
+                  <div class="profile-menu-title">Opsi Navigasi</div>
+                  <div class="profile-menu-sub" id="labelNavApp">Google Maps</div>
+                </div>
+              </div>
+              <!-- Right Chevron -->
+              <svg class="profile-menu-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 1: DATA KENDARAAN
+       ======================================================================== -->
+  <div class="modal fade" id="modalDataKendaraan" tabindex="-1" aria-labelledby="modalDataKendaraanLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow" style="border-radius: 20px;">
+        <div class="modal-header modal-ub-header">
+          <h5 class="modal-title fw-bold text-dark fs-6" id="modalDataKendaraanLabel">Data Kendaraan Terdaftar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal-ub-body">
+          <p class="text-secondary small mb-3">Kendaraan yang terdaftar akan terdeteksi otomatis oleh scanner palang pintu parkir UB (E-Tag terverifikasi).</p>
+          
+          <!-- Kendaraan 1 -->
+          <div class="vehicle-modal-card">
+            <div class="d-flex align-items-center gap-3">
+              <div class="profile-menu-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="5.5" cy="17.5" r="3.5"></circle>
+                  <circle cx="18.5" cy="17.5" r="3.5"></circle>
+                  <path d="M15 6h-4l-3 6h7l2-6z"></path>
+                  <path d="M9 17h6"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="fw-bold text-dark">N 4321 UB</div>
+                <div class="text-muted small">Honda Vario 160 · Hitam</div>
+              </div>
+            </div>
+            <span class="badge rounded-pill fw-bold" style="background-color: #DCFCE7; color: #15803D; font-size: 0.72rem;">E-Tag Aktif</span>
+          </div>
+
+          <!-- Kendaraan 2 -->
+          <div class="vehicle-modal-card">
+            <div class="d-flex align-items-center gap-3">
+              <div class="profile-menu-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="9" rx="2"></rect>
+                  <path d="M7 11V7a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v4"></path>
+                  <circle cx="7.5" cy="15.5" r="1.5"></circle>
+                  <circle cx="16.5" cy="15.5" r="1.5"></circle>
+                </svg>
+              </div>
+              <div>
+                <div class="fw-bold text-dark">N 1234 ABC</div>
+                <div class="text-muted small">Toyota Yaris · Putih</div>
+              </div>
+            </div>
+            <span class="badge rounded-pill fw-bold" style="background-color: #DCFCE7; color: #15803D; font-size: 0.72rem;">E-Tag Aktif</span>
+          </div>
+
+          <div class="mt-3 p-3 bg-light rounded-3 text-center">
+            <span class="small text-muted">Ingin mendaftarkan plat baru?</span>
+            <button type="button" class="btn btn-link btn-sm text-decoration-none fw-bold p-0 ms-1" style="color: #1E5BD8;" onclick="alert('Permintaan pendaftaran kendaraan baru: Silakan unggah foto STNK asli di loket layanan parkir Gedung Rektorat UB atau kirim ke helpdesk@ub.ac.id.');">
+              + Tambah STNK
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer modal-ub-footer">
+          <button type="button" class="btn btn-light rounded-3 px-3 py-2 fw-semibold text-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 2: PENGATURAN DASHBOARD (PILIH AREA MAKSIMAL 3)
+       ======================================================================== -->
+  <div class="modal fade" id="modalPengaturanDashboard" tabindex="-1" aria-labelledby="modalPengaturanDashboardLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow" style="border-radius: 20px;">
+        <div class="modal-header modal-ub-header">
+          <h5 class="modal-title fw-bold text-dark fs-6" id="modalPengaturanDashboardLabel">Pengaturan Area Dashboard</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal-ub-body">
+          <p class="text-secondary small mb-3">Pilih maksimal 3 area parkir yang akan langsung ditampilkan pada ringkasan kartu di dashboard utama Anda:</p>
+          
+          <div class="d-flex flex-column gap-2 mb-3" id="dashboardAreaCheckboxes">
+            
+            <label class="d-flex align-items-center justify-content-between p-2 rounded-3 border bg-light cursor-pointer">
+              <span class="fw-semibold text-dark small">Parkir FILKOM</span>
+              <input class="form-check-input area-checkbox" type="checkbox" value="Parkir FILKOM" checked>
+            </label>
+
+            <label class="d-flex align-items-center justify-content-between p-2 rounded-3 border bg-light cursor-pointer">
+              <span class="fw-semibold text-dark small">Parkir Fakultas Teknik</span>
+              <input class="form-check-input area-checkbox" type="checkbox" value="Parkir Fakultas Teknik" checked>
+            </label>
+
+            <label class="d-flex align-items-center justify-content-between p-2 rounded-3 border bg-light cursor-pointer">
+              <span class="fw-semibold text-dark small">Parkir FEB</span>
+              <input class="form-check-input area-checkbox" type="checkbox" value="Parkir FEB" checked>
+            </label>
+
+            <label class="d-flex align-items-center justify-content-between p-2 rounded-3 border bg-white cursor-pointer">
+              <span class="fw-semibold text-dark small">Parkir FIA</span>
+              <input class="form-check-input area-checkbox" type="checkbox" value="Parkir FIA">
+            </label>
+
+            <label class="d-flex align-items-center justify-content-between p-2 rounded-3 border bg-white cursor-pointer">
+              <span class="fw-semibold text-dark small">Parkir Fakultas Pertanian</span>
+              <input class="form-check-input area-checkbox" type="checkbox" value="Parkir Fakultas Pertanian">
+            </label>
+
+          </div>
+
+          <div id="alertAreaLimit" class="alert alert-warning py-2 px-3 small d-none" role="alert">
+            Maksimal hanya 3 area parkir yang dapat dipilih.
+          </div>
+        </div>
+        <div class="modal-footer modal-ub-footer">
+          <button type="button" class="btn btn-light rounded-3 px-3 py-2 fw-semibold text-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-primary rounded-3 px-4 py-2 fw-semibold" id="btnSaveDashboardAreas" style="background-color: #1E5BD8; border-color: #1E5BD8;">Simpan Pilihan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 3: OPSI NAVIGASI
+       ======================================================================== -->
+  <div class="modal fade" id="modalOpsiNavigasi" tabindex="-1" aria-labelledby="modalOpsiNavigasiLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow" style="border-radius: 20px;">
+        <div class="modal-header modal-ub-header">
+          <h5 class="modal-title fw-bold text-dark fs-6" id="modalOpsiNavigasiLabel">Opsi Aplikasi Navigasi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal-ub-body">
+          <p class="text-secondary small mb-3">Tentukan aplikasi peta yang akan dibuka secara otomatis ketika Anda mengklik tombol "Rute" atau "Buka Lokasi":</p>
+          
+          <div class="d-flex flex-column gap-2 mb-3">
+            <label class="d-flex align-items-center justify-content-between p-3 rounded-3 border bg-light cursor-pointer">
+              <div>
+                <div class="fw-bold text-dark small">Google Maps</div>
+                <div class="text-muted" style="font-size: 0.75rem;">Akurasi rute terbaik di dalam lingkungan kampus UB</div>
+              </div>
+              <input class="form-check-input" type="radio" name="navAppRadio" value="Google Maps" checked>
+            </label>
+
+            <label class="d-flex align-items-center justify-content-between p-3 rounded-3 border cursor-pointer">
+              <div>
+                <div class="fw-bold text-dark small">Waze</div>
+                <div class="text-muted" style="font-size: 0.75rem;">Peringatan kepadatan lalu lintas real-time jalan raya</div>
+              </div>
+              <input class="form-check-input" type="radio" name="navAppRadio" value="Waze">
+            </label>
+
+            <label class="d-flex align-items-center justify-content-between p-3 rounded-3 border cursor-pointer">
+              <div>
+                <div class="fw-bold text-dark small">Apple Maps</div>
+                <div class="text-muted" style="font-size: 0.75rem;">Khusus pengguna perangkat ekosistem iOS / macOS</div>
+              </div>
+              <input class="form-check-input" type="radio" name="navAppRadio" value="Apple Maps">
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer modal-ub-footer">
+          <button type="button" class="btn btn-light rounded-3 px-3 py-2 fw-semibold text-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-primary rounded-3 px-4 py-2 fw-semibold" id="btnSaveNavApp" style="background-color: #1E5BD8; border-color: #1E5BD8;">Simpan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 4: KONFIRMASI LOGOUT
+       ======================================================================== -->
+  <div class="modal fade" id="modalLogoutConfirm" tabindex="-1" aria-labelledby="modalLogoutConfirmLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
+      <div class="modal-content border-0 shadow text-center p-3" style="border-radius: 20px;">
+        <div class="modal-body p-4">
+          <div class="d-inline-flex align-items-center justify-content-center mb-3" style="width: 56px; height: 56px; background-color: #FEE2E2; border-radius: 50%; color: #EF4444;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+          </div>
+          <h5 class="fw-bold text-dark fs-6 mb-2">Keluar dari Akun?</h5>
+          <p class="text-secondary small mb-4">Anda akan dialihkan kembali ke halaman login SSO Brawijaya.</p>
+          <div class="d-flex gap-2 justify-content-center">
+            <button type="button" class="btn btn-light rounded-3 px-3 py-2 fw-semibold text-secondary w-50" data-bs-dismiss="modal">Batal</button>
+            <a href="index.html" class="btn btn-danger rounded-3 px-3 py-2 fw-semibold w-50">Ya, Keluar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5.3.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>

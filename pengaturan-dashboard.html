@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengaturan Dashboard - ParkirUB</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS Khusus Halaman Pengaturan Dashboard -->
+  <link rel="stylesheet" href="css/pengaturan-dashboard.css">
+</head>
+<body>
+
+  <!-- Backdrop untuk Navigasi Mobile -->
+  <div class="dash-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="dash-layout">
+    
+    <!-- ======================================================================
+         SIDEBAR NAVIGASI
+         ====================================================================== -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <!-- Logo Brand -->
+      <a href="dashboard.html" class="d-inline-flex align-items-center gap-2 mb-4 ps-2 text-decoration-none">
+        <div style="width: 36px; height: 36px; background-color: #F2B601; color: #0F2A4A; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem;">
+          P
+        </div>
+        <span class="fs-5 fw-bold text-white">ParkirUB</span>
+      </a>
+
+      <!-- Menu Navigasi -->
+      <nav class="d-flex flex-column gap-2 flex-grow-1">
+        <!-- Dashboard -->
+        <a href="dashboard.html" class="sidebar-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- Area Parkir -->
+        <a href="area-parkir.html" class="sidebar-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Area Parkir</span>
+        </a>
+
+        <!-- Prediksi -->
+        <a href="prediksi.html" class="sidebar-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          <span>Prediksi</span>
+        </a>
+
+        <!-- Laporan -->
+        <a href="laporan.html" class="sidebar-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+            <line x1="4" y1="22" x2="4" y2="15"></line>
+          </svg>
+          <span>Laporan</span>
+        </a>
+
+        <!-- Profil (Active) -->
+        <a href="profil.html" class="sidebar-nav-link active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Profil</span>
+        </a>
+      </nav>
+
+      <!-- Logout -->
+      <div class="pt-3 border-top border-white border-opacity-10">
+        <a href="index.html" class="sidebar-nav-link text-danger">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Keluar</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ======================================================================
+         KONTEN UTAMA: PENGATURAN DASHBOARD
+         ====================================================================== -->
+    <main class="dash-content">
+      
+      <!-- Navigasi Balik ke Profil -->
+      <div>
+        <a href="profil.html" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span>Profil</span>
+        </a>
+      </div>
+
+      <!-- Top Header -->
+      <div class="d-flex align-items-center gap-3 mb-1">
+        <!-- Mobile Hamburger -->
+        <button type="button" class="btn btn-light d-lg-none border shadow-sm px-2 py-1" id="btnToggleSidebar" aria-label="Buka Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <h1 class="fw-bold text-dark mb-0" style="font-size: 2.15rem; letter-spacing: -0.5px;">Pengaturan Dashboard</h1>
+      </div>
+      <p class="text-secondary small mb-4">Pilih area parkir yang ingin ditampilkan di Dashboard. Maksimal 3 area.</p>
+
+      <!-- Layout 2 Kolom -->
+      <div class="row g-4 align-items-start">
+        
+        <!-- ==================================================================
+             KOLOM KIRI: PILIHAN AREA PARKIR (6 KARTU)
+             ================================================================== -->
+        <div class="col-12 col-lg-8">
+          
+          <!-- Bar Informasi Status Pilihan -->
+          <div class="status-bar-wrap">
+            <div class="status-counter-text" id="counterDipilihText">3 dari 3 dipilih</div>
+            <div class="status-saved-badge" id="badgeSavedStatus">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Tersimpan otomatis</span>
+            </div>
+          </div>
+
+          <!-- Grid 6 Kartu Area Parkir (2 Kolom) -->
+          <div class="row g-3" id="areaSelectGrid">
+            
+            <!-- Card 1: Parkir FILKOM (Selected) -->
+            <div class="col-12 col-md-6">
+              <div class="area-select-card selected" data-area="Parkir FILKOM" data-slot="150 slot">
+                <div>
+                  <div class="area-select-title">Parkir FILKOM</div>
+                  <div class="area-select-sub">150 slot</div>
+                </div>
+                <div class="area-select-checkbox">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Parkir Fakultas Teknik (Selected) -->
+            <div class="col-12 col-md-6">
+              <div class="area-select-card selected" data-area="Parkir Fakultas Teknik" data-slot="200 slot">
+                <div>
+                  <div class="area-select-title">Parkir Fakultas Teknik</div>
+                  <div class="area-select-sub">200 slot</div>
+                </div>
+                <div class="area-select-checkbox">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Parkir FEB (Selected) -->
+            <div class="col-12 col-md-6">
+              <div class="area-select-card selected" data-area="Parkir FEB" data-slot="120 slot">
+                <div>
+                  <div class="area-select-title">Parkir FEB</div>
+                  <div class="area-select-sub">120 slot</div>
+                </div>
+                <div class="area-select-checkbox">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Parkir FIA (Unselected) -->
+            <div class="col-12 col-md-6">
+              <div class="area-select-card" data-area="Parkir FIA" data-slot="90 slot">
+                <div>
+                  <div class="area-select-title">Parkir FIA</div>
+                  <div class="area-select-sub">90 slot</div>
+                </div>
+                <div class="area-select-checkbox">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5: Parkir Fakultas Pertanian (Unselected) -->
+            <div class="col-12 col-md-6">
+              <div class="area-select-card" data-area="Parkir Fakultas Pertanian" data-slot="110 slot">
+                <div>
+                  <div class="area-select-title">Parkir Fakultas Pertanian</div>
+                  <div class="area-select-sub">110 slot</div>
+                </div>
+                <div class="area-select-checkbox">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6: Parkir FIB (Unselected) -->
+            <div class="col-12 col-md-6">
+              <div class="area-select-card" data-area="Parkir FIB" data-slot="80 slot">
+                <div>
+                  <div class="area-select-title">Parkir FIB</div>
+                  <div class="area-select-sub">80 slot</div>
+                </div>
+                <div class="area-select-checkbox">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Banner Peringatan Batas Maksimal 3 Area -->
+          <div class="limit-warning-banner" id="limitWarningBanner">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <span>Batas 3 area tercapai. Lepas salah satu untuk memilih area lain.</span>
+          </div>
+
+        </div>
+
+        <!-- ==================================================================
+             KOLOM KANAN: PREVIEW AREA TAMPIL DI DASHBOARD
+             ================================================================== -->
+        <div class="col-12 col-lg-4">
+          <div class="preview-dash-card">
+            <h2 class="preview-dash-title">Tampil di Dashboard</h2>
+
+            <!-- Daftar Item Terpilih -->
+            <div class="preview-dash-list" id="previewDashList">
+              <div class="preview-dash-item" data-area="Parkir FILKOM">
+                <span class="preview-dash-dot"></span>
+                <span>Parkir FILKOM</span>
+              </div>
+              <div class="preview-dash-item" data-area="Parkir Fakultas Teknik">
+                <span class="preview-dash-dot"></span>
+                <span>Parkir Fakultas Teknik</span>
+              </div>
+              <div class="preview-dash-item" data-area="Parkir FEB">
+                <span class="preview-dash-dot"></span>
+                <span>Parkir FEB</span>
+              </div>
+            </div>
+
+            <!-- Tautan Lihat Dashboard -->
+            <div>
+              <a href="dashboard.html" class="preview-dash-link">
+                <span>Lihat Dashboard</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Bootstrap 5.3.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
+

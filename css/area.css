@@ -1,0 +1,230 @@
+/* ==========================================================================
+   UBParkir - Area Parkir Page Style (area.css)
+   Khusus Halaman Area Parkir UB
+   ========================================================================== */
+
+:root {
+  --primary-navy: #0F2A4A;
+  --sidebar-active: #1D3757;
+  --bg-light: #F3F5F8;
+  --accent-yellow: #F2B601;
+  --btn-blue: #1E5BD8;
+  --btn-blue-hover: #164cc0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-light);
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Layout */
+.dash-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.dash-sidebar {
+  width: 220px;
+  min-width: 220px;
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.25rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 100;
+  transition: transform 0.25s ease-in-out;
+}
+
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  color: #94A3B8;
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.18s ease;
+}
+
+.sidebar-nav-link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-nav-link.active {
+  background-color: var(--sidebar-active);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Content Area */
+.dash-content {
+  flex-grow: 1;
+  padding: 2.25rem 2.75rem;
+  max-width: 1300px;
+}
+
+/* Filter Pills */
+.filter-pill {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #E2E8F0;
+  border-radius: 50px;
+  padding: 0.4rem 1.15rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.filter-pill:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.filter-pill.active {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  border-color: var(--primary-navy);
+}
+
+/* Area Card */
+.area-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.4rem 1.5rem 1.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.area-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Card Action Buttons */
+.btn-card-detail {
+  background-color: var(--btn-blue);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 0.65rem 0.9rem;
+  flex: 1;
+  transition: all 0.18s ease;
+}
+
+.btn-card-detail:hover {
+  background-color: var(--btn-blue-hover);
+  color: #ffffff;
+}
+
+.btn-card-outline {
+  background-color: #ffffff;
+  color: var(--btn-blue);
+  border: 1.5px solid var(--btn-blue);
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 0.65rem 0.9rem;
+  flex: 1;
+  transition: all 0.18s ease;
+}
+
+.btn-card-outline:hover {
+  background-color: #EFF6FF;
+  color: var(--btn-blue-hover);
+}
+
+/* Modal Denah Slot */
+.denah-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  padding: 1rem;
+  background: #F8FAFC;
+  border-radius: 14px;
+}
+
+.denah-slot {
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  user-select: none;
+}
+
+.denah-slot:hover {
+  transform: scale(1.05);
+}
+
+.denah-slot.available {
+  background: #DCFCE7;
+  color: #15803D;
+  border: 1.5px solid #86EFAC;
+}
+
+.denah-slot.occupied {
+  background: #FEE2E2;
+  color: #B91C1C;
+  border: 1.5px solid #FCA5A5;
+  cursor: not-allowed;
+}
+
+.denah-slot.selected {
+  background: var(--accent-yellow);
+  color: #0F2A4A;
+  border: 1.5px solid #D97706;
+}
+
+/* Responsive Mobile & Tablet */
+@media (max-width: 991.98px) {
+  .dash-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+  }
+  .dash-sidebar.show {
+    transform: translateX(0);
+  }
+  .dash-content {
+    padding: 1.5rem 1.25rem;
+  }
+  .dash-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+  }
+  .dash-backdrop.show {
+    display: block;
+  }
+  .denah-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

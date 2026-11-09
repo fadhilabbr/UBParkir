@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alternatif Parkir - ParkirUB</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS Khusus Halaman Alternatif Parkir -->
+  <link rel="stylesheet" href="css/alternatif.css">
+</head>
+<body>
+
+  <!-- Backdrop untuk Navigasi Mobile -->
+  <div class="dash-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="dash-layout">
+    
+    <!-- ======================================================================
+         SIDEBAR NAVIGASI
+         ====================================================================== -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <!-- Logo Brand -->
+      <a href="dashboard.html" class="d-inline-flex align-items-center gap-2 mb-4 ps-2 text-decoration-none">
+        <div style="width: 36px; height: 36px; background-color: #F2B601; color: #0F2A4A; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem;">
+          P
+        </div>
+        <span class="fs-5 fw-bold text-white">ParkirUB</span>
+      </a>
+
+      <!-- Menu Navigasi -->
+      <nav class="d-flex flex-column gap-2 flex-grow-1">
+        <!-- Dashboard -->
+        <a href="dashboard.html" class="sidebar-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- Area Parkir (Active) -->
+        <a href="area-parkir.html" class="sidebar-nav-link active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Area Parkir</span>
+        </a>
+
+        <!-- Prediksi -->
+        <a href="prediksi.html" class="sidebar-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          <span>Prediksi</span>
+        </a>
+
+        <!-- Laporan -->
+        <a href="laporan.html" class="sidebar-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+            <line x1="4" y1="22" x2="4" y2="15"></line>
+          </svg>
+          <span>Laporan</span>
+        </a>
+
+        <!-- Profil -->
+        <a href="profil.html" class="sidebar-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Profil</span>
+        </a>
+      </nav>
+
+      <!-- Logout -->
+      <div class="pt-3 border-top border-white border-opacity-10">
+        <a href="index.html" class="sidebar-nav-link text-danger">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Keluar</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ======================================================================
+         KONTEN UTAMA: ALTERNATIF PARKIR
+         ====================================================================== -->
+    <main class="dash-content">
+      
+      <!-- Back Navigation & Title -->
+      <div class="mb-4">
+        <!-- Tombol Hamburger Mobile -->
+        <button type="button" class="btn btn-light d-lg-none border shadow-sm px-2 py-1 mb-3" id="btnToggleSidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <a href="area-parkir.html" class="link-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span>Area Parkir UB</span>
+        </a>
+        <h1 class="fw-bold text-dark mb-1" style="font-size: 2rem; letter-spacing: -0.5px;">Alternatif Parkir</h1>
+        <p class="text-secondary small mb-0">Area kosong terdekat dari Parkir FILKOM</p>
+      </div>
+
+      <!-- Layout 2 Kolom -->
+      <div class="row g-4 align-items-start">
+        
+        <!-- ==================================================================
+             KOLOM KIRI: WARNING BANNER & DAFTAR AREA ALTERNATIF
+             ================================================================== -->
+        <div class="col-12 col-lg-8 d-flex flex-column gap-3">
+          
+          <!-- Warning Banner (Kuning / Amber) -->
+          <div class="warning-banner">
+            <svg class="warning-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <div>
+              <strong>Parkir FILKOM hampir penuh.</strong> Sisa 12 slot dari 150.
+            </div>
+          </div>
+
+          <!-- Card 1: Parkir Fakultas Teknik (Lega - 64 slot) -->
+          <div class="alt-card">
+            <div>
+              <h2 class="fw-bold text-dark fs-6 mb-1">Parkir Fakultas Teknik</h2>
+              <div class="text-muted small mb-2" style="font-size: 0.82rem;">± 300 m · sekitar 2 menit</div>
+              <span class="badge rounded-pill fw-bold" style="background-color: #DCFCE7; color: #15803D; font-size: 0.72rem;">Lega</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div class="text-end">
+                <div class="fw-bold text-dark" style="font-size: 1.85rem; line-height: 1;">64</div>
+                <div class="text-muted" style="font-size: 0.75rem;">slot</div>
+              </div>
+              <button type="button" class="btn-rute" onclick="bukaRute('Parkir Fakultas Teknik');">
+                <span>Rute</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2: Parkir FIA (Lega - 38 slot) -->
+          <div class="alt-card">
+            <div>
+              <h2 class="fw-bold text-dark fs-6 mb-1">Parkir FIA</h2>
+              <div class="text-muted small mb-2" style="font-size: 0.82rem;">± 550 m · sekitar 3 menit</div>
+              <span class="badge rounded-pill fw-bold" style="background-color: #DCFCE7; color: #15803D; font-size: 0.72rem;">Lega</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div class="text-end">
+                <div class="fw-bold text-dark" style="font-size: 1.85rem; line-height: 1;">38</div>
+                <div class="text-muted" style="font-size: 0.75rem;">slot</div>
+              </div>
+              <button type="button" class="btn-rute" onclick="bukaRute('Parkir FIA');">
+                <span>Rute</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3: Parkir FIB (Hampir Penuh - 21 slot) -->
+          <div class="alt-card">
+            <div>
+              <h2 class="fw-bold text-dark fs-6 mb-1">Parkir FIB</h2>
+              <div class="text-muted small mb-2" style="font-size: 0.82rem;">± 700 m · sekitar 4 menit</div>
+              <span class="badge rounded-pill fw-bold" style="background-color: #FEF3C7; color: #B45309; font-size: 0.72rem;">Hampir penuh</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div class="text-end">
+                <div class="fw-bold text-dark" style="font-size: 1.85rem; line-height: 1;">21</div>
+                <div class="text-muted" style="font-size: 0.75rem;">slot</div>
+              </div>
+              <button type="button" class="btn-rute" onclick="bukaRute('Parkir FIB');">
+                <span>Rute</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ==================================================================
+             KOLOM KANAN: APLIKASI RUTE & BANTUAN
+             ================================================================== -->
+        <div class="col-12 col-lg-4">
+          <div class="app-card">
+            
+            <div class="mb-3">
+              <h3 class="fw-bold text-dark fs-6 mb-1">Aplikasi rute</h3>
+              <p class="text-secondary small mb-3" style="line-height: 1.5; font-size: 0.82rem;">
+                Rute dibuka di Google Maps pada tab baru. Kamu bisa mengganti aplikasi navigasi kapan saja.
+              </p>
+              <button type="button" class="btn-change-nav" id="btnUbahNavigasi">
+                Ubah aplikasi navigasi
+              </button>
+            </div>
+
+            <hr class="my-4" style="border-color: #F1F5F9;">
+
+            <div>
+              <h4 class="fw-bold text-dark mb-1" style="font-size: 0.88rem;">Tidak ada yang cocok?</h4>
+              <p class="text-secondary small mb-2" style="font-size: 0.8rem; line-height: 1.45;">
+                Cek jam kosong lewat prediksi, atau lihat semua area.
+              </p>
+              <a href="prediksi.html" class="fw-semibold text-decoration-none small" style="color: #1E5BD8; font-size: 0.84rem;">
+                Buka prediksi traffic
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Modal Interaktif: Ubah Aplikasi Navigasi -->
+  <div class="modal fade" id="modalAplikasiNav" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow" style="border-radius: 18px;">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold text-dark">Pilih Aplikasi Navigasi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted small mb-3">Pilih aplikasi peta default untuk membuka petunjuk arah rute parkir.</p>
+          <div class="list-group">
+            <label class="list-group-item d-flex align-items-center gap-3 py-3">
+              <input class="form-check-input flex-shrink-0" type="radio" name="navApp" checked>
+              <div>
+                <strong>Google Maps</strong> <span class="badge bg-primary-subtle text-primary ms-1">Direkomendasikan</span>
+                <small class="text-muted d-block">Navigasi akurat dengan estimasi traffic langsung</small>
+              </div>
+            </label>
+            <label class="list-group-item d-flex align-items-center gap-3 py-3">
+              <input class="form-check-input flex-shrink-0" type="radio" name="navApp">
+              <div>
+                <strong>Waze</strong>
+                <small class="text-muted d-block">Peringatan rute macet & kondisi jalan real-time</small>
+              </div>
+            </label>
+            <label class="list-group-item d-flex align-items-center gap-3 py-3">
+              <input class="form-check-input flex-shrink-0" type="radio" name="navApp">
+              <div>
+                <strong>Apple Maps</strong>
+                <small class="text-muted d-block">Optimal untuk pengguna perangkat iOS / Safari</small>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-secondary btn-sm rounded-3" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-primary btn-sm rounded-3 px-3" data-bs-dismiss="modal" onclick="alert('Pengaturan aplikasi navigasi berhasil disimpan!');">Simpan Pilihan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5.3.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
+

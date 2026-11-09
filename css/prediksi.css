@@ -1,0 +1,217 @@
+/* ==========================================================================
+   UBParkir - Prediksi Page Style (prediksi.css)
+   Khusus Halaman Prediksi Traffic Parkiran
+   ========================================================================== */
+
+:root {
+  --primary-navy: #0F2A4A;
+  --sidebar-active: #1D3757;
+  --bg-light: #F3F5F8;
+  --accent-yellow: #F2B601;
+  --btn-blue: #1E5BD8;
+  --chart-default: #C8D5E5;
+  --chart-selected: #C93426;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-light);
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Layout */
+.dash-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.dash-sidebar {
+  width: 220px;
+  min-width: 220px;
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.25rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 100;
+  transition: transform 0.25s ease-in-out;
+}
+
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  color: #94A3B8;
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.18s ease;
+}
+
+.sidebar-nav-link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-nav-link.active {
+  background-color: var(--sidebar-active);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Content Area */
+.dash-content {
+  flex-grow: 1;
+  padding: 2.25rem 2.75rem;
+  max-width: 1300px;
+}
+
+/* Selector Filter Pills */
+.filter-choice-btn {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #E2E8F0;
+  border-radius: 50px;
+  padding: 0.45rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  user-select: none;
+}
+
+.filter-choice-btn:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.filter-choice-btn.active {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  border-color: var(--primary-navy);
+}
+
+/* Left Prediction Status Card (Dark Navy) */
+.prediksi-status-card {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 1.5rem 1.6rem;
+}
+
+/* Right Chart Card */
+.prediksi-chart-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.75rem 2rem 1.5rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+}
+
+/* Bar Chart Container */
+.prediksi-chart-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 240px;
+  padding: 20px 10px 0;
+  gap: 12px;
+}
+
+.prediksi-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.prediksi-bar-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.prediksi-bar {
+  width: 100%;
+  max-width: 44px;
+  background-color: var(--chart-default);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.prediksi-bar.highlight {
+  background-color: var(--chart-selected);
+}
+
+.prediksi-bar:hover {
+  filter: brightness(0.92);
+  transform: scaleY(1.03);
+  transform-origin: bottom;
+}
+
+.prediksi-val-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.prediksi-time-label {
+  margin-top: 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748B;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .dash-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+  }
+  .dash-sidebar.show {
+    transform: translateX(0);
+  }
+  .dash-content {
+    padding: 1.5rem 1.25rem;
+  }
+  .dash-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+  }
+  .dash-backdrop.show {
+    display: block;
+  }
+  .prediksi-chart-container {
+    gap: 6px;
+    height: 190px;
+  }
+  .prediksi-val-label {
+    font-size: 0.68rem;
+  }
+  .prediksi-time-label {
+    font-size: 0.72rem;
+  }
+}
+

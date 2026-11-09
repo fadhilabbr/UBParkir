@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Area Parkir UB - ParkirUB</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS Khusus Halaman Area Parkir -->
+  <link rel="stylesheet" href="css/area.css">
+</head>
+<body>
+
+  <!-- Backdrop untuk Navigasi Mobile -->
+  <div class="dash-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="dash-layout">
+    
+    <!-- ======================================================================
+         SIDEBAR NAVIGASI KIRI
+         ====================================================================== -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <!-- Logo Brand -->
+      <a href="dashboard.html" class="d-inline-flex align-items-center gap-2 mb-4 ps-2 text-decoration-none">
+        <div style="width: 36px; height: 36px; background-color: #F2B601; color: #0F2A4A; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem;">
+          P
+        </div>
+        <span class="fs-5 fw-bold text-white">ParkirUB</span>
+      </a>
+
+      <!-- Menu Navigasi -->
+      <nav class="d-flex flex-column gap-2 flex-grow-1">
+        <!-- Dashboard -->
+        <a href="dashboard.html" class="sidebar-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- Area Parkir (Active) -->
+        <a href="area-parkir.html" class="sidebar-nav-link active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Area Parkir</span>
+        </a>
+
+        <!-- Prediksi -->
+        <a href="prediksi.html" class="sidebar-nav-link" id="navPrediksi">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          <span>Prediksi</span>
+        </a>
+
+        <!-- Laporan -->
+        <a href="laporan.html" class="sidebar-nav-link" id="navLaporan">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+            <line x1="4" y1="22" x2="4" y2="15"></line>
+          </svg>
+          <span>Laporan</span>
+        </a>
+
+        <!-- Profil -->
+        <a href="profil.html" class="sidebar-nav-link" id="navProfil">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Profil</span>
+        </a>
+      </nav>
+
+      <!-- Logout -->
+      <div class="pt-3 border-top border-white border-opacity-10">
+        <a href="index.html" class="sidebar-nav-link text-danger">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Keluar</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ======================================================================
+         KONTEN UTAMA: AREA PARKIR UB
+         ====================================================================== -->
+    <main class="dash-content">
+      
+      <!-- Top Header -->
+      <header class="d-flex align-items-center justify-content-between mb-4">
+        <div class="d-flex align-items-center gap-3">
+          <!-- Mobile Hamburger -->
+          <button type="button" class="btn btn-light d-lg-none border shadow-sm px-2 py-1" id="btnToggleSidebar" aria-label="Buka Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <div>
+            <h1 class="fw-bold text-dark mb-1" style="font-size: 1.85rem; letter-spacing: -0.5px;">Area Parkir UB</h1>
+            <p class="text-secondary small mb-0">Ketersediaan slot di seluruh area parkir fakultas</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Filter Controls Bar -->
+      <section class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+        
+        <!-- Filter Icon & Pills -->
+        <div class="d-flex align-items-center flex-wrap gap-2">
+          <!-- Filter Icon Button -->
+          <button type="button" class="btn btn-white bg-white border rounded-3 p-0 d-flex align-items-center justify-content-center shadow-sm" style="width: 38px; height: 38px;" title="Filter Area">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round">
+              <line x1="4" y1="7" x2="20" y2="7"></line>
+              <line x1="6" y1="12" x2="18" y2="12"></line>
+              <line x1="9" y1="17" x2="15" y2="17"></line>
+            </svg>
+          </button>
+
+          <!-- Status Pills -->
+          <button type="button" class="filter-pill active" data-filter="all">Semua</button>
+          <button type="button" class="filter-pill" data-filter="lega">Lega</button>
+          <button type="button" class="filter-pill" data-filter="warning">Hampir penuh</button>
+          <button type="button" class="filter-pill" data-filter="penuh">Penuh</button>
+        </div>
+
+        <!-- Info Count -->
+        <span class="text-secondary small fw-medium" id="areaCountLabel">5 area ditampilkan</span>
+
+      </section>
+
+      <!-- Grid 5 Kartu Area Parkir Sesuai Gambar -->
+      <section class="row g-3" id="areaCardsContainer">
+        
+        <!-- 1. Parkir FILKOM (Hampir Penuh) -->
+        <div class="col-12 col-md-6 col-lg-4 area-card-col" data-status="warning">
+          <div class="area-card">
+            <div>
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h3 class="fw-bold text-dark fs-6 mb-0">Parkir FILKOM</h3>
+                <span class="badge rounded-pill fw-bold" style="background-color: #FEF3C7; color: #B45309; font-size: 0.72rem;">Hampir penuh</span>
+              </div>
+              <div class="d-flex align-items-baseline gap-2 mb-3">
+                <span class="fw-bold text-dark" style="font-size: 2.35rem; line-height: 1;">12</span>
+                <span class="text-muted small">slot tersisa dari 150</span>
+              </div>
+              <!-- Progress Bar: (150-12)/150 = 92% -->
+              <div class="progress mb-4" style="height: 6px; background-color: #E5E7EB; border-radius: 10px;">
+                <div class="progress-bar rounded-pill" style="width: 92%; background-color: #F59E0B;"></div>
+              </div>
+            </div>
+            <!-- Action Buttons -->
+            <div class="d-flex gap-2">
+              <a href="detail-parkir.html" class="btn-card-detail text-center text-decoration-none">Lihat Detail</a>
+              <a href="alternatif.html" class="btn-card-outline text-center text-decoration-none">Lihat Alternatif</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Parkir Fakultas Teknik (Lega) -->
+        <div class="col-12 col-md-6 col-lg-4 area-card-col" data-status="lega">
+          <div class="area-card">
+            <div>
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h3 class="fw-bold text-dark fs-6 mb-0">Parkir Fakultas Teknik</h3>
+                <span class="badge rounded-pill fw-bold" style="background-color: #DCFCE7; color: #15803D; font-size: 0.72rem;">Lega</span>
+              </div>
+              <div class="d-flex align-items-baseline gap-2 mb-3">
+                <span class="fw-bold text-dark" style="font-size: 2.35rem; line-height: 1;">64</span>
+                <span class="text-muted small">slot tersisa dari 200</span>
+              </div>
+              <!-- Progress Bar: (200-64)/200 = 68% -->
+              <div class="progress mb-4" style="height: 6px; background-color: #E5E7EB; border-radius: 10px;">
+                <div class="progress-bar rounded-pill" style="width: 68%; background-color: #10B981;"></div>
+              </div>
+            </div>
+            <!-- Action Buttons -->
+            <div class="d-flex gap-2">
+              <button type="button" class="btn-card-detail" onclick="bukaDetailArea('Parkir Fakultas Teknik', 200, 64, 'lega');">Lihat Detail</button>
+              <button type="button" class="btn-card-outline" onclick="bukaAlternatif('Parkir Fakultas Teknik');">Lihat Alternatif</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Parkir FEB (Penuh) -->
+        <div class="col-12 col-md-6 col-lg-4 area-card-col" data-status="penuh">
+          <div class="area-card">
+            <div>
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h3 class="fw-bold text-dark fs-6 mb-0">Parkir FEB</h3>
+                <span class="badge rounded-pill fw-bold" style="background-color: #FEE2E2; color: #B91C1C; font-size: 0.72rem;">Penuh</span>
+              </div>
+              <div class="d-flex align-items-baseline gap-2 mb-3">
+                <span class="fw-bold text-dark" style="font-size: 2.35rem; line-height: 1;">0</span>
+                <span class="text-muted small">slot tersisa dari 120</span>
+              </div>
+              <!-- Progress Bar: 100% -->
+              <div class="progress mb-4" style="height: 6px; background-color: #E5E7EB; border-radius: 10px;">
+                <div class="progress-bar rounded-pill" style="width: 100%; background-color: #EF4444;"></div>
+              </div>
+            </div>
+            <!-- Action Buttons -->
+            <div class="d-flex gap-2">
+              <button type="button" class="btn-card-detail" onclick="bukaDetailArea('Parkir FEB', 120, 0, 'penuh');">Lihat Detail</button>
+              <button type="button" class="btn-card-outline" onclick="bukaAlternatif('Parkir FEB');">Lihat Alternatif</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Parkir FIA (Lega) -->
+        <div class="col-12 col-md-6 col-lg-4 area-card-col" data-status="lega">
+          <div class="area-card">
+            <div>
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h3 class="fw-bold text-dark fs-6 mb-0">Parkir FIA</h3>
+                <span class="badge rounded-pill fw-bold" style="background-color: #DCFCE7; color: #15803D; font-size: 0.72rem;">Lega</span>
+              </div>
+              <div class="d-flex align-items-baseline gap-2 mb-3">
+                <span class="fw-bold text-dark" style="font-size: 2.35rem; line-height: 1;">38</span>
+                <span class="text-muted small">slot tersisa dari 90</span>
+              </div>
+              <!-- Progress Bar: (90-38)/90 = 58% -->
+              <div class="progress mb-4" style="height: 6px; background-color: #E5E7EB; border-radius: 10px;">
+                <div class="progress-bar rounded-pill" style="width: 58%; background-color: #10B981;"></div>
+              </div>
+            </div>
+            <!-- Action Buttons -->
+            <div class="d-flex gap-2">
+              <button type="button" class="btn-card-detail" onclick="bukaDetailArea('Parkir FIA', 90, 38, 'lega');">Lihat Detail</button>
+              <button type="button" class="btn-card-outline" onclick="bukaAlternatif('Parkir FIA');">Lihat Alternatif</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Parkir Fakultas Pertanian (Hampir Penuh) -->
+        <div class="col-12 col-md-6 col-lg-4 area-card-col" data-status="warning">
+          <div class="area-card">
+            <div>
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h3 class="fw-bold text-dark fs-6 mb-0">Parkir Fakultas Pertanian</h3>
+                <span class="badge rounded-pill fw-bold" style="background-color: #FEF3C7; color: #B45309; font-size: 0.72rem;">Hampir penuh</span>
+              </div>
+              <div class="d-flex align-items-baseline gap-2 mb-3">
+                <span class="fw-bold text-dark" style="font-size: 2.35rem; line-height: 1;">5</span>
+                <span class="text-muted small">slot tersisa dari 110</span>
+              </div>
+              <!-- Progress Bar: (110-5)/110 = 95% -->
+              <div class="progress mb-4" style="height: 6px; background-color: #E5E7EB; border-radius: 10px;">
+                <div class="progress-bar rounded-pill" style="width: 95%; background-color: #F59E0B;"></div>
+              </div>
+            </div>
+            <!-- Action Buttons -->
+            <div class="d-flex gap-2">
+              <button type="button" class="btn-card-detail" onclick="bukaDetailArea('Parkir Fakultas Pertanian', 110, 5, 'warning');">Lihat Detail</button>
+              <button type="button" class="btn-card-outline" onclick="bukaAlternatif('Parkir Fakultas Pertanian');">Lihat Alternatif</button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Modal Interaktif: Detail & Denah Visual Slot Parkir -->
+  <div class="modal fade" id="modalDetailSlot" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow" style="border-radius: 20px;">
+        <div class="modal-header border-0 pb-0">
+          <div>
+            <span class="badge bg-primary-subtle text-primary fw-bold mb-1" style="font-size: 0.72rem;">DENAH PARKIR INTERAKTIF</span>
+            <h5 class="modal-title fw-bold text-dark" id="modalDetailTitle">Detail Area Parkir</h5>
+            <p class="text-muted small mb-0" id="modalDetailSubtitle">Pantau status slot kosong dan terisi secara visual.</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        
+        <div class="modal-body pt-3">
+          <!-- Legend Status -->
+          <div class="d-flex gap-3 mb-3 p-2 bg-light rounded-3 small">
+            <div class="d-flex align-items-center gap-2">
+              <div style="width: 14px; height: 14px; background: #DCFCE7; border: 1.5px solid #86EFAC; border-radius: 4px;"></div>
+              <span>Kosong (Tersedia)</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <div style="width: 14px; height: 14px; background: #FEE2E2; border: 1.5px solid #FCA5A5; border-radius: 4px;"></div>
+              <span>Terisi</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <div style="width: 14px; height: 14px; background: #F2B601; border: 1.5px solid #D97706; border-radius: 4px;"></div>
+              <span>Pilihan Anda</span>
+            </div>
+          </div>
+
+          <!-- Grid Slot Interaktif -->
+          <div class="denah-grid" id="denahSlotGrid"></div>
+
+          <!-- Alert Pemesanan -->
+          <div id="bookingAlert" class="alert alert-info mt-3 mb-0 d-none py-2 px-3 small text-center" role="alert"></div>
+        </div>
+
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-secondary btn-sm rounded-3" data-bs-dismiss="modal">Tutup</button>
+          <button type="button" class="btn btn-primary btn-sm rounded-3 px-3" id="btnKonfirmasiSlot" disabled>Pesan Slot Parkir Sementara</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5.3.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
