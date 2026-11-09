@@ -13,7 +13,7 @@ Untuk mencoba alur login SSO hingga masuk ke dashboard:
 ---
 
 ## 📁 Struktur File Modular
-CSS telah dipisah per halaman agar ringan, modular, dan mudah dipahami:
+CSS dan JavaScript telah dipisah per halaman agar ringan, terisolasi, mudah dibaca, dan modular:
 ```text
 UBParkir/
 ├── index.html          # Halaman 1: Login SSO & Landing Page
@@ -40,7 +40,18 @@ UBParkir/
 │   ├── pengaturan-dashboard.css # CSS khusus halaman pengaturan area dashboard
 │   └── opsi-navigasi.css # CSS khusus halaman pengaturan opsi navigasi
 ├── js/
-│   └── script.js       # Logika JavaScript untuk autentikasi, filter, chart, & interaktivitas
+│   ├── common.js       # Logika shared (navigasi mobile drawer & modal global)
+│   ├── login.js        # Logika login SSO & akun demo
+│   ├── dashboard.js    # Logika dashboard & tooltips grafik
+│   ├── area.js         # Logika filter status area parkir
+│   ├── detail.js       # Logika denah interaktif FILKOM
+│   ├── alternatif.js   # Logika rekomendasi alternatif rute
+│   ├── prediksi.js     # Logika selektor prediksi traffic & jam padat
+│   ├── laporan.js      # Logika tab laporan/feedback & rating bintang
+│   ├── profil.js       # Logika profil & modal konfirmasi logout
+│   ├── kendaraan.js    # Logika formulir data kendaraan & validasi
+│   ├── pengaturan-dashboard.js # Logika seleksi 6 area & kuota maks 3
+│   └── opsi-navigasi.js # Logika pemilihan aplikasi navigasi & autosave
 └── README.md           # Dokumentasi proyek
 ```
 
