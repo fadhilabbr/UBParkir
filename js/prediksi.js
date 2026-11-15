@@ -1,8 +1,3 @@
-/**
- * UBParkir - Prediksi Page Script (prediksi.js)
- * Interactive traffic prediction selector & dynamic hourly bar highlights
- */
-
 document.addEventListener('DOMContentLoaded', () => {
   const choiceBtns = document.querySelectorAll('.filter-choice-btn');
   let selectedArea = 'FILKOM';
@@ -100,4 +95,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
-

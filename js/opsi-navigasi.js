@@ -1,14 +1,8 @@
-/**
- * UBParkir - Opsi Navigasi Page Script (opsi-navigasi.js)
- * Navigation app selection, localStorage persistence, and autosave feedback
- */
-
 document.addEventListener('DOMContentLoaded', () => {
   const navCards = document.querySelectorAll('.nav-card');
   const navSavedStatus = document.getElementById('navSavedStatus');
 
   if (navCards.length > 0) {
-    // Restore saved choice if any
     const savedApp = localStorage.getItem('ubparkir_nav_app') || 'Google Maps';
     navCards.forEach((c) => {
       const appName = c.getAttribute('data-app');
@@ -38,4 +32,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-

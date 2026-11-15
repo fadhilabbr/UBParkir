@@ -1,8 +1,3 @@
-/* ==========================================================================
-   UBParkir - Pengaturan Dashboard Style (pengaturan-dashboard.css)
-   Khusus Halaman Pemilihan Area Parkir Favorit untuk Dashboard
-   ========================================================================== */
-
 :root {
   --primary-navy: #0F2A4A;
   --sidebar-active: #1D3757;
@@ -19,13 +14,11 @@ body {
   min-height: 100vh;
 }
 
-/* Layout */
 .dash-layout {
   display: flex;
   min-height: 100vh;
 }
 
-/* Sidebar */
 .dash-sidebar {
   width: 220px;
   min-width: 220px;
@@ -65,14 +58,12 @@ body {
   font-weight: 600;
 }
 
-/* Content Area */
 .dash-content {
   flex-grow: 1;
   padding: 2.25rem 2.75rem;
   max-width: 1300px;
 }
 
-/* Breadcrumb Link */
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -90,7 +81,6 @@ body {
   color: var(--btn-blue-hover);
 }
 
-/* Status Header Bar */
 .status-bar-wrap {
   display: flex;
   align-items: center;
@@ -113,7 +103,6 @@ body {
   font-weight: 600;
 }
 
-/* Selectable Area Cards */
 .area-select-card {
   background-color: #ffffff;
   border: 1.5px solid #E2E8F0;
@@ -161,7 +150,6 @@ body {
   color: #64748B;
 }
 
-/* Custom Checkbox Box */
 .area-select-checkbox {
   width: 26px;
   height: 26px;
@@ -192,7 +180,6 @@ body {
   display: block;
 }
 
-/* Warning / Limit Banner */
 .limit-warning-banner {
   background-color: #FEF3C7;
   color: #92400E;
@@ -206,7 +193,6 @@ body {
   gap: 0.5rem;
 }
 
-/* Right Side Card (Tampil di Dashboard) */
 .preview-dash-card {
   background-color: var(--primary-navy);
   border-radius: 20px;
@@ -266,7 +252,6 @@ body {
   opacity: 0.9;
 }
 
-/* Responsive */
 @media (max-width: 991.98px) {
   .dash-sidebar {
     position: fixed;
@@ -295,4 +280,3 @@ body {
     display: block;
   }
 }
-

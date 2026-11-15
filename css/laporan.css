@@ -1,8 +1,3 @@
-/* ==========================================================================
-   UBParkir - Laporan Page Style (laporan.css)
-   Khusus Halaman Laporan Kejadian & Feedback
-   ========================================================================== */
-
 :root {
   --primary-navy: #0F2A4A;
   --sidebar-active: #1D3757;
@@ -19,13 +14,11 @@ body {
   min-height: 100vh;
 }
 
-/* Layout */
 .dash-layout {
   display: flex;
   min-height: 100vh;
 }
 
-/* Sidebar */
 .dash-sidebar {
   width: 220px;
   min-width: 220px;
@@ -65,14 +58,12 @@ body {
   font-weight: 600;
 }
 
-/* Content Area */
 .dash-content {
   flex-grow: 1;
   padding: 2.25rem 2.75rem;
   max-width: 1300px;
 }
 
-/* Segmented Tabs (Laporan Kejadian / Feedback) */
 .laporan-tab-bar {
   display: inline-flex;
   background-color: #E2E8F0;
@@ -100,7 +91,6 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-/* Incident Category Pills (Laporan Kejadian) */
 .incident-pill {
   background: #ffffff;
   color: #111827;
@@ -125,7 +115,6 @@ body {
   border-color: var(--primary-navy);
 }
 
-/* Topic Pills (Feedback) */
 .topic-pill {
   background: #ffffff;
   color: #111827;
@@ -150,7 +139,6 @@ body {
   border-color: var(--primary-navy);
 }
 
-/* Star Rating Component */
 .star-rating-box {
   display: flex;
   align-items: center;
@@ -192,7 +180,6 @@ body {
   color: #111827;
 }
 
-/* Form Inputs */
 .form-control-lapor {
   border: 1px solid #E2E8F0;
   border-radius: 12px;
@@ -209,7 +196,6 @@ body {
   box-shadow: 0 0 0 3px rgba(30, 91, 216, 0.12);
 }
 
-/* Action Buttons */
 .btn-add-photo {
   border: 1.5px dashed #94A3B8;
   background-color: #ffffff;
@@ -274,7 +260,6 @@ body {
   color: #ffffff;
 }
 
-/* Right Guide Card (Dark Navy) */
 .guide-card {
   background-color: var(--primary-navy);
   color: #ffffff;
@@ -282,7 +267,6 @@ body {
   padding: 2rem 1.75rem;
 }
 
-/* Responsive */
 @media (max-width: 991.98px) {
   .dash-sidebar {
     position: fixed;

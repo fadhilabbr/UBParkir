@@ -1,10 +1,4 @@
-/**
- * UBParkir - Laporan & Feedback Page Script (laporan.js)
- * Segmented tabs, category selection, photo picker, 5-star rating, and submission
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-  // Segmented Tabs: Laporan Kejadian & Feedback
   const tabLaporanKejadian = document.getElementById('tabLaporanKejadian');
   const tabFeedback = document.getElementById('tabFeedback');
   const viewLaporanKejadian = document.getElementById('viewLaporanKejadian');
@@ -26,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Incident category pills selection
   const incidentPills = document.querySelectorAll('.incident-pill');
   let selectedIncident = 'Parkir liar';
 
@@ -40,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Upload photo button & input
   const btnUploadFoto = document.getElementById('btnUploadFoto');
   const fileFotoLapor = document.getElementById('fileFotoLapor');
   const labelFotoText = document.getElementById('labelFotoText');
@@ -59,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Form submit laporan kejadian
   const formLaporanKejadian = document.getElementById('formLaporanKejadian');
   const laporSuccessAlert = document.getElementById('laporSuccessAlert');
 
@@ -98,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Feedback Star Rating & Topics
   const starBtns = document.querySelectorAll('.star-btn');
   const ratingTextLabel = document.getElementById('ratingTextLabel');
   const ratingTexts = {
@@ -134,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Topic pills selection
   const topicPills = document.querySelectorAll('.topic-pill');
   let selectedTopic = 'Akurasi data';
   if (topicPills.length > 0) {
@@ -147,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Feedback form submit
   const formFeedback = document.getElementById('formFeedback');
   const feedbackSuccessAlert = document.getElementById('feedbackSuccessAlert');
   if (formFeedback) {
@@ -175,4 +163,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-

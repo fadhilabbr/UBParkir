@@ -1,8 +1,3 @@
-/**
- * UBParkir - Area Parkir Page Script (area.js)
- * Real-time filter pills for parking areas
- */
-
 document.addEventListener('DOMContentLoaded', () => {
   const filterPills = document.querySelectorAll('.filter-pill');
   const areaCardCols = document.querySelectorAll('.area-card-col');
@@ -34,4 +29,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-

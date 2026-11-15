@@ -16,6 +16,7 @@ Untuk mencoba alur login SSO hingga masuk ke dashboard:
 CSS dan JavaScript telah dipisah per halaman agar ringan, terisolasi, mudah dibaca, dan modular:
 ```text
 UBParkir/
+├── favicon.svg         # Ikon resmi tab peramban (Yellow Box 'P')
 ├── index.html          # Halaman 1: Login SSO & Landing Page
 ├── dashboard.html      # Halaman 2: Dashboard Ringkasan Pengguna
 ├── area-parkir.html    # Halaman 3: Daftar Semua Area Parkir UB & Filter Fakultas
@@ -67,7 +68,7 @@ UBParkir/
 ### 2. Halaman Dashboard (`dashboard.html`)
 - **Sidebar Navigasi**: Logo ParkirUB, menu *Dashboard (Active)*, *Area Parkir*, *Prediksi*, *Laporan*, *Profil*, dan tombol *Keluar*.
 - **Header Personal**: Ucapan salam *"Selamat pagi, Rifqi"*, deskripsi status, serta kartu avatar pengguna *"Rifqi Fadhil Abrar"* dengan dropdown profil.
-- **Section Area Pilihanmu**: 3 kartu favorit (FILKOM, FT, FEB) dengan status badge dan progress bar.
+- **Section Area Pilihanmu**: 3 kartu favorit tersinkronisasi dinamis via `localStorage` dari halaman *Pengaturan Dashboard*.
 - **Prediksi Jam Padat · FILKOM**: Grafik batang murni CSS (*pure CSS bar chart*) interaktif (jam 06 - 15).
 - **Menu Cepat**: Tombol aksi langsung terhubung ke halaman *Area Parkir*, *Alternatif Parkir*, dan *Laporan*.
 
@@ -78,6 +79,7 @@ UBParkir/
 
 ### 4. Halaman Detail Parkir FILKOM (`detail-parkir.html`)
 - **Hero Dark Card**: Status 12 dari 150 slot tersedia, progress bar 92%, badge *Hampir penuh*, dan status update sensor.
+- **Sensor IoT**: Indikator titik hijau solid dan jam update otomatis mengikuti waktu nyata perangkat (`HH.mm WIB`).
 - **Breakdown Kendaraan**: Sub-kartu Motor (9/120) & Mobil (3/30).
 - **Denah Area Visual**: Skematik jalur masuk (garis putus-putus) dengan posisi slot kosong berwarna hijau.
 - **Tombol Aksi**: Tombol *Buka Lokasi* (Google Maps) dan *Lihat Alternatif* (`alternatif.html`).

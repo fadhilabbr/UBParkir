@@ -1,10 +1,15 @@
-/**
- * UBParkir - Detail Parkir Page Script (detail.js)
- * Parkir FILKOM detail view & schematic interactions
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-  // Clickable interactive schematic slot highlights
+  const sensorLiveTime = document.getElementById('sensorLiveTime');
+  function updateSensorClock() {
+    if (!sensorLiveTime) return;
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    sensorLiveTime.textContent = `${hours}.${minutes} WIB`;
+  }
+  updateSensorClock();
+  setInterval(updateSensorClock, 30000);
+
   const emptySlots = document.querySelectorAll('.slot-empty');
   emptySlots.forEach((slot, index) => {
     slot.addEventListener('click', () => {
@@ -12,4 +17,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-

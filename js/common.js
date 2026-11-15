@@ -1,10 +1,4 @@
-/**
- * UBParkir - Common JavaScript (common.js)
- * Shared utilities for mobile navigation drawer and global helpers
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Sidebar Drawer Navigation
   const btnToggleSidebar = document.getElementById('btnToggleSidebar');
   const dashSidebar = document.getElementById('dashSidebar');
   const sidebarBackdrop = document.getElementById('sidebarBackdrop');
@@ -22,17 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// =========================================================================
-// GLOBAL HELPER FUNCTIONS
-// =========================================================================
-
-// Navigasi Rute Cepat
 window.bukaRute = function(area) {
   const savedApp = localStorage.getItem('ubparkir_nav_app') || 'Google Maps';
   alert(`Navigasi Aktif:\nMembuka rute tercepat menuju ${area} menggunakan ${savedApp}.\nEstimasi waktu tiba: 2-3 menit.`);
 };
 
-// Modal Denah Visual Interaktif
 let currentSelectedSlot = null;
 
 window.bukaDetailArea = function(nama, total, sisa, status) {
@@ -50,7 +38,6 @@ window.bukaDetailArea = function(nama, total, sisa, status) {
   if (bookingAlert) bookingAlert.classList.add('d-none');
   if (btnKonfirmasi) btnKonfirmasi.disabled = true;
 
-  // Render 18 Visual Slots (A1 - C6)
   if (slotGrid) {
     slotGrid.innerHTML = '';
     currentSelectedSlot = null;
@@ -113,4 +100,3 @@ window.bukaAlternatif = function(nama) {
   }
   alert(saran);
 };
-

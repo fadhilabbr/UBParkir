@@ -1,8 +1,3 @@
-/* ==========================================================================
-   UBParkir - Data Kendaraan Page Style (kendaraan.css)
-   Khusus Halaman Pengisian Informasi Kendaraan Mahasiswa
-   ========================================================================== */
-
 :root {
   --primary-navy: #0F2A4A;
   --sidebar-active: #1D3757;
@@ -19,13 +14,11 @@ body {
   min-height: 100vh;
 }
 
-/* Layout */
 .dash-layout {
   display: flex;
   min-height: 100vh;
 }
 
-/* Sidebar */
 .dash-sidebar {
   width: 220px;
   min-width: 220px;
@@ -65,14 +58,12 @@ body {
   font-weight: 600;
 }
 
-/* Content Area */
 .dash-content {
   flex-grow: 1;
   padding: 2.25rem 2.75rem;
   max-width: 1300px;
 }
 
-/* Breadcrumb Link */
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -90,7 +81,6 @@ body {
   color: var(--btn-blue-hover);
 }
 
-/* Form Container Card */
 .vehicle-form-card {
   background-color: #ffffff;
   border-radius: 20px;
@@ -99,7 +89,6 @@ body {
   border: 1px solid #E2E8F0;
 }
 
-/* Segmented Buttons (Motor / Mobil) */
 .veh-type-btn {
   width: 135px;
   padding: 0.65rem 1.25rem;
@@ -125,7 +114,6 @@ body {
   border-color: var(--primary-navy);
 }
 
-/* Form Controls */
 .form-label-custom {
   font-size: 0.84rem;
   font-weight: 700;
@@ -157,7 +145,6 @@ body {
   font-size: 0.88rem;
 }
 
-/* Action Buttons */
 .btn-save-vehicle {
   background-color: var(--btn-blue);
   color: #ffffff;
@@ -201,7 +188,6 @@ body {
   color: #0F172A;
 }
 
-/* Side Info Card (Kenapa perlu diisi?) */
 .side-info-card {
   background-color: var(--primary-navy);
   border-radius: 20px;
@@ -210,7 +196,6 @@ body {
   box-shadow: 0 4px 18px rgba(15, 42, 74, 0.08);
 }
 
-/* Responsive */
 @media (max-width: 991.98px) {
   .dash-sidebar {
     position: fixed;
@@ -239,4 +224,3 @@ body {
     display: block;
   }
 }
-

@@ -1,8 +1,3 @@
-/**
- * UBParkir - Login Page Script (login.js)
- * SSO Authentication Simulation & Landing Graphic Interactivity
- */
-
 document.addEventListener('DOMContentLoaded', () => {
   const ssoBtn = document.getElementById('btnSsoLogin');
   const ssoModalEl = document.getElementById('ssoModal');
@@ -13,17 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const usernameInput = document.getElementById('ssoUsername');
   const passwordInput = document.getElementById('ssoPassword');
 
-  // Credentials Demo
   const DEMO_USER = 'rifqi@student.ub.ac.id';
   const DEMO_PASS = 'brawijaya123';
 
-  // Initialize Bootstrap Modal for SSO
   let ssoModal;
   if (ssoModalEl && typeof bootstrap !== 'undefined') {
     ssoModal = new bootstrap.Modal(ssoModalEl);
   }
 
-  // Open modal on click "Masuk dengan SSO UB"
   if (ssoBtn && ssoModal) {
     ssoBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -31,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Auto-fill button inside modal
   if (btnAutoFillModal && usernameInput && passwordInput) {
     btnAutoFillModal.addEventListener('click', () => {
       usernameInput.value = DEMO_USER;
@@ -40,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Quick 1-click Demo button on landing card
   if (btnQuickDemo) {
     btnQuickDemo.addEventListener('click', () => {
       if (ssoModal) {
@@ -55,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Handle SSO Form Submission & Redirect to Dashboard
   if (ssoForm) {
     ssoForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -101,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loginAlert.classList.remove('d-none');
   }
 
-  // Parking slots click effect on landing page
   const dashedSlots = document.querySelectorAll('.parking-box.dashed');
   dashedSlots.forEach((slot) => {
     slot.addEventListener('click', () => {
@@ -112,4 +100,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-

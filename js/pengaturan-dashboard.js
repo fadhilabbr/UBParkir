@@ -1,8 +1,3 @@
-/**
- * UBParkir - Pengaturan Dashboard Page Script (pengaturan-dashboard.js)
- * 6 Selectable area cards with max 3 constraint, preview list sync, and autosave badge
- */
-
 document.addEventListener('DOMContentLoaded', () => {
   const areaSelectCards = document.querySelectorAll('.area-select-card');
   const counterDipilihText = document.getElementById('counterDipilihText');
@@ -10,7 +5,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const previewDashList = document.getElementById('previewDashList');
   const badgeSavedStatus = document.getElementById('badgeSavedStatus');
 
+  const STORAGE_KEY = 'ubparkir_fav_areas';
+  const DEFAULT_AREAS = ['Parkir FILKOM', 'Parkir Fakultas Teknik', 'Parkir FEB'];
+
+  let savedAreas = DEFAULT_AREAS;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        savedAreas = parsed;
+      }
+    }
+  } catch (err) {
+    savedAreas = DEFAULT_AREAS;
+  }
+
   if (areaSelectCards.length > 0) {
+    areaSelectCards.forEach((card) => {
+      const areaName = card.getAttribute('data-area');
+      if (savedAreas.includes(areaName)) {
+        card.classList.add('selected');
+      } else {
+        card.classList.remove('selected');
+      }
+    });
+
+    updateDashboardSettingsView(false);
+
     areaSelectCards.forEach((card) => {
       card.addEventListener('click', () => {
         const isSelected = card.classList.contains('selected');
@@ -18,37 +40,42 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentCount = selectedCards.length;
 
         if (isSelected) {
-          // Deselect
           card.classList.remove('selected');
-          updateDashboardSettingsView();
+          updateDashboardSettingsView(true);
         } else {
-          // Select
           if (currentCount >= 3) {
-            // Already 3, show warning
             if (limitWarningBanner) {
               limitWarningBanner.classList.remove('d-none');
               limitWarningBanner.style.animation = 'none';
-              void limitWarningBanner.offsetWidth; // trigger reflow
+              void limitWarningBanner.offsetWidth;
               limitWarningBanner.style.animation = 'pulse 0.4s ease';
             }
           } else {
             card.classList.add('selected');
-            updateDashboardSettingsView();
+            updateDashboardSettingsView(true);
           }
         }
       });
     });
 
-    function updateDashboardSettingsView() {
+    function updateDashboardSettingsView(isUserAction = true) {
       const selected = document.querySelectorAll('.area-select-card.selected');
       const count = selected.length;
+      const currentSelectedNames = [];
 
-      // Update counter text
+      selected.forEach((sc) => {
+        const areaName = sc.getAttribute('data-area');
+        if (areaName) currentSelectedNames.push(areaName);
+      });
+
+      if (isUserAction) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(currentSelectedNames));
+      }
+
       if (counterDipilihText) {
         counterDipilihText.textContent = `${count} dari 3 dipilih`;
       }
 
-      // Show/hide warning banner
       if (limitWarningBanner) {
         if (count >= 3) {
           limitWarningBanner.classList.remove('d-none');
@@ -57,11 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // Update right side preview list
       if (previewDashList) {
         previewDashList.innerHTML = '';
-        selected.forEach((sc) => {
-          const areaName = sc.getAttribute('data-area');
+        currentSelectedNames.forEach((areaName) => {
           const itemDiv = document.createElement('div');
           itemDiv.className = 'preview-dash-item';
           itemDiv.setAttribute('data-area', areaName);
@@ -79,8 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // Flash "Tersimpan otomatis"
-      if (badgeSavedStatus) {
+      if (badgeSavedStatus && isUserAction) {
         badgeSavedStatus.style.transition = 'opacity 0.15s ease';
         badgeSavedStatus.style.opacity = '0.4';
         setTimeout(() => {
@@ -90,4 +114,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
-

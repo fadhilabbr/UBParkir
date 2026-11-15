@@ -1,8 +1,3 @@
-/**
- * UBParkir - Profil Page Script (profil.js)
- * User logout modal and settings label sync
- */
-
 document.addEventListener('DOMContentLoaded', () => {
   const btnProfileLogout = document.getElementById('btnProfileLogout');
   const sidebarLogoutLink = document.getElementById('sidebarLogoutLink');
@@ -23,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Sync navigation preference label from localStorage
   const labelNavApp = document.getElementById('labelNavApp');
   if (labelNavApp) {
     const savedApp = localStorage.getItem('ubparkir_nav_app');
@@ -32,4 +26,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
-

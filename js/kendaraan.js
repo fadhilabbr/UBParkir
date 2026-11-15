@@ -1,8 +1,3 @@
-/**
- * UBParkir - Data Kendaraan Page Script (kendaraan.js)
- * Vehicle type segmented switch (Motor/Mobil), form validation, and save simulation
- */
-
 document.addEventListener('DOMContentLoaded', () => {
   const btnTypeMotor = document.getElementById('btnTypeMotor');
   const btnTypeMobil = document.getElementById('btnTypeMobil');
@@ -63,4 +58,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
