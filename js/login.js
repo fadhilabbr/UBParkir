@@ -1,47 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const ssoBtn = document.getElementById('btnSsoLogin');
-  const ssoModalEl = document.getElementById('ssoModal');
   const ssoForm = document.getElementById('ssoLoginForm');
   const loginAlert = document.getElementById('loginAlert');
-  const btnQuickDemo = document.getElementById('btnQuickDemo');
-  const btnAutoFillModal = document.getElementById('btnAutoFillModal');
   const usernameInput = document.getElementById('ssoUsername');
   const passwordInput = document.getElementById('ssoPassword');
+  const btnTogglePassword = document.getElementById('btnTogglePassword');
+  const eyeIcon = document.getElementById('eyeIcon');
+  const submitBtn = document.getElementById('btnSubmitLogin');
 
-  const DEMO_USER = 'rifqi@student.ub.ac.id';
-  const DEMO_PASS = 'brawijaya123';
-
-  let ssoModal;
-  if (ssoModalEl && typeof bootstrap !== 'undefined') {
-    ssoModal = new bootstrap.Modal(ssoModalEl);
-  }
-
-  if (ssoBtn && ssoModal) {
-    ssoBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      ssoModal.show();
-    });
-  }
-
-  if (btnAutoFillModal && usernameInput && passwordInput) {
-    btnAutoFillModal.addEventListener('click', () => {
-      usernameInput.value = DEMO_USER;
-      passwordInput.value = DEMO_PASS;
-      usernameInput.focus();
-    });
-  }
-
-  if (btnQuickDemo) {
-    btnQuickDemo.addEventListener('click', () => {
-      if (ssoModal) {
-        ssoModal.show();
-      }
-      setTimeout(() => {
-        if (usernameInput && passwordInput) {
-          usernameInput.value = DEMO_USER;
-          passwordInput.value = DEMO_PASS;
-        }
-      }, 300);
+  if (btnTogglePassword && passwordInput && eyeIcon) {
+    btnTogglePassword.addEventListener('click', () => {
+      const isPassword = passwordInput.getAttribute('type') === 'password';
+      passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+      eyeIcon.className = isPassword ? 'bi bi-eye-slash' : 'bi bi-eye';
     });
   }
 
@@ -49,28 +19,29 @@ document.addEventListener('DOMContentLoaded', () => {
     ssoForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const userVal = usernameInput.value.trim();
-      const passVal = passwordInput.value.trim();
+      const userVal = usernameInput ? usernameInput.value.trim() : '';
+      const passVal = passwordInput ? passwordInput.value.trim() : '';
 
       if (!userVal || !passVal) {
-        showLoginAlert('Mohon masukkan akun SSO dan kata sandi Anda.', 'danger');
+        showLoginAlert('Mohon masukkan NIM / Email Mahasiswa dan kata sandi Anda.', 'danger');
         return;
       }
 
-      const submitBtn = document.getElementById('btnSubmitLogin');
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = `
-        <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-        <span>Memverifikasi SSO UB...</span>
-      `;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+          <span>Memverifikasi SSO UB...</span>
+        `;
+      }
 
       setTimeout(() => {
-        submitBtn.innerHTML = `
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="me-2">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-          <span>Berhasil! Membuka Dashboard...</span>
-        `;
+        if (submitBtn) {
+          submitBtn.innerHTML = `
+            <i class="bi bi-check-lg me-2"></i>
+            <span>Berhasil! Membuka Dashboard...</span>
+          `;
+        }
         showLoginAlert('Autentikasi SSO Brawijaya berhasil! Mengalihkan ke dashboard...', 'success');
 
         sessionStorage.setItem('ubparkir_logged_in', 'true');
@@ -78,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
           window.location.href = 'dashboard.html';
-        }, 800);
-      }, 700);
+        }, 750);
+      }, 650);
     });
   }
 

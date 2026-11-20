@@ -169,7 +169,7 @@ body {
 
 .profile-menu-row:hover .profile-menu-chevron {
   transform: translateX(3px);
-  stroke: #1E5BD8;
+  color: #1E5BD8;
 }
 
 .profile-menu-icon-box {
@@ -203,8 +203,9 @@ body {
 }
 
 .profile-menu-chevron {
-  stroke: #94A3B8;
-  transition: transform 0.2s ease, stroke 0.2s ease;
+  color: #94A3B8;
+  font-size: 1.15rem;
+  transition: transform 0.2s ease, color 0.2s ease;
   flex-shrink: 0;
 }
 

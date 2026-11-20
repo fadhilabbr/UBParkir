@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <link rel="stylesheet" href="css/dashboard.css">
 </head>
@@ -33,54 +34,34 @@
       <nav class="d-flex flex-column gap-2 flex-grow-1">
 
         <a href="dashboard.html" class="sidebar-nav-link active">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg>
+          <i class="bi bi-house-door fs-5"></i>
           <span>Dashboard</span>
         </a>
 
         <a href="area-parkir.html" class="sidebar-nav-link" id="navAreaParkir">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
+          <i class="bi bi-geo-alt fs-5"></i>
           <span>Area Parkir</span>
         </a>
 
         <a href="prediksi.html" class="sidebar-nav-link" id="navPrediksi">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="20" x2="18" y2="10"></line>
-            <line x1="12" y1="20" x2="12" y2="4"></line>
-            <line x1="6" y1="20" x2="6" y2="14"></line>
-          </svg>
+          <i class="bi bi-bar-chart-line fs-5"></i>
           <span>Prediksi</span>
         </a>
 
         <a href="laporan.html" class="sidebar-nav-link" id="navLaporan">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
-            <line x1="4" y1="22" x2="4" y2="15"></line>
-          </svg>
+          <i class="bi bi-flag fs-5"></i>
           <span>Laporan</span>
         </a>
 
         <a href="profil.html" class="sidebar-nav-link" id="navProfil">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
+          <i class="bi bi-person fs-5"></i>
           <span>Profil</span>
         </a>
       </nav>
 
       <div class="pt-3 border-top border-white border-opacity-10">
         <a href="index.html" class="sidebar-nav-link text-danger">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-            <polyline points="16 17 21 12 16 7"></polyline>
-            <line x1="21" y1="12" x2="9" y2="12"></line>
-          </svg>
+          <i class="bi bi-box-arrow-left fs-5"></i>
           <span>Keluar</span>
         </a>
       </div>
@@ -92,11 +73,7 @@
         <div class="d-flex align-items-center gap-3">
 
           <button type="button" class="btn btn-light d-lg-none border shadow-sm px-2 py-1" id="btnToggleSidebar" aria-label="Buka Menu">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
+            <i class="bi bi-list fs-5"></i>
           </button>
 
           <div>
@@ -111,9 +88,7 @@
               RF
             </div>
             <span class="fw-semibold small">Rifqi Fadhil Abrar</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+            <i class="bi bi-chevron-down ms-1" style="font-size: 0.75rem;"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 rounded-3 mt-2">
             <li class="px-3 py-2 border-bottom">
@@ -282,23 +257,17 @@
 
             <a href="area-parkir.html" class="quick-menu-btn text-decoration-none">
               <span>Semua area parkir UB</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F2B601" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
+              <i class="bi bi-chevron-right" style="color: #F2B601;"></i>
             </a>
 
             <a href="alternatif.html" class="quick-menu-btn text-decoration-none">
               <span>Cari area alternatif</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F2B601" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
+              <i class="bi bi-chevron-right" style="color: #F2B601;"></i>
             </a>
 
             <a href="laporan.html" class="quick-menu-btn text-decoration-none">
               <span>Laporkan kejadian</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F2B601" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
+              <i class="bi bi-chevron-right" style="color: #F2B601;"></i>
             </a>
 
             </div>

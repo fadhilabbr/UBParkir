@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <link rel="stylesheet" href="css/login.css">
 </head>
@@ -60,86 +61,47 @@
     </section>
 
     <section class="right-panel">
-      <div class="card border-0 shadow-sm p-4 p-sm-4" style="border-radius: 20px; max-width: 380px; width: 100%;">
-        <h2 class="fw-bold text-dark mb-2" style="font-size: 1.5rem; letter-spacing: -0.3px;">Masuk</h2>
+      <div class="card border-0 shadow-sm p-4" style="border-radius: 20px; max-width: 400px; width: 100%;">
+        <h2 class="fw-bold text-dark mb-1" style="font-size: 1.55rem; letter-spacing: -0.3px;">Masuk</h2>
         <p class="text-secondary small mb-3" style="line-height: 1.5;">
           Gunakan akun SSO Universitas Brawijaya untuk melihat ketersediaan parkir.
         </p>
 
-        <div class="p-2 px-3 rounded-3 mb-3 border border-primary-subtle" style="background-color: #EFF6FF; font-size: 0.8rem; color: #1E40AF;">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <strong>Akun Demo:</strong>
-            <button type="button" class="btn btn-sm btn-primary py-0 px-2 fw-semibold" style="font-size: 0.72rem;" id="btnQuickDemo">Gunakan Akun Ini</button>
+        <form id="ssoLoginForm">
+          <div class="mb-3">
+            <label for="ssoUsername" class="form-label small fw-semibold text-secondary mb-1">NIM / Email Mahasiswa</label>
+            <input type="text" class="form-control rounded-3" id="ssoUsername" placeholder="Contoh: 21515020... / nama@student.ub.ac.id" required>
           </div>
-          <div>User: <code class="px-1 rounded bg-white text-dark">rifqi@student.ub.ac.id</code></div>
-          <div>Pass: <code class="px-1 rounded bg-white text-dark">brawijaya123</code></div>
-        </div>
 
-        <button type="button" class="btn-sso" id="btnSsoLogin">
+          <div class="mb-3">
+            <label for="ssoPassword" class="form-label small fw-semibold text-secondary mb-1">Kata Sandi</label>
+            <div class="input-group">
+              <input type="password" class="form-control rounded-start-3" id="ssoPassword" placeholder="Masukkan kata sandi SSO" required>
+              <button class="btn btn-outline-secondary border-start-0" type="button" id="btnTogglePassword" style="border-color: #dee2e6; border-top-right-radius: 0.5rem; border-bottom-right-radius: 0.5rem;" title="Lihat kata sandi">
+                <i class="bi bi-eye" id="eyeIcon"></i>
+              </button>
+            </div>
+          </div>
 
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
-            <polyline points="10 17 15 12 10 7"></polyline>
-            <line x1="15" y1="12" x2="3" y2="12"></line>
-          </svg>
-          <span>Masuk dengan SSO UB</span>
-        </button>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="rememberMe" checked>
+              <label class="form-check-label small text-secondary" for="rememberMe">Ingat sesi saya</label>
+            </div>
+            <a href="#" class="small text-decoration-none text-primary" onclick="alert('Untuk kendala akun SSO, silakan hubungi Helpdesk TIK UB (helpdesk@ub.ac.id).'); return false;">Lupa sandi?</a>
+          </div>
+
+          <button type="submit" class="btn-sso w-100" id="btnSubmitLogin">
+            <i class="bi bi-box-arrow-in-right"></i>
+            <span>Masuk dengan SSO UB</span>
+          </button>
+
+          <div id="loginAlert" class="alert d-none mt-3 mb-0" role="alert"></div>
+        </form>
       </div>
     </section>
 
   </main>
-
-  <div class="modal fade" id="ssoModal" tabindex="-1" aria-labelledby="ssoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content border-0 shadow" style="border-radius: 18px;">
-        <div class="modal-header border-0 pb-0 flex-column align-items-start">
-          <span class="badge rounded-pill text-bg-info text-dark fw-bold mb-1" style="font-size: 0.72rem; letter-spacing: 0.5px;">SSO UNIVERSITAS BRAWIJAYA</span>
-          <h5 class="modal-title fw-bold text-dark" id="ssoModalLabel">Masuk dengan Akun UB</h5>
-          <p class="text-muted small mb-0">Silakan masukkan kredensial Single Sign-On Anda</p>
-        </div>
-        <div class="modal-body pt-3">
-
-          <div class="p-2 px-3 rounded-3 mb-3 border border-primary-subtle" style="background-color: #EFF6FF; font-size: 0.8rem; color: #1E40AF;">
-            <div class="d-flex justify-content-between align-items-center">
-              <span>Akun Demo: <code>rifqi@student.ub.ac.id</code> / <code>brawijaya123</code></span>
-              <button type="button" class="btn btn-sm btn-primary py-0 px-2 fw-semibold" style="font-size: 0.72rem;" id="btnAutoFillModal">Isi Otomatis</button>
-            </div>
-          </div>
-
-          <form id="ssoLoginForm">
-            <div class="mb-3">
-              <label for="ssoUsername" class="form-label small fw-semibold text-secondary">NIM / Email Mahasiswa</label>
-              <input type="text" class="form-control rounded-3" id="ssoUsername" placeholder="Contoh: 21515020... / nama@student.ub.ac.id" required>
-            </div>
-
-            <div class="mb-3">
-              <label for="ssoPassword" class="form-label small fw-semibold text-secondary">Kata Sandi</label>
-              <input type="password" class="form-control rounded-3" id="ssoPassword" placeholder="Masukkan kata sandi SSO" required>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="rememberMe" checked>
-                <label class="form-check-label small text-secondary" for="rememberMe">Ingat sesi saya</label>
-              </div>
-              <a href="#" class="small text-decoration-none text-primary" onclick="alert('Untuk kendala akun SSO, silakan hubungi Helpdesk TIK UB.'); return false;">Lupa kata sandi?</a>
-            </div>
-
-            <button type="submit" class="btn-sso w-100" id="btnSubmitLogin">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
-                <polyline points="10 17 15 12 10 7"></polyline>
-                <line x1="15" y1="12" x2="3" y2="12"></line>
-              </svg>
-              <span>Verifikasi & Masuk ke Dashboard</span>
-            </button>
-
-            <div id="loginAlert" class="alert d-none mt-3 mb-0" role="alert"></div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

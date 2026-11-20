@@ -169,14 +169,14 @@ body {
   color: #ffffff;
 }
 
-.area-select-checkbox svg {
+.area-select-checkbox i {
   display: none;
-  width: 16px;
-  height: 16px;
-  stroke: #ffffff;
+  font-size: 0.95rem;
+  color: #ffffff;
+  line-height: 1;
 }
 
-.area-select-card.selected .area-select-checkbox svg {
+.area-select-card.selected .area-select-checkbox i {
   display: block;
 }
 

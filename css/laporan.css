@@ -158,19 +158,17 @@ body {
   transform: scale(1.15);
 }
 
-.star-btn svg {
-  width: 26px;
-  height: 26px;
+.star-btn i {
+  font-size: 1.65rem;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.star-btn.filled svg {
-  fill: var(--accent-yellow);
-  stroke: #D97706;
+.star-btn.filled i {
+  color: var(--accent-yellow);
 }
 
-.star-btn.empty svg {
-  fill: #ffffff;
-  stroke: #94A3B8;
+.star-btn.empty i {
+  color: #CBD5E1;
 }
 
 .rating-text-label {
