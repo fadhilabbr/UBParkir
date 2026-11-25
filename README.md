@@ -8,7 +8,26 @@ Proyek website antarmuka pengguna (Frontend) untuk memantau ketersediaan slot pa
 Untuk mencoba alur login SSO hingga masuk ke dashboard:
 - **NIM / Akun SSO**: `rifqi@student.ub.ac.id` *(atau `215150201111001`)*
 - **Kata Sandi**: `brawijaya123`
-- *Tips Praktis:* Pada halaman login [index.html](file:///d:/projects_vsssl/UBParkir/index.html), sudah ada tombol **"Gunakan Akun Ini"** / **"Isi Otomatis"** untuk langsung autofill dan masuk ke dashboard.
+- *Tips Praktis:* Pada halaman login [index.html](file:///d:/projects_vsssl/UBParkir/index.html), Anda dapat mengisi NIM/email dan kata sandi SSO di atas untuk langsung masuk ke dashboard, atau memilih **"Masuk sebagai Tamu"** untuk akses cepat tanpa akun.
+
+---
+
+## 👤 Mode Tamu (Guest) vs Akun SSO UB
+
+Pengguna umum atau pengunjung kampus dapat menggunakan tombol **Masuk sebagai Tamu** di halaman login (`index.html`) tanpa akun SSO UB untuk memantau slot parkir dengan akses terbatas.
+
+| Fitur / Halaman | Mode Tamu (Guest) | Akun SSO UB |
+| :--- | :---: | :---: |
+| **Dashboard Ringkasan** (`dashboard.html`) | Terbatas (area populer & status slot) | Penuh (area pilihan & grafik prediksi) |
+| **Daftar & Filter Area Parkir** (`area-parkir.html`) | ✅ Dapat diakses | ✅ Dapat diakses |
+| **Detail Slot & Denah Visual** (`detail-parkir.html`) | ✅ Dapat diakses | ✅ Dapat diakses |
+| **Rekomendasi Alternatif & Rute Default** (`alternatif.html`) | ✅ Dapat diakses | ✅ Dapat diakses |
+| **Prediksi Traffic & Jam Sibuk** (`prediksi.html`) | 🔒 Khusus SSO UB | ✅ Dapat diakses |
+| **Laporan Kejadian & Feedback** (`laporan.html`) | 🔒 Khusus SSO UB | ✅ Dapat diakses |
+| **Profil Mahasiswa** (`profil.html`) | 🔒 Khusus SSO UB | ✅ Dapat diakses |
+| **Data Kendaraan** (`data-kendaraan.html`) | 🔒 Khusus SSO UB | ✅ Dapat diakses |
+| **Pengaturan Dashboard (Area Favorit)** (`pengaturan-dashboard.html`) | 🔒 Khusus SSO UB | ✅ Dapat diakses |
+| **Opsi Navigasi Kustom** (`opsi-navigasi.html`) | 🔒 Khusus SSO UB | ✅ Dapat diakses |
 
 ---
 

@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnSubmit.innerHTML = origText;
 
         if (laporSuccessAlert) {
-          laporSuccessAlert.textContent = `Laporan ${selectedIncident} di ${lokasi} berhasil dikirim ke pos pengamanan UB! ID Tiket: #UBP-${Math.floor(1000 + Math.random() * 9000)}.`;
+          laporSuccessAlert.textContent = `Laporan ${selectedIncident} di ${lokasi} berhasil dikirim ke pos pengamanan UB. ID Tiket: #UBP-${Math.floor(1000 + Math.random() * 9000)}.`;
           laporSuccessAlert.classList.remove('d-none');
         }
 
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnSubmit.innerHTML = origText;
 
         if (feedbackSuccessAlert) {
-          feedbackSuccessAlert.textContent = `Terima kasih! Feedback Anda untuk topik "${selectedTopic}" dengan rating "${ratingTexts[currentRating] || 'Baik'}" berhasil dikirim.`;
+          feedbackSuccessAlert.textContent = `Terima kasih, feedback Anda untuk topik "${selectedTopic}" dengan rating "${ratingTexts[currentRating] || 'Baik'}" telah dikirim.`;
           feedbackSuccessAlert.classList.remove('d-none');
         }
         formFeedback.reset();

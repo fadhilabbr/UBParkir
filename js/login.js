@@ -6,6 +6,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnTogglePassword = document.getElementById('btnTogglePassword');
   const eyeIcon = document.getElementById('eyeIcon');
   const submitBtn = document.getElementById('btnSubmitLogin');
+  const guestBtn = document.getElementById('btnGuestLogin');
+  const btnForgotPassword = document.getElementById('btnForgotPassword');
+
+  const params = new URLSearchParams(window.location.search);
+  const feature = params.get('feature');
+  if (feature && feature.trim()) {
+    showLoginAlert(
+      `Silakan masuk dengan akun SSO UB untuk mengakses fitur "${feature.trim()}".`,
+      'info'
+    );
+  }
+
+  if (btnForgotPassword) {
+    btnForgotPassword.addEventListener('click', (e) => {
+      e.preventDefault();
+      showLoginAlert(
+        'Untuk kendala akun SSO, hubungi Helpdesk TIK UB (helpdesk@ub.ac.id).',
+        'info'
+      );
+    });
+  }
 
   if (btnTogglePassword && passwordInput && eyeIcon) {
     btnTogglePassword.addEventListener('click', () => {
@@ -23,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const passVal = passwordInput ? passwordInput.value.trim() : '';
 
       if (!userVal || !passVal) {
-        showLoginAlert('Mohon masukkan NIM / Email Mahasiswa dan kata sandi Anda.', 'danger');
+        showLoginAlert('Masukkan NIM / Email Mahasiswa dan kata sandi Anda.', 'danger');
         return;
       }
 
@@ -38,19 +59,46 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         if (submitBtn) {
           submitBtn.innerHTML = `
-            <i class="bi bi-check-lg me-2"></i>
-            <span>Berhasil! Membuka Dashboard...</span>
+            <i class="bi bi-check-lg me-2" aria-hidden="true"></i>
+            <span>Berhasil, membuka Dashboard...</span>
           `;
         }
-        showLoginAlert('Autentikasi SSO Brawijaya berhasil! Mengalihkan ke dashboard...', 'success');
+        showLoginAlert('Autentikasi SSO Brawijaya berhasil. Mengalihkan ke dashboard.', 'success');
 
-        sessionStorage.setItem('ubparkir_logged_in', 'true');
-        sessionStorage.setItem('ubparkir_user', 'Rifqi Fadhil Abrar');
+        if (window.UBParkirAuth && typeof window.UBParkirAuth.loginSSO === 'function') {
+          window.UBParkirAuth.loginSSO('Rifqi Fadhil Abrar');
+        } else {
+          sessionStorage.setItem('ubparkir_role', 'sso');
+          sessionStorage.setItem('ubparkir_logged_in', 'true');
+          sessionStorage.setItem('ubparkir_user', 'Rifqi Fadhil Abrar');
+        }
 
         setTimeout(() => {
           window.location.href = 'dashboard.html';
-        }, 750);
-      }, 650);
+        }, 700);
+      }, 600);
+    });
+  }
+
+  if (guestBtn) {
+    guestBtn.addEventListener('click', () => {
+      if (window.UBParkirAuth && typeof window.UBParkirAuth.enterAsGuest === 'function') {
+        window.UBParkirAuth.enterAsGuest();
+      } else {
+        sessionStorage.setItem('ubparkir_role', 'guest');
+        sessionStorage.removeItem('ubparkir_logged_in');
+        sessionStorage.removeItem('ubparkir_user');
+      }
+
+      guestBtn.disabled = true;
+      showLoginAlert(
+        'Masuk dalam Mode Tamu (akses terbatas). Mengalihkan ke dashboard.',
+        'info'
+      );
+
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 450);
     });
   }
 

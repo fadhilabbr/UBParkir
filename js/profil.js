@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   const btnProfileLogout = document.getElementById('btnProfileLogout');
   const sidebarLogoutLink = document.getElementById('sidebarLogoutLink');
+  const btnConfirmLogout = document.getElementById('btnConfirmLogout');
   const modalLogoutConfirmEl = document.getElementById('modalLogoutConfirm');
 
   if (btnProfileLogout && modalLogoutConfirmEl && typeof bootstrap !== 'undefined') {
     btnProfileLogout.addEventListener('click', () => {
-      const modal = new bootstrap.Modal(modalLogoutConfirmEl);
+      const modal = bootstrap.Modal.getOrCreateInstance(modalLogoutConfirmEl);
       modal.show();
     });
   }
@@ -13,8 +14,22 @@ document.addEventListener('DOMContentLoaded', () => {
   if (sidebarLogoutLink && modalLogoutConfirmEl && typeof bootstrap !== 'undefined') {
     sidebarLogoutLink.addEventListener('click', (e) => {
       e.preventDefault();
-      const modal = new bootstrap.Modal(modalLogoutConfirmEl);
+      const modal = bootstrap.Modal.getOrCreateInstance(modalLogoutConfirmEl);
       modal.show();
+    });
+  }
+
+  if (btnConfirmLogout) {
+    btnConfirmLogout.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (window.UBParkirAuth && typeof window.UBParkirAuth.logout === 'function') {
+        window.UBParkirAuth.logout();
+      } else {
+        sessionStorage.removeItem('ubparkir_role');
+        sessionStorage.removeItem('ubparkir_logged_in');
+        sessionStorage.removeItem('ubparkir_user');
+        window.location.href = 'index.html';
+      }
     });
   }
 
@@ -36,16 +51,16 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) {}
   }
 
-  const areaCheckboxes = document.querySelectorAll('#dashboardAreaCheckboxes .area-checkbox');
-  areaCheckboxes.forEach((cb) => {
-    cb.addEventListener('change', () => {
-      const checkedBoxes = document.querySelectorAll('#dashboardAreaCheckboxes .area-checkbox:checked');
-      if (checkedBoxes.length > 3) {
-        cb.checked = false;
-        if (typeof window.showToast === 'function') {
-          window.showToast('Maksimal 3 area parkir telah dipilih. Lepas salah satu area terlebih dahulu.', 'warning');
+  const labelVehicleSummary = document.getElementById('labelVehicleSummary');
+  if (labelVehicleSummary) {
+    try {
+      const rawVehicle = localStorage.getItem('ubparkir_vehicle');
+      if (rawVehicle) {
+        const vehicle = JSON.parse(rawVehicle);
+        if (vehicle && vehicle.plat && vehicle.model) {
+          labelVehicleSummary.textContent = `${vehicle.jenis || 'Kendaraan'} · ${vehicle.plat} (${vehicle.model})`;
         }
       }
-    });
-  });
+    } catch (e) {}
+  }
 });

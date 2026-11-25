@@ -1,75 +1,9 @@
-:root {
-  --primary-navy: #0F2A4A;
-  --sidebar-active: #1D3757;
-  --bg-light: #F3F5F8;
-  --accent-yellow: #F2B601;
-  --btn-blue: #1E5BD8;
-  --btn-blue-hover: #164cc0;
-}
-
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--bg-light);
-  margin: 0;
-  min-height: 100vh;
-}
-
-.dash-layout {
-  display: flex;
-  min-height: 100vh;
-}
-
-.dash-sidebar {
-  width: 220px;
-  min-width: 220px;
-  background-color: var(--primary-navy);
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1.25rem;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  z-index: 100;
-  transition: transform 0.25s ease-in-out;
-}
-
-.sidebar-nav-link {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 0.7rem 1rem;
-  border-radius: 12px;
-  color: #94A3B8;
-  font-size: 0.92rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.18s ease;
-}
-
-.sidebar-nav-link:hover {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.06);
-}
-
-.sidebar-nav-link.active {
-  background-color: var(--sidebar-active);
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.dash-content {
-  flex-grow: 1;
-  padding: 2.25rem 2.75rem;
-  max-width: 1300px;
-}
-
 .profile-user-card {
   background-color: var(--primary-navy);
   border-radius: 20px;
   padding: 2.25rem 2rem;
-  color: #ffffff;
-  box-shadow: 0 4px 20px rgba(15, 42, 74, 0.08);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-md);
 }
 
 .profile-avatar-circle {
@@ -91,7 +25,7 @@ body {
 .profile-user-name {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #FFFFFF;
   margin-bottom: 0.25rem;
   letter-spacing: -0.3px;
 }
@@ -124,20 +58,24 @@ body {
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
 
 .btn-profile-logout:hover {
   background-color: rgba(239, 68, 68, 0.15);
   border-color: #EF4444;
-  color: #ffffff;
+  color: #FFFFFF;
+}
+
+.btn-profile-logout:active {
+  transform: scale(0.98);
 }
 
 .profile-menu-card {
-  background-color: #ffffff;
+  background-color: var(--surface-white);
   border-radius: 20px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  border: 1px solid #E2E8F0;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-subtle);
   overflow: hidden;
 }
 
@@ -169,7 +107,7 @@ body {
 
 .profile-menu-row:hover .profile-menu-chevron {
   transform: translateX(3px);
-  color: #1E5BD8;
+  color: var(--btn-blue);
 }
 
 .profile-menu-icon-box {
@@ -198,7 +136,7 @@ body {
 
 .profile-menu-sub {
   font-size: 0.82rem;
-  color: #64748B;
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -207,58 +145,4 @@ body {
   font-size: 1.15rem;
   transition: transform 0.2s ease, color 0.2s ease;
   flex-shrink: 0;
-}
-
-.modal-ub-header {
-  border-bottom: 1px solid #E2E8F0;
-  padding: 1.25rem 1.5rem;
-}
-
-.modal-ub-body {
-  padding: 1.5rem;
-}
-
-.modal-ub-footer {
-  border-top: 1px solid #E2E8F0;
-  padding: 1rem 1.5rem;
-}
-
-.vehicle-modal-card {
-  background-color: #F8FAFC;
-  border: 1px solid #E2E8F0;
-  border-radius: 14px;
-  padding: 1rem 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
-}
-
-@media (max-width: 991.98px) {
-  .dash-sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translateX(-100%);
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
-  }
-  .dash-sidebar.show {
-    transform: translateX(0);
-  }
-  .dash-content {
-    padding: 1.5rem 1.25rem;
-  }
-  .dash-backdrop {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 99;
-  }
-  .dash-backdrop.show {
-    display: block;
-  }
 }

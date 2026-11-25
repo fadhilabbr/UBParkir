@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ParkirUB - Pantau ketersediaan slot parkir di Universitas Brawijaya secara langsung atau masuk sebagai tamu.">
   <title>ParkirUB - Pantau Slot Parkir Universitas Brawijaya</title>
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -77,8 +78,8 @@
             <label for="ssoPassword" class="form-label small fw-semibold text-secondary mb-1">Kata Sandi</label>
             <div class="input-group">
               <input type="password" class="form-control rounded-start-3" id="ssoPassword" placeholder="Masukkan kata sandi SSO" required>
-              <button class="btn btn-outline-secondary border-start-0" type="button" id="btnTogglePassword" style="border-color: #dee2e6; border-top-right-radius: 0.5rem; border-bottom-right-radius: 0.5rem;" title="Lihat kata sandi">
-                <i class="bi bi-eye" id="eyeIcon"></i>
+              <button class="btn btn-outline-secondary border-start-0" type="button" id="btnTogglePassword" style="border-color: #dee2e6; border-top-right-radius: 0.5rem; border-bottom-right-radius: 0.5rem;" title="Lihat kata sandi" aria-label="Tampilkan atau sembunyikan kata sandi">
+                <i class="bi bi-eye" id="eyeIcon" aria-hidden="true"></i>
               </button>
             </div>
           </div>
@@ -88,16 +89,27 @@
               <input class="form-check-input" type="checkbox" id="rememberMe" checked>
               <label class="form-check-label small text-secondary" for="rememberMe">Ingat sesi saya</label>
             </div>
-            <a href="#" class="small text-decoration-none text-primary" onclick="alert('Untuk kendala akun SSO, silakan hubungi Helpdesk TIK UB (helpdesk@ub.ac.id).'); return false;">Lupa sandi?</a>
+            <a href="#" id="btnForgotPassword" class="small text-decoration-none text-primary">Lupa sandi?</a>
           </div>
 
           <button type="submit" class="btn-sso w-100" id="btnSubmitLogin">
-            <i class="bi bi-box-arrow-in-right"></i>
+            <i class="bi bi-box-arrow-in-right" aria-hidden="true"></i>
             <span>Masuk dengan SSO UB</span>
           </button>
 
           <div id="loginAlert" class="alert d-none mt-3 mb-0" role="alert"></div>
         </form>
+
+        <div class="login-divider"><span>atau</span></div>
+
+        <button type="button" class="btn-guest w-100" id="btnGuestLogin">
+          <i class="bi bi-person" aria-hidden="true"></i>
+          <span>Masuk sebagai Tamu</span>
+        </button>
+
+        <p class="guest-helper-note">
+          Pantau ketersediaan slot &amp; alternatif parkir tanpa login dengan akses terbatas.
+        </p>
       </div>
     </section>
 
@@ -105,6 +117,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+  <script src="js/auth.js"></script>
   <script src="js/login.js"></script>
 </body>
 </html>

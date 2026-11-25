@@ -1,91 +1,8 @@
-:root {
-  --primary-navy: #0F2A4A;
-  --sidebar-active: #1D3757;
-  --bg-light: #F3F5F8;
-  --accent-yellow: #F2B601;
-  --btn-blue: #1E5BD8;
-  --btn-blue-hover: #164cc0;
-}
-
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--bg-light);
-  margin: 0;
-  min-height: 100vh;
-}
-
-.dash-layout {
-  display: flex;
-  min-height: 100vh;
-}
-
-.dash-sidebar {
-  width: 220px;
-  min-width: 220px;
-  background-color: var(--primary-navy);
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1.25rem;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  z-index: 100;
-  transition: transform 0.25s ease-in-out;
-}
-
-.sidebar-nav-link {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 0.7rem 1rem;
-  border-radius: 12px;
-  color: #94A3B8;
-  font-size: 0.92rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.18s ease;
-}
-
-.sidebar-nav-link:hover {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.06);
-}
-
-.sidebar-nav-link.active {
-  background-color: var(--sidebar-active);
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.dash-content {
-  flex-grow: 1;
-  padding: 2.25rem 2.75rem;
-  max-width: 1300px;
-}
-
-.link-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--btn-blue);
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-  transition: transform 0.15s ease;
-}
-
-.link-back:hover {
-  transform: translateX(-3px);
-  color: var(--btn-blue-hover);
-}
-
 .detail-hero-card {
   background-color: var(--primary-navy);
   border-radius: 20px;
   padding: 1.6rem 1.75rem;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .sensor-dot {
@@ -97,20 +14,13 @@ body {
   flex-shrink: 0;
 }
 
-.sub-stat-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 1.2rem 1.25rem;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.02);
-}
-
+.sub-stat-card,
 .info-card {
-  background: #ffffff;
+  background: var(--surface-white);
   border-radius: 16px;
-  padding: 1.25rem 1.5rem;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.02);
+  padding: 1.2rem 1.35rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(15, 42, 74, 0.05);
 }
 
 .denah-canvas {
@@ -137,14 +47,14 @@ body {
   left: 0;
   font-size: 0.78rem;
   font-weight: 600;
-  color: #64748B;
+  color: var(--text-muted);
 }
 
 .parking-bay {
   width: 38px;
   height: 56px;
   border-radius: 8px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
   user-select: none;
 }
 
@@ -155,6 +65,11 @@ body {
 .parking-bay.bay-empty {
   border: 2px solid #10B981;
   background-color: rgba(16, 185, 129, 0.08);
+  cursor: pointer;
+}
+
+.parking-bay.bay-empty:hover {
+  background-color: rgba(16, 185, 129, 0.16);
 }
 
 .parking-bay.bay-filled {
@@ -164,7 +79,7 @@ body {
 
 .btn-buka-lokasi {
   background-color: var(--btn-blue);
-  color: #ffffff;
+  color: #FFFFFF;
   border: none;
   border-radius: 12px;
   font-size: 0.92rem;
@@ -175,17 +90,21 @@ body {
   justify-content: center;
   gap: 0.5rem;
   flex: 1;
-  transition: all 0.18s ease;
+  transition: background-color 0.18s ease, transform 0.15s ease;
   text-decoration: none;
 }
 
 .btn-buka-lokasi:hover {
   background-color: var(--btn-blue-hover);
-  color: #ffffff;
+  color: #FFFFFF;
+}
+
+.btn-buka-lokasi:active {
+  transform: scale(0.98);
 }
 
 .btn-alternatif {
-  background-color: #ffffff;
+  background-color: var(--surface-white);
   color: var(--btn-blue);
   border: 1.5px solid var(--btn-blue);
   border-radius: 12px;
@@ -196,7 +115,7 @@ body {
   align-items: center;
   justify-content: center;
   flex: 1;
-  transition: all 0.18s ease;
+  transition: background-color 0.18s ease, color 0.18s ease, transform 0.15s ease;
   text-decoration: none;
 }
 
@@ -205,31 +124,6 @@ body {
   color: var(--btn-blue-hover);
 }
 
-@media (max-width: 991.98px) {
-  .dash-sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translateX(-100%);
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
-  }
-  .dash-sidebar.show {
-    transform: translateX(0);
-  }
-  .dash-content {
-    padding: 1.5rem 1.25rem;
-  }
-  .dash-backdrop {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 99;
-  }
-  .dash-backdrop.show {
-    display: block;
-  }
+.btn-alternatif:active {
+  transform: scale(0.98);
 }

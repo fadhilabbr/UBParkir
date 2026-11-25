@@ -1,72 +1,6 @@
-:root {
-  --primary-navy: #0F2A4A;
-  --sidebar-active: #1D3757;
-  --bg-light: #F3F5F8;
-  --accent-yellow: #F2B601;
-  --btn-blue: #1E5BD8;
-  --btn-blue-hover: #164cc0;
-}
-
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--bg-light);
-  margin: 0;
-  min-height: 100vh;
-}
-
-.dash-layout {
-  display: flex;
-  min-height: 100vh;
-}
-
-.dash-sidebar {
-  width: 220px;
-  min-width: 220px;
-  background-color: var(--primary-navy);
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1.25rem;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  z-index: 100;
-  transition: transform 0.25s ease-in-out;
-}
-
-.sidebar-nav-link {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 0.7rem 1rem;
-  border-radius: 12px;
-  color: #94A3B8;
-  font-size: 0.92rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.18s ease;
-}
-
-.sidebar-nav-link:hover {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.06);
-}
-
-.sidebar-nav-link.active {
-  background-color: var(--sidebar-active);
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.dash-content {
-  flex-grow: 1;
-  padding: 2.25rem 2.75rem;
-  max-width: 1300px;
-}
-
 .laporan-tab-bar {
   display: inline-flex;
-  background-color: #E2E8F0;
+  background-color: var(--border-subtle);
   border-radius: 14px;
   padding: 4px;
   margin-bottom: 2rem;
@@ -76,66 +10,50 @@ body {
   border: none;
   background: transparent;
   padding: 0.55rem 1.75rem;
-  border-radius: 10px;
+  border-radius: var(--radius-control);
   font-size: 0.88rem;
   font-weight: 600;
-  color: #475569;
+  color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   user-select: none;
 }
 
 .laporan-tab-btn.active {
-  background-color: #ffffff;
-  color: #0F2A4A;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background-color: var(--surface-white);
+  color: var(--primary-navy);
+  box-shadow: var(--shadow-sm);
 }
 
-.incident-pill {
-  background: #ffffff;
-  color: #111827;
-  border: 1px solid #E2E8F0;
-  border-radius: 50px;
-  padding: 0.45rem 1.15rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.18s ease;
-  user-select: none;
-}
-
-.incident-pill:hover {
-  background: #F8FAFC;
-  border-color: #CBD5E1;
-}
-
-.incident-pill.active {
-  background-color: var(--primary-navy);
-  color: #ffffff;
-  border-color: var(--primary-navy);
-}
-
+.incident-pill,
 .topic-pill {
-  background: #ffffff;
-  color: #111827;
-  border: 1px solid #E2E8F0;
-  border-radius: 50px;
+  background: var(--surface-white);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
   padding: 0.45rem 1.15rem;
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: background-color 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
   user-select: none;
 }
 
+.incident-pill:hover,
 .topic-pill:hover {
   background: #F8FAFC;
   border-color: #CBD5E1;
 }
 
+.incident-pill:active,
+.topic-pill:active {
+  transform: scale(0.97);
+}
+
+.incident-pill.active,
 .topic-pill.active {
   background-color: var(--primary-navy);
-  color: #ffffff;
+  color: #FFFFFF;
   border-color: var(--primary-navy);
 }
 
@@ -175,16 +93,16 @@ body {
   margin-left: 0.85rem;
   font-weight: 700;
   font-size: 0.95rem;
-  color: #111827;
+  color: var(--text-primary);
 }
 
 .form-control-lapor {
-  border: 1px solid #E2E8F0;
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
   padding: 0.75rem 1rem;
   font-size: 0.92rem;
   width: 100%;
-  color: #111827;
+  color: var(--text-primary);
   transition: border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
@@ -196,8 +114,8 @@ body {
 
 .btn-add-photo {
   border: 1.5px dashed #94A3B8;
-  background-color: #ffffff;
-  color: #111827;
+  background-color: var(--surface-white);
+  color: var(--text-primary);
   border-radius: 12px;
   font-size: 0.88rem;
   font-weight: 600;
@@ -207,7 +125,7 @@ body {
   justify-content: center;
   gap: 0.5rem;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease;
   flex: 1;
 }
 
@@ -219,7 +137,7 @@ body {
 
 .btn-submit-report {
   background-color: var(--btn-blue);
-  color: #ffffff;
+  color: #FFFFFF;
   border: none;
   border-radius: 12px;
   font-size: 0.92rem;
@@ -230,66 +148,45 @@ body {
   justify-content: center;
   gap: 0.5rem;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: background-color 0.18s ease, transform 0.15s ease;
   flex: 1.2;
 }
 
 .btn-submit-report:hover {
   background-color: var(--btn-blue-hover);
-  color: #ffffff;
+  color: #FFFFFF;
+}
+
+.btn-submit-report:active {
+  transform: scale(0.98);
 }
 
 .btn-submit-feedback {
   background-color: var(--btn-blue);
-  color: #ffffff;
+  color: #FFFFFF;
   border: none;
   border-radius: 12px;
   font-size: 0.92rem;
   font-weight: 600;
   padding: 0.85rem 2.25rem;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: background-color 0.18s ease, transform 0.15s ease;
   display: inline-block;
   min-width: 190px;
 }
 
 .btn-submit-feedback:hover {
   background-color: var(--btn-blue-hover);
-  color: #ffffff;
+  color: #FFFFFF;
+}
+
+.btn-submit-feedback:active {
+  transform: scale(0.98);
 }
 
 .guide-card {
   background-color: var(--primary-navy);
-  color: #ffffff;
+  color: #FFFFFF;
   border-radius: 20px;
   padding: 2rem 1.75rem;
-}
-
-@media (max-width: 991.98px) {
-  .dash-sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translateX(-100%);
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
-  }
-  .dash-sidebar.show {
-    transform: translateX(0);
-  }
-  .dash-content {
-    padding: 1.5rem 1.25rem;
-  }
-  .dash-backdrop {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 99;
-  }
-  .dash-backdrop.show {
-    display: block;
-  }
 }

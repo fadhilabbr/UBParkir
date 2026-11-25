@@ -20,85 +20,90 @@ document.addEventListener('DOMContentLoaded', () => {
     savedAreas = DEFAULT_AREAS;
   }
 
-  if (areaSelectCards.length > 0) {
-    areaSelectCards.forEach((card) => {
-      const areaName = card.getAttribute('data-area');
-      if (savedAreas.includes(areaName)) {
-        card.classList.add('selected');
-      } else {
-        card.classList.remove('selected');
+  if (areaSelectCards.length === 0) return;
+
+  areaSelectCards.forEach((card) => {
+    const areaName = card.getAttribute('data-area');
+    const isSelected = savedAreas.includes(areaName);
+    card.classList.toggle('selected', isSelected);
+    card.setAttribute('aria-pressed', String(isSelected));
+  });
+
+  updateDashboardSettingsView(false);
+
+  function toggleCardSelection(card) {
+    const isSelected = card.classList.contains('selected');
+    const selectedCards = document.querySelectorAll('.area-select-card.selected');
+
+    if (isSelected) {
+      card.classList.remove('selected');
+      card.setAttribute('aria-pressed', 'false');
+      updateDashboardSettingsView(true);
+    } else if (selectedCards.length >= 3) {
+      if (typeof window.showToast === 'function') {
+        window.showToast('Batas 3 area tercapai. Lepas salah satu area terlebih dahulu.', 'warning');
+      }
+    } else {
+      card.classList.add('selected');
+      card.setAttribute('aria-pressed', 'true');
+      updateDashboardSettingsView(true);
+    }
+  }
+
+  areaSelectCards.forEach((card) => {
+    card.addEventListener('click', () => toggleCardSelection(card));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleCardSelection(card);
       }
     });
+  });
 
-    updateDashboardSettingsView(false);
+  function updateDashboardSettingsView(isUserAction = true) {
+    const selected = document.querySelectorAll('.area-select-card.selected');
+    const count = selected.length;
+    const currentSelectedNames = [];
 
-    areaSelectCards.forEach((card) => {
-      card.addEventListener('click', () => {
-        const isSelected = card.classList.contains('selected');
-        const selectedCards = document.querySelectorAll('.area-select-card.selected');
-        const currentCount = selectedCards.length;
-
-        if (isSelected) {
-          card.classList.remove('selected');
-          updateDashboardSettingsView(true);
-        } else {
-          if (currentCount >= 3) {
-            if (typeof window.showToast === 'function') {
-              window.showToast('Batas 3 area tercapai. Lepas salah satu area terlebih dahulu untuk memilih area lain.', 'warning');
-            }
-          } else {
-            card.classList.add('selected');
-            updateDashboardSettingsView(true);
-          }
-        }
-      });
+    selected.forEach((sc) => {
+      const areaName = sc.getAttribute('data-area');
+      if (areaName) currentSelectedNames.push(areaName);
     });
 
-    function updateDashboardSettingsView(isUserAction = true) {
-      const selected = document.querySelectorAll('.area-select-card.selected');
-      const count = selected.length;
-      const currentSelectedNames = [];
+    if (isUserAction) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(currentSelectedNames));
+    }
 
-      selected.forEach((sc) => {
-        const areaName = sc.getAttribute('data-area');
-        if (areaName) currentSelectedNames.push(areaName);
+    if (counterDipilihText) {
+      counterDipilihText.textContent = `${count} dari 3 dipilih`;
+    }
+
+    if (previewDashList) {
+      previewDashList.innerHTML = '';
+      currentSelectedNames.forEach((areaName) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'preview-dash-item';
+        itemDiv.setAttribute('data-area', areaName);
+        itemDiv.innerHTML = `
+          <span class="preview-dash-dot"></span>
+          <span>${areaName}</span>
+        `;
+        previewDashList.appendChild(itemDiv);
       });
 
-      if (isUserAction) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(currentSelectedNames));
+      if (count === 0) {
+        previewDashList.innerHTML = `
+          <div class="text-white-50 small p-2 text-center">Belum ada area yang dipilih.</div>
+        `;
       }
+    }
 
-      if (counterDipilihText) {
-        counterDipilihText.textContent = `${count} dari 3 dipilih`;
-      }
-
-      if (previewDashList) {
-        previewDashList.innerHTML = '';
-        currentSelectedNames.forEach((areaName) => {
-          const itemDiv = document.createElement('div');
-          itemDiv.className = 'preview-dash-item';
-          itemDiv.setAttribute('data-area', areaName);
-          itemDiv.innerHTML = `
-            <span class="preview-dash-dot"></span>
-            <span>${areaName}</span>
-          `;
-          previewDashList.appendChild(itemDiv);
-        });
-
-        if (count === 0) {
-          previewDashList.innerHTML = `
-            <div class="text-white-50 small p-2 text-center">Belum ada area yang dipilih.</div>
-          `;
-        }
-      }
-
-      if (badgeSavedStatus && isUserAction) {
-        badgeSavedStatus.style.transition = 'opacity 0.15s ease';
-        badgeSavedStatus.style.opacity = '0.4';
-        setTimeout(() => {
-          badgeSavedStatus.style.opacity = '1';
-        }, 200);
-      }
+    if (badgeSavedStatus && isUserAction) {
+      badgeSavedStatus.style.transition = 'opacity 0.15s ease';
+      badgeSavedStatus.style.opacity = '0.4';
+      setTimeout(() => {
+        badgeSavedStatus.style.opacity = '1';
+      }, 200);
     }
   }
 });
