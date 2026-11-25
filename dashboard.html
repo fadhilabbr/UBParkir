@@ -10,7 +10,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -74,25 +74,25 @@
         <header class="d-flex align-items-start justify-content-between gap-3 flex-wrap mb-4">
           <div class="d-flex align-items-center gap-3">
 
-            <button type="button" class="btn btn-light d-lg-none border shadow-sm px-2 py-1" id="btnToggleSidebar" aria-label="Buka Menu" aria-expanded="false">
+            <button type="button" class="ub-mobile-menu-btn d-lg-none" id="btnToggleSidebar" aria-label="Buka Menu" aria-expanded="false">
               <i class="bi bi-list fs-5" aria-hidden="true"></i>
             </button>
 
             <div>
-              <h1 id="dashGreeting" class="fw-bold text-dark mb-1" style="font-size: 1.75rem; letter-spacing: -0.4px;">Selamat pagi, Rifqi</h1>
-              <p id="dashSubtitle" class="text-secondary small mb-0">Slot parkir di area pilihanmu saat ini</p>
+              <h1 id="dashGreeting" class="page-title">Selamat pagi, Rifqi</h1>
+              <p id="dashSubtitle" class="page-subtitle">Slot parkir di area pilihanmu saat ini</p>
             </div>
           </div>
 
           <div class="dropdown" id="userProfileDropdown">
-            <a href="#" class="d-flex align-items-center gap-2 bg-white text-dark text-decoration-none border rounded-pill py-1 px-3 shadow-sm" data-bs-toggle="dropdown" aria-expanded="false">
-              <div style="width: 32px; height: 32px; background-color: #0F2A4A; color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem;">
+            <a href="#" class="ub-user-trigger" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="ub-avatar-sm">
                 RF
               </div>
               <span class="fw-semibold small">Rifqi Fadhil Abrar</span>
-              <i class="bi bi-chevron-down ms-1" style="font-size: 0.75rem;" aria-hidden="true"></i>
+              <i class="bi bi-chevron-down ms-1 meta-caption" aria-hidden="true"></i>
             </a>
-            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 rounded-3 mt-2">
+            <ul class="dropdown-menu dropdown-menu-end border rounded-3 mt-2">
               <li class="px-3 py-2 border-bottom">
                 <div class="fw-bold small text-dark">Rifqi Fadhil Abrar</div>
                 <div class="text-muted small">rifqi@student.ub.ac.id</div>
@@ -109,59 +109,59 @@
 
         <section class="mb-4">
           <div class="d-flex align-items-center justify-content-between mb-3">
-            <h2 id="areaSectionTitle" class="fw-bold text-dark fs-6 mb-0">Area pilihanmu</h2>
-            <a href="pengaturan-dashboard.html" class="text-primary fw-semibold text-decoration-none small" id="linkAturArea" data-sso-only="true" data-feature-name="Pengaturan Dashboard">Atur area (maks 3)</a>
+            <h2 id="areaSectionTitle" class="section-title">Area pilihanmu</h2>
+            <a href="pengaturan-dashboard.html" class="ub-link-accent" id="linkAturArea" data-sso-only="true" data-feature-name="Pengaturan Dashboard">Atur area (maks 3)</a>
           </div>
 
           <div class="row g-3" id="favoriteCardsContainer">
 
             <div class="col-12 col-md-4">
-              <div class="card border-0 shadow-sm p-3 h-100" style="border-radius: 16px;">
+              <div class="ub-card ub-card--padded h-100">
                 <div class="d-flex align-items-center justify-content-between mb-2">
-                  <h3 class="fw-bold text-dark fs-6 mb-0">Parkir FILKOM</h3>
+                  <h3 class="section-title">Parkir FILKOM</h3>
                   <span class="status-badge status-badge--warning">Hampir penuh</span>
                 </div>
                 <div class="d-flex align-items-baseline gap-2 mb-3">
-                  <span class="fw-bold text-dark tabular-nums" style="font-size: 2.25rem; line-height: 1;">12</span>
-                  <span class="text-muted small">slot tersisa dari 150</span>
+                  <span class="kpi-value">12</span>
+                  <span class="meta-caption">slot tersisa dari <span class="font-mono-data">150</span></span>
                 </div>
 
-                <div class="progress" style="height: 6px; background-color: #E5E7EB; border-radius: 10px;">
-                  <div class="progress-bar rounded-pill" style="width: 92%; background-color: #F59E0B;"></div>
+                <div class="ub-progress">
+                  <div class="ub-progress-bar ub-progress-bar--warning" style="width: 92%;"></div>
                 </div>
               </div>
             </div>
 
             <div class="col-12 col-md-4">
-              <div class="card border-0 shadow-sm p-3 h-100" style="border-radius: 16px;">
+              <div class="ub-card ub-card--padded h-100">
                 <div class="d-flex align-items-center justify-content-between mb-2">
-                  <h3 class="fw-bold text-dark fs-6 mb-0">Parkir Fakultas Teknik</h3>
+                  <h3 class="section-title">Parkir Fakultas Teknik</h3>
                   <span class="status-badge status-badge--lega">Lega</span>
                 </div>
                 <div class="d-flex align-items-baseline gap-2 mb-3">
-                  <span class="fw-bold text-dark tabular-nums" style="font-size: 2.25rem; line-height: 1;">64</span>
-                  <span class="text-muted small">slot tersisa dari 200</span>
+                  <span class="kpi-value">64</span>
+                  <span class="meta-caption">slot tersisa dari <span class="font-mono-data">200</span></span>
                 </div>
 
-                <div class="progress" style="height: 6px; background-color: #E5E7EB; border-radius: 10px;">
-                  <div class="progress-bar rounded-pill" style="width: 68%; background-color: #10B981;"></div>
+                <div class="ub-progress">
+                  <div class="ub-progress-bar ub-progress-bar--lega" style="width: 68%;"></div>
                 </div>
               </div>
             </div>
 
             <div class="col-12 col-md-4">
-              <div class="card border-0 shadow-sm p-3 h-100" style="border-radius: 16px;">
+              <div class="ub-card ub-card--padded h-100">
                 <div class="d-flex align-items-center justify-content-between mb-2">
-                  <h3 class="fw-bold text-dark fs-6 mb-0">Parkir FEB</h3>
+                  <h3 class="section-title">Parkir FEB</h3>
                   <span class="status-badge status-badge--penuh">Penuh</span>
                 </div>
                 <div class="d-flex align-items-baseline gap-2 mb-3">
-                  <span class="fw-bold text-dark tabular-nums" style="font-size: 2.25rem; line-height: 1;">0</span>
-                  <span class="text-muted small">slot tersisa dari 120</span>
+                  <span class="kpi-value">0</span>
+                  <span class="meta-caption">slot tersisa dari <span class="font-mono-data">120</span></span>
                 </div>
 
-                <div class="progress" style="height: 6px; background-color: #E5E7EB; border-radius: 10px;">
-                  <div class="progress-bar rounded-pill" style="width: 100%; background-color: #EF4444;"></div>
+                <div class="ub-progress">
+                  <div class="ub-progress-bar ub-progress-bar--penuh" style="width: 100%;"></div>
                 </div>
               </div>
             </div>
@@ -172,13 +172,13 @@
         <section class="row g-3">
 
           <div class="col-12 col-lg-8">
-            <div class="card border-0 shadow-sm p-3 p-sm-4 h-100" style="border-radius: 18px;">
+            <div class="ub-card ub-card--padded-lg h-100">
               <div class="d-flex align-items-start justify-content-between mb-3">
                 <div>
-                  <h3 class="fw-bold text-dark fs-6 mb-1">Prediksi jam padat · FILKOM</h3>
-                  <p class="text-muted small mb-0">Tingkat keterisian per jam, berdasarkan data historis</p>
+                  <h3 class="section-title mb-1">Prediksi jam padat · FILKOM</h3>
+                  <p class="meta-caption mb-0">Tingkat keterisian per jam, berdasarkan data historis</p>
                 </div>
-                <a href="prediksi.html" class="text-primary fw-semibold text-decoration-none small" id="linkPrediksiLengkap" data-sso-only="true" data-feature-name="Prediksi Traffic Parkiran">Prediksi lengkap</a>
+                <a href="prediksi.html" class="ub-link-accent" id="linkPrediksiLengkap" data-sso-only="true" data-feature-name="Prediksi Traffic Parkiran">Prediksi lengkap</a>
               </div>
 
               <div id="prediksiCardWrapper" class="position-relative">
@@ -186,80 +186,80 @@
 
                   <div class="chart-col">
                     <div class="chart-bar-wrap">
-                      <div class="chart-bar" style="height: 20%; background-color: #C8D5E5;" data-time="06:00" data-val="20% terisi"></div>
+                      <div class="chart-bar" style="height: 20%;" data-time="06:00" data-val="20% terisi"></div>
                     </div>
-                    <span class="chart-time-label">06</span>
+                    <span class="chart-time-label font-mono-data">06</span>
                   </div>
 
                   <div class="chart-col">
                     <div class="chart-bar-wrap">
-                      <div class="chart-bar" style="height: 38%; background-color: #C8D5E5;" data-time="07:00" data-val="38% terisi"></div>
+                      <div class="chart-bar" style="height: 38%;" data-time="07:00" data-val="38% terisi"></div>
                     </div>
-                    <span class="chart-time-label">07</span>
+                    <span class="chart-time-label font-mono-data">07</span>
                   </div>
 
                   <div class="chart-col">
                     <div class="chart-bar-wrap">
-                      <div class="chart-bar" style="height: 72%; background-color: #F2B601;" data-time="08:00" data-val="72% terisi (Mulai Padat)"></div>
+                      <div class="chart-bar chart-bar--warn" style="height: 72%;" data-time="08:00" data-val="72% terisi (Mulai Padat)"></div>
                     </div>
-                    <span class="chart-time-label">08</span>
+                    <span class="chart-time-label font-mono-data">08</span>
                   </div>
 
                   <div class="chart-col">
                     <div class="chart-bar-wrap">
-                      <div class="chart-bar" style="height: 96%; background-color: #DC2626;" data-time="09:00" data-val="96% terisi (Puncak Terpadat)"></div>
+                      <div class="chart-bar chart-bar--peak" style="height: 96%;" data-time="09:00" data-val="96% terisi (Puncak Terpadat)"></div>
                     </div>
-                    <span class="chart-time-label">09</span>
+                    <span class="chart-time-label font-mono-data">09</span>
                   </div>
 
                   <div class="chart-col">
                     <div class="chart-bar-wrap">
-                      <div class="chart-bar" style="height: 98%; background-color: #C8D5E5;" data-time="10:00" data-val="98% terisi"></div>
+                      <div class="chart-bar" style="height: 98%;" data-time="10:00" data-val="98% terisi"></div>
                     </div>
-                    <span class="chart-time-label">10</span>
+                    <span class="chart-time-label font-mono-data">10</span>
                   </div>
 
                   <div class="chart-col">
                     <div class="chart-bar-wrap">
-                      <div class="chart-bar" style="height: 88%; background-color: #C8D5E5;" data-time="11:00" data-val="88% terisi"></div>
+                      <div class="chart-bar" style="height: 88%;" data-time="11:00" data-val="88% terisi"></div>
                     </div>
-                    <span class="chart-time-label">11</span>
+                    <span class="chart-time-label font-mono-data">11</span>
                   </div>
 
                   <div class="chart-col">
                     <div class="chart-bar-wrap">
-                      <div class="chart-bar" style="height: 82%; background-color: #C8D5E5;" data-time="12:00" data-val="82% terisi"></div>
+                      <div class="chart-bar" style="height: 82%;" data-time="12:00" data-val="82% terisi"></div>
                     </div>
-                    <span class="chart-time-label">12</span>
+                    <span class="chart-time-label font-mono-data">12</span>
                   </div>
 
                   <div class="chart-col">
                     <div class="chart-bar-wrap">
-                      <div class="chart-bar" style="height: 80%; background-color: #C8D5E5;" data-time="13:00" data-val="80% terisi"></div>
+                      <div class="chart-bar" style="height: 80%;" data-time="13:00" data-val="80% terisi"></div>
                     </div>
-                    <span class="chart-time-label">13</span>
+                    <span class="chart-time-label font-mono-data">13</span>
                   </div>
 
                   <div class="chart-col">
                     <div class="chart-bar-wrap">
-                      <div class="chart-bar" style="height: 70%; background-color: #C8D5E5;" data-time="14:00" data-val="70% terisi"></div>
+                      <div class="chart-bar" style="height: 70%;" data-time="14:00" data-val="70% terisi"></div>
                     </div>
-                    <span class="chart-time-label">14</span>
+                    <span class="chart-time-label font-mono-data">14</span>
                   </div>
 
                   <div class="chart-col">
                     <div class="chart-bar-wrap">
-                      <div class="chart-bar" style="height: 58%; background-color: #C8D5E5;" data-time="15:00" data-val="58% terisi"></div>
+                      <div class="chart-bar" style="height: 58%;" data-time="15:00" data-val="58% terisi"></div>
                     </div>
-                    <span class="chart-time-label">15</span>
+                    <span class="chart-time-label font-mono-data">15</span>
                   </div>
                 </div>
 
                 <div id="prediksiLockedOverlay" class="guest-locked-overlay d-none">
-                  <div class="text-center px-3" style="max-width: 360px;">
+                  <div class="text-center px-3">
                     <i class="bi bi-lock-fill text-secondary fs-4 d-block mb-2" aria-hidden="true"></i>
-                    <h4 class="fw-bold text-dark fs-6 mb-1">Prediksi Traffic Khusus Akun SSO</h4>
-                    <p class="text-secondary small mb-3">Masuk dengan SSO UB untuk melihat grafik jam padat dan tingkat keterisian historis.</p>
+                    <h4 class="section-title mb-1">Prediksi Traffic Khusus Akun SSO</h4>
+                    <p class="page-subtitle mb-3">Masuk dengan SSO UB untuk melihat grafik jam padat dan tingkat keterisian historis.</p>
                     <a href="index.html?feature=Prediksi%20Traffic%20Parkiran" class="btn btn-outline-primary btn-sm rounded-3 fw-semibold px-3">
                       Masuk untuk Membuka Prediksi
                     </a>
@@ -270,23 +270,23 @@
           </div>
 
           <div class="col-12 col-lg-4">
-            <div class="p-3 p-sm-4 text-white h-100 d-flex flex-column" style="background-color: #0F2A4A; border-radius: 18px;">
-              <h3 class="fw-bold text-white fs-6 mb-3">Menu cepat</h3>
+            <div class="ub-surface-dark h-100 d-flex flex-column">
+              <h3 class="section-title text-white mb-3">Menu cepat</h3>
               <div class="d-flex flex-column gap-2 flex-grow-1 justify-content-center">
 
                 <a href="area-parkir.html" class="quick-menu-btn text-decoration-none">
                   <span>Semua area parkir UB</span>
-                  <i class="bi bi-chevron-right" style="color: #F2B601;" aria-hidden="true"></i>
+                  <i class="bi bi-chevron-right ub-link-gold" aria-hidden="true"></i>
                 </a>
 
                 <a href="alternatif.html" class="quick-menu-btn text-decoration-none">
                   <span>Cari area alternatif</span>
-                  <i class="bi bi-chevron-right" style="color: #F2B601;" aria-hidden="true"></i>
+                  <i class="bi bi-chevron-right ub-link-gold" aria-hidden="true"></i>
                 </a>
 
                 <a href="laporan.html" class="quick-menu-btn text-decoration-none" data-sso-only="true" data-feature-name="Laporan &amp; Feedback">
                   <span>Laporkan kejadian</span>
-                  <i class="bi bi-chevron-right" style="color: #F2B601;" aria-hidden="true"></i>
+                  <i class="bi bi-chevron-right ub-link-gold" aria-hidden="true"></i>
                 </a>
 
               </div>

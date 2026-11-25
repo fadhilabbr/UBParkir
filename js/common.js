@@ -144,18 +144,18 @@
     modalEl.setAttribute('aria-hidden', 'true');
 
     modalEl.innerHTML = `
-      <div class="modal-dialog modal-dialog-centered" style="max-width: 480px;">
+      <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content ub-modal-card">
           <div class="modal-header border-0 pb-0 pt-4 px-4">
             <div>
-              <div class="text-uppercase fw-bold text-primary" style="font-size: 0.7rem; letter-spacing: 0.05em;">Rekomendasi Terdekat</div>
-              <h5 class="modal-title fw-bold text-dark fs-6 mb-0" id="modalAlternatifTitle">Alternatif Parkir</h5>
+              <div class="meta-kicker">Rekomendasi terdekat</div>
+              <h5 class="modal-title section-title mb-0" id="modalAlternatifTitle">Alternatif Parkir</h5>
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
           </div>
           <div class="modal-body px-4 py-3" id="modalAlternatifBody"></div>
           <div class="modal-footer border-0 px-4 pb-4 pt-1 d-flex justify-content-between">
-            <a href="alternatif.html" class="fw-semibold text-decoration-none small text-primary">Lihat halaman alternatif</a>
+            <a href="alternatif.html" class="ub-link-accent">Lihat halaman alternatif</a>
             <button type="button" class="btn btn-light rounded-3 px-3 py-2 fw-semibold text-secondary" data-bs-dismiss="modal">Tutup</button>
           </div>
         </div>
@@ -200,17 +200,17 @@
     if (bodyEl) {
       if (alternatives.length === 0) {
         bodyEl.innerHTML = `
-          <div class="p-3 rounded-3 bg-light border small text-secondary" style="line-height: 1.55;">
+          <div class="ub-card ub-card--padded page-subtitle">
             <strong class="text-dark d-block mb-1">${escapeHtml(nama)} masih lega</strong>
             Saat ini masih tersedia banyak slot kosong. Anda bisa langsung menuju lokasi atau membuka rute.
           </div>
         `;
       } else {
         bodyEl.innerHTML = alternatives.map((alt) => `
-          <div class="d-flex align-items-center justify-content-between gap-3 p-3 rounded-3 border bg-light mb-2">
+          <div class="ub-card ub-card--padded d-flex align-items-center justify-content-between gap-3 mb-2">
             <div>
               <div class="fw-bold text-dark small">${escapeHtml(alt.name)}</div>
-              <div class="text-muted" style="font-size: 0.78rem;">${escapeHtml(alt.jarak)} · <span class="fw-semibold text-success">${alt.sisa} slot (${escapeHtml(alt.status)})</span></div>
+              <div class="meta-caption"><span class="font-mono-data">${escapeHtml(alt.jarak)}</span> · <span class="fw-semibold text-success"><span class="font-mono-data">${alt.sisa}</span> slot (${escapeHtml(alt.status)})</span></div>
             </div>
             <button type="button" class="btn btn-primary btn-sm rounded-3 px-3 fw-semibold flex-shrink-0" data-quick-rute="${escapeHtml(alt.name)}">
               Rute

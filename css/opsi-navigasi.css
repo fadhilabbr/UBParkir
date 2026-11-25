@@ -6,48 +6,49 @@
 }
 
 .nav-card {
-  background-color: var(--surface-white);
-  border: 1.5px solid var(--border-subtle);
-  border-radius: var(--radius-card);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-flat);
   padding: 1.15rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  transition: background-color 140ms var(--ease-out), border-color 140ms var(--ease-out), transform 140ms var(--ease-out);
   user-select: none;
 }
 
 .nav-card:hover {
-  background-color: #F8FAFC;
-  border-color: #CBD5E1;
+  background-color: var(--bg-subtle);
+  border-color: var(--border-hover);
 }
 
 .nav-card:active {
-  transform: scale(0.99);
+  transform: scale(0.97);
 }
 
 .nav-card.selected {
   border-color: var(--btn-blue);
-  background-color: var(--surface-white);
-  box-shadow: 0 4px 14px rgba(30, 91, 216, 0.08);
+  background-color: #F8FAFF;
+  box-shadow: none;
 }
 
 .nav-icon-box {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   background-color: #EFF4FE;
   color: var(--btn-blue);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.18s ease;
+  transition: transform 140ms var(--ease-out);
 }
 
 .nav-card:hover .nav-icon-box {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .nav-title {
@@ -66,13 +67,13 @@
 .nav-radio-indicator {
   width: 24px;
   height: 24px;
-  border-radius: 50%;
+  border-radius: var(--radius-pill);
   border: 2px solid #CBD5E1;
-  background-color: var(--surface-white);
+  background-color: var(--bg-surface);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.2s ease;
+  transition: border-color 140ms var(--ease-out);
   flex-shrink: 0;
 }
 
@@ -83,7 +84,7 @@
 .nav-radio-inner-dot {
   width: 10px;
   height: 10px;
-  border-radius: 50%;
+  border-radius: var(--radius-pill);
   background-color: var(--btn-blue);
   display: none;
 }
@@ -100,5 +101,11 @@
   font-size: 0.85rem;
   font-weight: 600;
   margin-top: 1.25rem;
-  transition: opacity 0.2s ease;
+  transition: opacity 140ms var(--ease-out);
+}
+
+@media (max-width: 767.98px) {
+  .nav-card {
+    min-height: 44px;
+  }
 }

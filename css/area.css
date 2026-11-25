@@ -1,31 +1,31 @@
 .filter-icon-label {
   width: 38px;
   height: 38px;
-  background-color: var(--surface-white);
+  background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-control);
+  border-radius: var(--radius-md);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-flat);
   color: var(--text-primary);
 }
 
 .filter-pill {
-  background: var(--surface-white);
+  background: var(--bg-surface);
   color: var(--text-primary);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-pill);
-  padding: 0.4rem 1.15rem;
+  border-radius: var(--radius-md);
+  padding: 0.45rem 1.05rem;
   font-size: 0.88rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+  transition: background-color 80ms var(--ease-out), border-color 80ms var(--ease-out), color 80ms var(--ease-out), transform 80ms var(--ease-out);
 }
 
 .filter-pill:hover {
-  background: #F8FAFC;
-  border-color: #CBD5E1;
+  background: var(--bg-subtle);
+  border-color: var(--border-hover);
 }
 
 .filter-pill:active {
@@ -39,33 +39,33 @@
 }
 
 .area-card {
-  background: var(--surface-white);
-  border-radius: var(--radius-card);
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
   padding: 1.4rem 1.5rem 1.25rem;
-  border: 1px solid rgba(15, 42, 74, 0.05);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-flat);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 140ms var(--ease-out), background-color 140ms var(--ease-out);
 }
 
 .area-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  border-color: var(--border-hover);
+  background-color: var(--bg-subtle);
 }
 
 .btn-card-detail {
   background-color: var(--btn-blue);
   color: #FFFFFF;
   border: none;
-  border-radius: var(--radius-control);
+  border-radius: var(--radius-md);
   font-size: 0.86rem;
   font-weight: 600;
   padding: 0.65rem 0.9rem;
   flex: 1;
-  transition: background-color 0.18s ease, transform 0.15s ease;
+  transition: background-color 140ms var(--ease-out), transform 140ms var(--ease-out);
 }
 
 .btn-card-detail:hover {
@@ -74,19 +74,19 @@
 }
 
 .btn-card-detail:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .btn-card-outline {
-  background-color: var(--surface-white);
+  background-color: var(--bg-surface);
   color: var(--btn-blue);
   border: 1.5px solid var(--btn-blue);
-  border-radius: var(--radius-control);
+  border-radius: var(--radius-md);
   font-size: 0.86rem;
   font-weight: 600;
   padding: 0.65rem 0.9rem;
   flex: 1;
-  transition: background-color 0.18s ease, color 0.18s ease, transform 0.15s ease;
+  transition: background-color 140ms var(--ease-out), color 140ms var(--ease-out), transform 140ms var(--ease-out);
 }
 
 .btn-card-outline:hover {
@@ -95,7 +95,7 @@
 }
 
 .btn-card-outline:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .denah-grid {
@@ -103,25 +103,32 @@
   grid-template-columns: repeat(6, 1fr);
   gap: 10px;
   padding: 1rem;
-  background: #F8FAFC;
-  border-radius: 14px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
 }
 
 .denah-slot {
   height: 50px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
   font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.15s ease;
+  transition: transform 80ms var(--ease-out), background-color 80ms var(--ease-out);
   user-select: none;
 }
 
 .denah-slot:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
+}
+
+.denah-slot:not(.occupied):active {
+  transform: scale(0.97);
 }
 
 .denah-slot.available {
@@ -146,5 +153,16 @@
 @media (max-width: 991.98px) {
   .denah-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .filter-pill,
+  .btn-card-detail,
+  .btn-card-outline {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }

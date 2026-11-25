@@ -17,7 +17,7 @@
 }
 
 .sidebar-nav-locked {
-  color: #64748B !important;
+  color: var(--text-muted) !important;
   opacity: 0.85;
 }
 
@@ -34,14 +34,13 @@
   gap: 0.6rem;
   width: 100%;
   padding: 0.72rem 1rem;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   background-color: var(--accent-yellow);
   color: var(--primary-navy) !important;
   font-size: 0.9rem;
   font-weight: 700;
   text-decoration: none;
-  transition: background-color 0.18s ease, transform 0.15s ease;
-  box-shadow: 0 4px 12px rgba(242, 182, 1, 0.22);
+  transition: background-color 140ms var(--ease-out), transform 140ms var(--ease-out);
 }
 
 .sidebar-login-cta:hover {
@@ -51,7 +50,8 @@
 }
 
 .sidebar-login-cta:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
+  transition: transform 60ms var(--ease-out);
 }
 
 .guest-pill-header {
@@ -90,8 +90,7 @@
 
 /* Dashboard chart locked overlay */
 .guest-chart-blurred {
-  filter: blur(5px);
-  opacity: 0.38;
+  opacity: 0.22;
   pointer-events: none;
   user-select: none;
 }
@@ -100,10 +99,9 @@
   position: absolute;
   inset: 0;
   z-index: 5;
-  background: rgba(255, 255, 255, 0.84);
-  backdrop-filter: blur(2px);
+  background: rgba(255, 255, 255, 0.94);
   border: 1px solid var(--border-subtle);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -115,33 +113,31 @@
 @media (prefers-reduced-transparency: reduce) {
   .guest-locked-overlay {
     background: #FFFFFF;
-    backdrop-filter: none;
   }
 }
 
 /* Restricted page access gate card */
 .guest-gate-card {
-  background: var(--surface-white);
+  background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: 22px;
+  border-radius: var(--radius-lg);
   padding: 2.25rem;
   max-width: 680px;
   margin: 0.75rem auto 2rem;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-flat);
 }
 
 .guest-gate-eyebrow {
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   color: #B45309;
 }
 
 .guest-gate-icon {
   width: 52px;
   height: 52px;
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   background-color: #EFF6FF;
   color: var(--btn-blue);
   display: inline-flex;
@@ -159,9 +155,9 @@
 }
 
 .guest-gate-item {
-  background-color: var(--bg-light);
+  background-color: var(--bg-subtle);
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   padding: 0.85rem 1rem;
   display: flex;
   align-items: flex-start;
@@ -182,10 +178,21 @@
   opacity: 1;
 }
 
+@media (max-width: 767.98px) {
+  .chart-container.guest-chart-blurred {
+    height: 250px;
+    min-height: 250px;
+  }
+
+  .guest-locked-overlay {
+    padding: 1rem;
+  }
+}
+
 @media (max-width: 575.98px) {
   .guest-gate-card {
     padding: 1.5rem 1.25rem;
-    border-radius: var(--radius-card);
+    border-radius: var(--radius-lg);
   }
 
   .guest-gate-grid {

@@ -10,7 +10,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -80,20 +80,20 @@
 
       <div class="d-flex align-items-center gap-3 mb-1">
 
-        <button type="button" class="btn btn-light d-lg-none border shadow-sm px-2 py-1" id="btnToggleSidebar" aria-label="Buka Menu" aria-expanded="false">
+        <button type="button" class="ub-mobile-menu-btn d-lg-none" id="btnToggleSidebar" aria-label="Buka Menu" aria-expanded="false">
           <i class="bi bi-list fs-5" aria-hidden="true"></i>
         </button>
 
-        <h1 class="fw-bold text-dark mb-0" style="font-size: 2.15rem; letter-spacing: -0.5px;">Pengaturan Dashboard</h1>
+        <h1 class="page-title mb-0">Pengaturan Dashboard</h1>
       </div>
-      <p class="text-secondary small mb-4">Pilih area parkir yang ingin ditampilkan di Dashboard. Maksimal 3 area.</p>
+      <p class="page-subtitle mb-4">Pilih area parkir yang ingin ditampilkan di Dashboard. Maksimal 3 area.</p>
 
       <div class="row g-4 align-items-start">
 
         <div class="col-12 col-lg-8">
 
           <div class="status-bar-wrap">
-            <div class="status-counter-text" id="counterDipilihText">3 dari 3 dipilih</div>
+            <div class="status-counter-text font-mono-data" id="counterDipilihText">3 dari 3 dipilih</div>
             <div class="status-saved-badge" id="badgeSavedStatus">
               <i class="bi bi-check-lg me-1" aria-hidden="true"></i>
               <span>Tersimpan otomatis</span>
@@ -106,7 +106,7 @@
               <div class="area-select-card selected" tabindex="0" role="button" aria-pressed="true" data-area="Parkir FILKOM" data-slot="150 slot">
                 <div>
                   <div class="area-select-title">Parkir FILKOM</div>
-                  <div class="area-select-sub">150 slot</div>
+                  <div class="area-select-sub font-mono-data">150 slot</div>
                 </div>
                 <div class="area-select-checkbox">
                   <i class="bi bi-check-lg" aria-hidden="true"></i>
@@ -118,7 +118,7 @@
               <div class="area-select-card selected" tabindex="0" role="button" aria-pressed="true" data-area="Parkir Fakultas Teknik" data-slot="200 slot">
                 <div>
                   <div class="area-select-title">Parkir Fakultas Teknik</div>
-                  <div class="area-select-sub">200 slot</div>
+                  <div class="area-select-sub font-mono-data">200 slot</div>
                 </div>
                 <div class="area-select-checkbox">
                   <i class="bi bi-check-lg" aria-hidden="true"></i>
@@ -130,7 +130,7 @@
               <div class="area-select-card selected" tabindex="0" role="button" aria-pressed="true" data-area="Parkir FEB" data-slot="120 slot">
                 <div>
                   <div class="area-select-title">Parkir FEB</div>
-                  <div class="area-select-sub">120 slot</div>
+                  <div class="area-select-sub font-mono-data">120 slot</div>
                 </div>
                 <div class="area-select-checkbox">
                   <i class="bi bi-check-lg" aria-hidden="true"></i>
@@ -142,7 +142,7 @@
               <div class="area-select-card" tabindex="0" role="button" aria-pressed="false" data-area="Parkir FIA" data-slot="90 slot">
                 <div>
                   <div class="area-select-title">Parkir FIA</div>
-                  <div class="area-select-sub">90 slot</div>
+                  <div class="area-select-sub font-mono-data">90 slot</div>
                 </div>
                 <div class="area-select-checkbox">
                   <i class="bi bi-check-lg" aria-hidden="true"></i>
@@ -154,7 +154,7 @@
               <div class="area-select-card" tabindex="0" role="button" aria-pressed="false" data-area="Parkir Fakultas Pertanian" data-slot="110 slot">
                 <div>
                   <div class="area-select-title">Parkir Fakultas Pertanian</div>
-                  <div class="area-select-sub">110 slot</div>
+                  <div class="area-select-sub font-mono-data">110 slot</div>
                 </div>
                 <div class="area-select-checkbox">
                   <i class="bi bi-check-lg" aria-hidden="true"></i>
@@ -166,7 +166,7 @@
               <div class="area-select-card" tabindex="0" role="button" aria-pressed="false" data-area="Parkir FIB" data-slot="80 slot">
                 <div>
                   <div class="area-select-title">Parkir FIB</div>
-                  <div class="area-select-sub">80 slot</div>
+                  <div class="area-select-sub font-mono-data">80 slot</div>
                 </div>
                 <div class="area-select-checkbox">
                   <i class="bi bi-check-lg" aria-hidden="true"></i>

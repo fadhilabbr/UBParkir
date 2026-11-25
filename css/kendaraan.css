@@ -1,32 +1,32 @@
 .vehicle-form-card {
-  background-color: var(--surface-white);
-  border-radius: 20px;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
   padding: 2rem 2.25rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-flat);
   border: 1px solid var(--border-subtle);
 }
 
 .veh-type-btn {
   width: 135px;
   padding: 0.65rem 1.25rem;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   border: 1px solid var(--border-subtle);
-  background-color: var(--surface-white);
+  background-color: var(--bg-surface);
   color: var(--text-primary);
-  transition: background-color 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+  transition: background-color 80ms var(--ease-out), border-color 80ms var(--ease-out), color 80ms var(--ease-out), transform 80ms var(--ease-out);
   user-select: none;
 }
 
 .veh-type-btn:hover {
-  background-color: #F8FAFC;
-  border-color: #CBD5E1;
+  background-color: var(--bg-subtle);
+  border-color: var(--border-hover);
 }
 
 .veh-type-btn:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .veh-type-btn.active {
@@ -47,18 +47,18 @@
   width: 100%;
   padding: 0.75rem 1rem;
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  background-color: var(--surface-white);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
   color: var(--text-primary);
   font-size: 0.9rem;
   font-family: inherit;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 140ms var(--ease-out);
 }
 
 .form-control-custom:focus {
   outline: none;
   border-color: var(--btn-blue);
-  box-shadow: 0 0 0 3px rgba(30, 91, 216, 0.12);
+  box-shadow: none;
 }
 
 .form-control-custom::placeholder {
@@ -70,13 +70,13 @@
   background-color: var(--btn-blue);
   color: #FFFFFF;
   border: none;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   padding: 0.75rem 2.25rem;
   font-size: 0.92rem;
   font-weight: 600;
   min-width: 180px;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: background-color 140ms var(--ease-out), transform 140ms var(--ease-out);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -87,14 +87,14 @@
 }
 
 .btn-save-vehicle:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .btn-cancel-vehicle {
-  background-color: var(--surface-white);
+  background-color: var(--bg-surface);
   color: #334155;
-  border: 1px solid #CBD5E1;
-  border-radius: 12px;
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-md);
   padding: 0.75rem 2rem;
   font-size: 0.92rem;
   font-weight: 600;
@@ -104,19 +104,32 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  transition: background-color 140ms var(--ease-out), border-color 140ms var(--ease-out), color 140ms var(--ease-out), transform 140ms var(--ease-out);
 }
 
 .btn-cancel-vehicle:hover {
-  background-color: #F8FAFC;
+  background-color: var(--bg-subtle);
   border-color: #94A3B8;
   color: var(--text-primary);
 }
 
+.btn-cancel-vehicle:active {
+  transform: scale(0.97);
+}
+
 .side-info-card {
   background-color: var(--primary-navy);
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-flat);
   padding: 2rem 1.75rem;
   color: #FFFFFF;
-  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 767.98px) {
+  .veh-type-btn,
+  .btn-save-vehicle,
+  .btn-cancel-vehicle {
+    min-height: 44px;
+  }
 }

@@ -1,7 +1,7 @@
 .laporan-tab-bar {
   display: inline-flex;
   background-color: var(--border-subtle);
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   padding: 4px;
   margin-bottom: 2rem;
 }
@@ -10,39 +10,43 @@
   border: none;
   background: transparent;
   padding: 0.55rem 1.75rem;
-  border-radius: var(--radius-control);
+  border-radius: var(--radius-sm);
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--text-secondary);
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 80ms var(--ease-out), color 80ms var(--ease-out), transform 80ms var(--ease-out);
   user-select: none;
 }
 
+.laporan-tab-btn:active {
+  transform: scale(0.97);
+}
+
 .laporan-tab-btn.active {
-  background-color: var(--surface-white);
+  background-color: var(--bg-surface);
   color: var(--primary-navy);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-flat);
 }
 
 .incident-pill,
 .topic-pill {
-  background: var(--surface-white);
+  background: var(--bg-surface);
   color: var(--text-primary);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-pill);
-  padding: 0.45rem 1.15rem;
+  border-radius: var(--radius-md);
+  padding: 0.45rem 1.05rem;
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+  transition: background-color 80ms var(--ease-out), border-color 80ms var(--ease-out), color 80ms var(--ease-out), transform 80ms var(--ease-out);
   user-select: none;
 }
 
 .incident-pill:hover,
 .topic-pill:hover {
-  background: #F8FAFC;
-  border-color: #CBD5E1;
+  background: var(--bg-subtle);
+  border-color: var(--border-hover);
 }
 
 .incident-pill:active,
@@ -68,17 +72,21 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: transform 0.15s ease;
+  transition: transform 80ms var(--ease-out);
   line-height: 1;
 }
 
 .star-btn:hover {
-  transform: scale(1.15);
+  transform: scale(1.12);
+}
+
+.star-btn:active {
+  transform: scale(0.97);
 }
 
 .star-btn i {
   font-size: 1.65rem;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: transform 80ms var(--ease-out), color 80ms var(--ease-out);
 }
 
 .star-btn.filled i {
@@ -96,27 +104,36 @@
   color: var(--text-primary);
 }
 
+.form-label-lapor {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
 .form-control-lapor {
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   padding: 0.75rem 1rem;
   font-size: 0.92rem;
   width: 100%;
   color: var(--text-primary);
-  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  background-color: var(--bg-surface);
+  transition: border-color 140ms var(--ease-out);
 }
 
 .form-control-lapor:focus {
   border-color: var(--btn-blue);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(30, 91, 216, 0.12);
+  box-shadow: none;
 }
 
 .btn-add-photo {
   border: 1.5px dashed #94A3B8;
-  background-color: var(--surface-white);
+  background-color: var(--bg-surface);
   color: var(--text-primary);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   font-size: 0.88rem;
   font-weight: 600;
   padding: 0.85rem 1.25rem;
@@ -125,21 +142,25 @@
   justify-content: center;
   gap: 0.5rem;
   cursor: pointer;
-  transition: border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease;
+  transition: border-color 140ms var(--ease-out), color 140ms var(--ease-out), background-color 140ms var(--ease-out), transform 140ms var(--ease-out);
   flex: 1;
 }
 
 .btn-add-photo:hover {
   border-color: var(--btn-blue);
   color: var(--btn-blue);
-  background-color: #F8FAFC;
+  background-color: var(--bg-subtle);
+}
+
+.btn-add-photo:active {
+  transform: scale(0.97);
 }
 
 .btn-submit-report {
   background-color: var(--btn-blue);
   color: #FFFFFF;
   border: none;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   font-size: 0.92rem;
   font-weight: 600;
   padding: 0.85rem 1.5rem;
@@ -148,7 +169,7 @@
   justify-content: center;
   gap: 0.5rem;
   cursor: pointer;
-  transition: background-color 0.18s ease, transform 0.15s ease;
+  transition: background-color 140ms var(--ease-out), transform 140ms var(--ease-out);
   flex: 1.2;
 }
 
@@ -158,19 +179,19 @@
 }
 
 .btn-submit-report:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .btn-submit-feedback {
   background-color: var(--btn-blue);
   color: #FFFFFF;
   border: none;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   font-size: 0.92rem;
   font-weight: 600;
   padding: 0.85rem 2.25rem;
   cursor: pointer;
-  transition: background-color 0.18s ease, transform 0.15s ease;
+  transition: background-color 140ms var(--ease-out), transform 140ms var(--ease-out);
   display: inline-block;
   min-width: 190px;
 }
@@ -181,12 +202,38 @@
 }
 
 .btn-submit-feedback:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .guide-card {
   background-color: var(--primary-navy);
   color: #FFFFFF;
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-flat);
   padding: 2rem 1.75rem;
+}
+
+@media (max-width: 767.98px) {
+  .laporan-tab-bar {
+    display: flex;
+    width: 100%;
+  }
+
+  .laporan-tab-btn {
+    flex: 1;
+    padding: 0.55rem 0.75rem;
+    min-height: 44px;
+  }
+
+  .incident-pill,
+  .topic-pill,
+  .btn-add-photo,
+  .btn-submit-report,
+  .btn-submit-feedback {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

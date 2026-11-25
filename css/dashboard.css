@@ -28,10 +28,18 @@
   width: 100%;
   max-width: 44px;
   background-color: #C8D5E5;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  transition: filter 0.2s ease, transform 0.2s ease;
+  border-top-left-radius: var(--radius-sm);
+  border-top-right-radius: var(--radius-sm);
+  transition: filter 140ms var(--ease-out), transform 140ms var(--ease-out);
   cursor: pointer;
+}
+
+.chart-bar--warn {
+  background-color: var(--accent-yellow);
+}
+
+.chart-bar--peak {
+  background-color: #DC2626;
 }
 
 .chart-bar:hover {
@@ -42,6 +50,8 @@
 
 .chart-time-label {
   margin-top: 0.65rem;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--text-muted);
@@ -50,8 +60,8 @@
 .quick-menu-btn {
   background-color: #223B59;
   color: #FFFFFF;
-  border: none;
-  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
   padding: 0.85rem 1rem;
   display: flex;
   align-items: center;
@@ -59,7 +69,7 @@
   text-decoration: none;
   font-size: 0.88rem;
   font-weight: 600;
-  transition: background-color 0.2s ease, transform 0.15s ease;
+  transition: background-color 140ms var(--ease-out), transform 140ms var(--ease-out);
   width: 100%;
   cursor: pointer;
 }
@@ -71,5 +81,11 @@
 }
 
 .quick-menu-btn:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
+}
+
+@media (max-width: 767.98px) {
+  .quick-menu-btn {
+    min-height: 44px;
+  }
 }

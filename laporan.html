@@ -10,7 +10,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -73,11 +73,11 @@
 
       <div class="d-flex align-items-center gap-3 mb-3">
 
-        <button type="button" class="btn btn-light d-lg-none border shadow-sm px-2 py-1" id="btnToggleSidebar" aria-label="Buka Menu" aria-expanded="false">
+        <button type="button" class="ub-mobile-menu-btn d-lg-none" id="btnToggleSidebar" aria-label="Buka Menu" aria-expanded="false">
           <i class="bi bi-list fs-5" aria-hidden="true"></i>
         </button>
 
-        <h1 class="fw-bold text-dark mb-0" style="font-size: 2.15rem; letter-spacing: -0.5px;">Laporan</h1>
+        <h1 class="page-title mb-0">Laporan</h1>
       </div>
 
       <div class="laporan-tab-bar" role="tablist">
@@ -88,11 +88,11 @@
       <div id="viewLaporanKejadian" class="row g-4 align-items-start">
 
         <div class="col-12 col-lg-8">
-          <div class="card border-0 shadow-sm p-4" style="border-radius: 20px;">
+          <div class="ub-card ub-card--padded-lg">
             <form id="formLaporanKejadian">
 
               <div class="mb-3">
-                <label class="fw-bold text-dark small d-block mb-2" style="font-size: 0.85rem;">Jenis kejadian</label>
+                <label class="form-label fw-bold text-dark small d-block mb-2">Jenis kejadian</label>
 
                 <div class="d-flex flex-wrap gap-2 mb-2">
                   <button type="button" class="incident-pill active" data-category="Parkir liar">Parkir liar</button>
@@ -107,12 +107,12 @@
               </div>
 
               <div class="mb-3">
-                <label for="inputLokasiParkir" class="fw-bold text-dark small d-block mb-2" style="font-size: 0.85rem;">Lokasi parkir</label>
+                <label for="inputLokasiParkir" class="form-label fw-bold text-dark small d-block mb-2">Lokasi parkir</label>
                 <input type="text" class="form-control-lapor" id="inputLokasiParkir" value="Parkir FILKOM" placeholder="Masukkan nama area parkir..." required>
               </div>
 
               <div class="mb-4">
-                <label for="inputDeskripsiLapor" class="fw-bold text-dark small d-block mb-2" style="font-size: 0.85rem;">Deskripsi</label>
+                <label for="inputDeskripsiLapor" class="form-label fw-bold text-dark small d-block mb-2">Deskripsi</label>
                 <textarea class="form-control-lapor" id="inputDeskripsiLapor" rows="4" placeholder="Ceritakan apa yang terjadi" required></textarea>
               </div>
 
@@ -137,13 +137,13 @@
         <div class="col-12 col-lg-4">
           <div class="guide-card">
             <h2 class="fw-bold text-white fs-6 mb-3">Panduan melapor</h2>
-            <p class="small mb-3" style="color: #94A3B8; line-height: 1.6; font-size: 0.84rem;">
+            <p class="ub-dark-copy mb-3">
               Pilih jenis kejadian yang paling sesuai dengan kondisi di lapangan.
             </p>
-            <p class="small mb-3" style="color: #94A3B8; line-height: 1.6; font-size: 0.84rem;">
+            <p class="ub-dark-copy mb-3">
               Sebutkan lokasi dan ciri kendaraan atau perangkat yang bermasalah.
             </p>
-            <p class="small mb-0" style="color: #94A3B8; line-height: 1.6; font-size: 0.84rem;">
+            <p class="ub-dark-copy mb-0">
               Lampirkan foto bila ada, supaya petugas lebih cepat menindaklanjuti.
             </p>
           </div>
@@ -154,11 +154,11 @@
       <div id="viewFeedback" class="row g-4 align-items-start d-none">
 
         <div class="col-12 col-lg-8">
-          <div class="card border-0 shadow-sm p-4" style="border-radius: 20px;">
+          <div class="ub-card ub-card--padded-lg">
             <form id="formFeedback">
 
               <div class="mb-4">
-                <label class="fw-bold text-dark small d-block mb-2" style="font-size: 0.85rem;">Seberapa membantu aplikasi ini?</label>
+                <label class="form-label fw-bold text-dark small d-block mb-2">Seberapa membantu aplikasi ini?</label>
                 <div class="star-rating-box">
 
                   <button type="button" class="star-btn filled" data-star="1" title="Sangat Kurang" aria-label="1 bintang: Sangat Kurang">
@@ -186,7 +186,7 @@
               </div>
 
               <div class="mb-3">
-                <label class="fw-bold text-dark small d-block mb-2" style="font-size: 0.85rem;">Topik</label>
+                <label class="form-label fw-bold text-dark small d-block mb-2">Topik</label>
                 <div class="d-flex flex-wrap gap-2">
                   <button type="button" class="topic-pill active" data-topic="Akurasi data">Akurasi data</button>
                   <button type="button" class="topic-pill" data-topic="Tampilan aplikasi">Tampilan aplikasi</button>
@@ -196,7 +196,7 @@
               </div>
 
               <div class="mb-4">
-                <label for="inputSaranFeedback" class="fw-bold text-dark small d-block mb-2" style="font-size: 0.85rem;">Saran atau komentar</label>
+                <label for="inputSaranFeedback" class="form-label fw-bold text-dark small d-block mb-2">Saran atau komentar</label>
                 <textarea class="form-control-lapor" id="inputSaranFeedback" rows="4" placeholder="Apa yang bisa kami perbaiki?" required></textarea>
               </div>
 
@@ -216,15 +216,15 @@
           <div class="guide-card">
             <h2 class="fw-bold text-white fs-6 mb-3">Masukanmu dipakai untuk</h2>
 
-            <p class="small mb-3" style="color: #94A3B8; line-height: 1.6; font-size: 0.84rem;">
+            <p class="ub-dark-copy mb-3">
               Memperbaiki akurasi data slot parkir dari sensor.
             </p>
 
-            <p class="small mb-3" style="color: #94A3B8; line-height: 1.6; font-size: 0.84rem;">
+            <p class="ub-dark-copy mb-3">
               Menyempurnakan tampilan dan alur aplikasi.
             </p>
 
-            <p class="small mb-0" style="color: #94A3B8; line-height: 1.6; font-size: 0.84rem;">
+            <p class="ub-dark-copy mb-0">
               Menentukan fitur berikutnya yang paling dibutuhkan mahasiswa.
             </p>
           </div>

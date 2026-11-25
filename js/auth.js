@@ -31,7 +31,7 @@
     modalEl.setAttribute('aria-hidden', 'true');
 
     modalEl.innerHTML = `
-      <div class="modal-dialog modal-dialog-centered" style="max-width: 440px;">
+      <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content ub-modal-card">
           <div class="modal-header border-0 pb-0 pt-4 px-4">
             <div class="d-flex align-items-center gap-2">
@@ -39,14 +39,14 @@
                 <i class="bi bi-lock-fill fs-5" aria-hidden="true"></i>
               </span>
               <div>
-                <div class="guest-gate-eyebrow">Mode Tamu · Akses Terbatas</div>
-                <h5 class="modal-title fw-bold text-dark fs-6 mb-0" id="guestLoginModalTitle">Login SSO UB Diperlukan</h5>
+                <div class="meta-kicker">Mode Tamu · Akses terbatas</div>
+                <h5 class="modal-title section-title mb-0" id="guestLoginModalTitle">Login SSO UB Diperlukan</h5>
               </div>
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
           </div>
           <div class="modal-body px-4 pt-3 pb-2">
-            <p class="text-secondary small mb-0" style="line-height: 1.6;">
+            <p class="page-subtitle mb-0">
               Fitur <strong class="text-dark" id="guestModalFeatureName">Fitur ini</strong> hanya tersedia untuk pengguna yang masuk dengan akun <strong>SSO Universitas Brawijaya</strong>.
             </p>
           </div>
@@ -218,17 +218,17 @@
 
     mainEl.innerHTML = `
       <div class="d-flex align-items-center gap-3 mb-4 d-lg-none">
-        <button type="button" class="btn btn-light border shadow-sm px-2 py-1" id="btnToggleSidebar" aria-label="Buka Menu">
+        <button type="button" class="ub-mobile-menu-btn" id="btnToggleSidebar" aria-label="Buka Menu" aria-expanded="false">
           <i class="bi bi-list fs-5" aria-hidden="true"></i>
         </button>
-        <span class="fw-bold text-dark">ParkirUB · Mode Tamu</span>
+        <span class="section-title">ParkirUB · Mode Tamu</span>
       </div>
 
-      <section class="guest-gate-card" aria-labelledby="guestGateHeading">
+      <section class="guest-gate-card ub-card" aria-labelledby="guestGateHeading">
         <div class="d-flex align-items-start justify-content-between gap-3 mb-3">
           <div>
-            <div class="guest-gate-eyebrow mb-1">Mode Tamu · Akses Terbatas</div>
-            <h1 id="guestGateHeading" class="fw-bold text-dark mb-0" style="font-size: 1.55rem; letter-spacing: -0.4px;">
+            <div class="meta-kicker mb-1">Mode Tamu · Akses terbatas</div>
+            <h1 id="guestGateHeading" class="page-title mb-0">
               ${safeFeatureHtml} memerlukan akun SSO UB
             </h1>
           </div>
@@ -237,7 +237,7 @@
           </div>
         </div>
 
-        <p class="text-secondary mb-0" style="font-size: 0.94rem; line-height: 1.6;">
+        <p class="page-subtitle mb-0">
           Mode Tamu hanya mencakup pemantauan slot dan area parkir alternatif. Masuk dengan akun <strong>SSO Universitas Brawijaya</strong> untuk membuka layanan penuh.
         </p>
 
@@ -264,7 +264,7 @@
           <a href="${escapeHtml(loginHref)}" class="btn btn-primary rounded-3 px-4 py-2 fw-semibold">
             <i class="bi bi-box-arrow-in-right me-2" aria-hidden="true"></i>Masuk dengan SSO UB
           </a>
-          <a href="area-parkir.html" class="fw-semibold text-decoration-none small text-primary">
+          <a href="area-parkir.html" class="ub-link-accent">
             Kembali ke Area Parkir
           </a>
         </div>

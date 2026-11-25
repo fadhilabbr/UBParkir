@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
@@ -21,31 +22,32 @@
 }
 
 .area-select-card {
-  background-color: var(--surface-white);
-  border: 1.5px solid var(--border-subtle);
-  border-radius: 16px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-flat);
   padding: 1.15rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  transition: background-color 140ms var(--ease-out), border-color 140ms var(--ease-out), transform 140ms var(--ease-out);
   user-select: none;
 }
 
 .area-select-card:hover {
-  background-color: #F8FAFC;
-  border-color: #CBD5E1;
+  background-color: var(--bg-subtle);
+  border-color: var(--border-hover);
 }
 
 .area-select-card:active {
-  transform: scale(0.99);
+  transform: scale(0.97);
 }
 
 .area-select-card.selected {
   border-color: var(--btn-blue);
-  background-color: var(--surface-white);
-  box-shadow: 0 4px 14px rgba(30, 91, 216, 0.08);
+  background-color: #F8FAFF;
+  box-shadow: none;
 }
 
 .area-select-title {
@@ -53,7 +55,7 @@
   font-weight: 700;
   color: var(--text-muted);
   margin-bottom: 0.15rem;
-  transition: color 0.2s ease;
+  transition: color 140ms var(--ease-out);
 }
 
 .area-select-card.selected .area-select-title {
@@ -64,7 +66,7 @@
   font-size: 0.82rem;
   color: #94A3B8;
   margin: 0;
-  transition: color 0.2s ease;
+  transition: color 140ms var(--ease-out);
 }
 
 .area-select-card.selected .area-select-sub {
@@ -74,13 +76,13 @@
 .area-select-checkbox {
   width: 26px;
   height: 26px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: 1.5px solid #CBD5E1;
-  background-color: var(--surface-white);
+  background-color: var(--bg-surface);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 80ms var(--ease-out), border-color 80ms var(--ease-out);
   flex-shrink: 0;
 }
 
@@ -103,10 +105,11 @@
 
 .preview-dash-card {
   background-color: var(--primary-navy);
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-flat);
   padding: 2rem 1.75rem;
   color: #FFFFFF;
-  box-shadow: var(--shadow-md);
 }
 
 .preview-dash-title {
@@ -125,7 +128,7 @@
 
 .preview-dash-item {
   background-color: var(--sidebar-active);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   padding: 0.85rem 1.15rem;
   display: flex;
   align-items: center;
@@ -138,7 +141,7 @@
 .preview-dash-dot {
   width: 8px;
   height: 8px;
-  border-radius: 50%;
+  border-radius: var(--radius-pill);
   background-color: var(--accent-yellow);
   flex-shrink: 0;
 }
@@ -151,10 +154,21 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  transition: opacity 0.2s ease;
+  transition: opacity 140ms var(--ease-out);
 }
 
 .preview-dash-link:hover {
   color: #FFD043;
   opacity: 0.9;
+}
+
+@media (max-width: 767.98px) {
+  .status-bar-wrap {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .area-select-card {
+    min-height: 44px;
+  }
 }

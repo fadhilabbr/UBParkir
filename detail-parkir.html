@@ -10,7 +10,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -73,7 +73,7 @@
 
       <div class="mb-4">
 
-        <button type="button" class="btn btn-light d-lg-none border shadow-sm px-2 py-1 mb-3" id="btnToggleSidebar" aria-label="Buka Menu" aria-expanded="false">
+        <button type="button" class="ub-mobile-menu-btn d-lg-none mb-3" id="btnToggleSidebar" aria-label="Buka Menu" aria-expanded="false">
           <i class="bi bi-list fs-5" aria-hidden="true"></i>
         </button>
 
@@ -81,7 +81,7 @@
           <i class="bi bi-chevron-left me-1" aria-hidden="true"></i>
           <span>Area Parkir UB</span>
         </a>
-        <h1 class="fw-bold text-dark mb-0" style="font-size: 2rem; letter-spacing: -0.5px;">Parkir FILKOM</h1>
+        <h1 class="page-title mb-0">Parkir FILKOM</h1>
       </div>
 
       <div class="row g-4 align-items-start">
@@ -90,22 +90,22 @@
 
           <div class="detail-hero-card">
             <div class="d-flex align-items-center justify-content-between mb-2">
-              <span class="small" style="color: #94A3B8;">Slot tersedia sekarang</span>
+              <span class="ub-dark-copy">Slot tersedia sekarang</span>
               <span class="status-badge status-badge--warning">Hampir penuh</span>
             </div>
 
             <div class="d-flex align-items-baseline gap-2 mb-3">
-              <span class="fw-bold text-white tabular-nums" style="font-size: 2.85rem; line-height: 1;">12</span>
-              <span class="text-white-50 small">dari 150 slot</span>
+              <span class="kpi-value kpi-value--lg text-white">12</span>
+              <span class="text-white-50 small">dari <span class="font-mono-data">150</span> slot</span>
             </div>
 
-            <div class="progress mb-3" style="height: 6px; background-color: #213C58; border-radius: 10px;">
-              <div class="progress-bar rounded-pill" style="width: 92%; background-color: #F59E0B;"></div>
+            <div class="ub-progress ub-progress--dark mb-3">
+              <div class="ub-progress-bar ub-progress-bar--warning" style="width: 92%;"></div>
             </div>
 
-            <div class="d-flex align-items-center gap-2" style="font-size: 0.78rem; color: #94A3B8;">
+            <div class="d-flex align-items-center gap-2 ub-dark-copy">
               <span class="sensor-dot"></span>
-              <span>Diperbarui otomatis oleh sensor · <span id="sensorLiveTime">08.12 WIB</span></span>
+              <span>Diperbarui otomatis oleh sensor · <span id="sensorLiveTime" class="font-mono-data">08.12 WIB</span></span>
             </div>
           </div>
 
@@ -118,8 +118,8 @@
                   <span class="small fw-semibold">Motor</span>
                 </div>
                 <div class="d-flex align-items-baseline gap-1">
-                  <span class="fw-bold text-dark fs-3 tabular-nums">9</span>
-                  <span class="text-muted small">/ 120</span>
+                  <span class="kpi-value kpi-value--md">9</span>
+                  <span class="meta-caption font-mono-data">/ 120</span>
                 </div>
               </div>
             </div>
@@ -131,8 +131,8 @@
                   <span class="small fw-semibold">Mobil</span>
                 </div>
                 <div class="d-flex align-items-baseline gap-1">
-                  <span class="fw-bold text-dark fs-3 tabular-nums">3</span>
-                  <span class="text-muted small">/ 30</span>
+                  <span class="kpi-value kpi-value--md">3</span>
+                  <span class="meta-caption font-mono-data">/ 30</span>
                 </div>
               </div>
             </div>
@@ -140,10 +140,10 @@
 
           <div class="info-card d-flex align-items-center justify-content-between">
             <div>
-              <div class="fw-bold text-dark small">Terisi 138 kendaraan</div>
-              <div class="text-muted" style="font-size: 0.78rem;">Area ini cepat penuh setelah pukul 08.00</div>
+              <div class="fw-bold text-dark small">Terisi <span class="font-mono-data">138</span> kendaraan</div>
+              <div class="meta-caption">Area ini cepat penuh setelah pukul <span class="font-mono-data">08.00</span></div>
             </div>
-            <a href="prediksi.html" class="fw-semibold text-decoration-none small" style="color: #1E5BD8; font-size: 0.85rem;" data-sso-only="true" data-feature-name="Prediksi Traffic Parkiran">
+            <a href="prediksi.html" class="ub-link-accent" data-sso-only="true" data-feature-name="Prediksi Traffic Parkiran">
               Lihat prediksi
             </a>
           </div>
@@ -151,8 +151,8 @@
         </div>
 
         <div class="col-12 col-lg-7">
-          <div class="card border-0 shadow-sm p-4" style="border-radius: 20px;">
-            <h2 class="fw-bold text-dark fs-6 mb-3">Denah area</h2>
+          <div class="ub-card ub-card--padded-lg">
+            <h2 class="section-title mb-3">Denah area</h2>
 
             <div class="denah-canvas mb-3">
 
@@ -171,13 +171,13 @@
                 <div class="parking-bay bay-empty" title="Slot Kosong (Tersedia)"></div>
               </div>
 
-              <div class="d-flex align-items-center gap-3" style="font-size: 0.75rem; color: #64748B;">
+              <div class="d-flex align-items-center gap-3 meta-caption">
                 <div class="d-flex align-items-center gap-2">
-                  <div style="width: 14px; height: 14px; background-color: #CBD5E1; border-radius: 3px;"></div>
+                  <div class="legend-swatch legend-swatch--filled"></div>
                   <span>Terisi</span>
                 </div>
                 <div class="d-flex align-items-center gap-2">
-                  <div style="width: 14px; height: 14px; border: 2px solid #10B981; background-color: rgba(16, 185, 129, 0.1); border-radius: 3px;"></div>
+                  <div class="legend-swatch legend-swatch--bay-empty"></div>
                   <span>Kosong</span>
                 </div>
                 <span class="ms-1 text-secondary">Denah ilustrasi</span>

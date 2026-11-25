@@ -41,17 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const cardCol = document.createElement('div');
             cardCol.className = colClass;
             cardCol.innerHTML = `
-              <div class="card border-0 shadow-sm p-3 h-100" style="border-radius: 16px;">
+              <div class="ub-card ub-card--padded h-100">
                 <div class="d-flex align-items-center justify-content-between mb-2">
-                  <h3 class="fw-bold text-dark fs-6 mb-0">${data.name}</h3>
+                  <h3 class="section-title">${data.name}</h3>
                   <span class="status-badge ${data.badgeClass}">${data.statusBadge}</span>
                 </div>
                 <div class="d-flex align-items-baseline gap-2 mb-3">
-                  <span class="fw-bold text-dark tabular-nums" style="font-size: 2.25rem; line-height: 1;">${data.sisa}</span>
-                  <span class="text-muted small">slot tersisa dari ${data.kapasitas}</span>
+                  <span class="kpi-value">${data.sisa}</span>
+                  <span class="meta-caption">slot tersisa dari <span class="font-mono-data">${data.kapasitas}</span></span>
                 </div>
-                <div class="progress" style="height: 6px; background-color: #E5E7EB; border-radius: 10px;">
-                  <div class="progress-bar rounded-pill" style="width: ${data.progressWidth}; background-color: ${data.progressColor};"></div>
+                <div class="ub-progress">
+                  <div class="ub-progress-bar ub-progress-bar--${data.status}" style="width: ${data.progressWidth};"></div>
                 </div>
               </div>
             `;

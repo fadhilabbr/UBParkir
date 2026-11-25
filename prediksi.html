@@ -10,7 +10,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -74,13 +74,13 @@
       <header class="d-flex align-items-center justify-content-between mb-4">
         <div class="d-flex align-items-center gap-3">
 
-          <button type="button" class="btn btn-light d-lg-none border shadow-sm px-2 py-1" id="btnToggleSidebar" aria-label="Buka Menu" aria-expanded="false">
+          <button type="button" class="ub-mobile-menu-btn d-lg-none" id="btnToggleSidebar" aria-label="Buka Menu" aria-expanded="false">
             <i class="bi bi-list fs-5" aria-hidden="true"></i>
           </button>
 
           <div>
-            <h1 class="fw-bold text-dark mb-1" style="font-size: 1.85rem; letter-spacing: -0.5px;">Prediksi Traffic Parkiran</h1>
-            <p class="text-secondary small mb-0">Pilih area dan rentang waktu untuk melihat perkiraan keterisian</p>
+            <h1 class="page-title mb-1">Prediksi Traffic Parkiran</h1>
+            <p class="page-subtitle mb-0">Pilih area dan rentang waktu untuk melihat perkiraan keterisian</p>
           </div>
         </div>
       </header>
@@ -89,10 +89,10 @@
 
         <div class="col-12 col-lg-4 d-flex flex-column gap-3">
 
-          <div class="card border-0 shadow-sm p-4" style="border-radius: 18px;">
+          <div class="ub-card ub-card--padded-lg">
 
             <div class="mb-4">
-              <label class="text-secondary small d-block mb-2" style="font-size: 0.82rem;">Area parkir</label>
+              <label class="text-secondary small fw-semibold d-block mb-2">Area parkir</label>
               <div class="d-flex flex-wrap gap-2">
                 <button type="button" class="filter-choice-btn active" data-type="area" data-value="FILKOM">FILKOM</button>
                 <button type="button" class="filter-choice-btn" data-type="area" data-value="Fakultas Teknik">Fakultas Teknik</button>
@@ -101,7 +101,7 @@
             </div>
 
             <div>
-              <label class="text-secondary small d-block mb-2" style="font-size: 0.82rem;">Rentang waktu (WIB)</label>
+              <label class="text-secondary small fw-semibold d-block mb-2">Rentang waktu (WIB)</label>
               <div class="d-flex flex-wrap gap-2 mb-2">
                 <button type="button" class="filter-choice-btn" data-type="time" data-value="06-08">06–08</button>
                 <button type="button" class="filter-choice-btn active" data-type="time" data-value="08-10">08–10</button>
@@ -118,20 +118,20 @@
           <div class="prediksi-status-card">
 
             <div class="d-flex align-items-center justify-content-between mb-2">
-              <span class="small" id="prediksiSummaryLabel" style="color: #8FA1B4; font-size: 0.84rem;">Prediksi 08–10 · FILKOM</span>
+              <span class="ub-dark-copy" id="prediksiSummaryLabel">Prediksi 08–10 · FILKOM</span>
               <span class="status-badge status-badge--penuh" id="prediksiBadgeStatus">Penuh</span>
             </div>
 
             <div class="d-flex align-items-baseline gap-2 mb-2">
-              <span class="fw-bold text-white tabular-nums" id="prediksiBigVal" style="font-size: 2.85rem; line-height: 1;">95%</span>
+              <span class="kpi-value kpi-value--lg text-white" id="prediksiBigVal">95%</span>
               <span class="small text-white-50">perkiraan terisi saat puncak</span>
             </div>
 
-            <p class="small mb-3" id="prediksiDescText" style="color: #94A3B8; line-height: 1.5; font-size: 0.84rem;">
+            <p class="ub-dark-copy mb-3" id="prediksiDescText">
               Kemungkinan besar penuh. Pertimbangkan area alternatif.
             </p>
 
-            <a href="alternatif.html" class="fw-bold text-decoration-none small" style="color: #F2B601; font-size: 0.85rem;">
+            <a href="alternatif.html" class="ub-link-gold">
               Lihat area alternatif
             </a>
 
@@ -143,95 +143,95 @@
           <div class="prediksi-chart-card">
 
             <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
-              <h2 class="fw-bold text-dark fs-6 mb-0">Tingkat keterisian per jam</h2>
-              <span class="text-secondary" style="font-size: 0.75rem;">100% = penuh · batang berwarna = rentang terpilih</span>
+              <h2 class="section-title mb-0">Tingkat keterisian per jam</h2>
+              <span class="meta-caption">100% = penuh · batang berwarna = rentang terpilih</span>
             </div>
 
             <div class="prediksi-chart-container">
 
               <div class="prediksi-col">
-                <span class="prediksi-val-label tabular-nums">20%</span>
+                <span class="prediksi-val-label font-mono-data tabular-nums">20%</span>
                 <div class="prediksi-bar-wrap">
                   <div class="prediksi-bar" id="bar-06" style="height: 20%;" data-hour="06" title="06:00 - 20% Terisi"></div>
                 </div>
-                <span class="prediksi-time-label">06</span>
+                <span class="prediksi-time-label font-mono-data">06</span>
               </div>
 
               <div class="prediksi-col">
-                <span class="prediksi-val-label tabular-nums">45%</span>
+                <span class="prediksi-val-label font-mono-data tabular-nums">45%</span>
                 <div class="prediksi-bar-wrap">
                   <div class="prediksi-bar" id="bar-07" style="height: 45%;" data-hour="07" title="07:00 - 45% Terisi"></div>
                 </div>
-                <span class="prediksi-time-label">07</span>
+                <span class="prediksi-time-label font-mono-data">07</span>
               </div>
 
               <div class="prediksi-col">
-                <span class="prediksi-val-label tabular-nums">78%</span>
+                <span class="prediksi-val-label font-mono-data tabular-nums">78%</span>
                 <div class="prediksi-bar-wrap">
                   <div class="prediksi-bar highlight" id="bar-08" style="height: 78%;" data-hour="08" title="08:00 - 78% Terisi"></div>
                 </div>
-                <span class="prediksi-time-label">08</span>
+                <span class="prediksi-time-label font-mono-data">08</span>
               </div>
 
               <div class="prediksi-col">
-                <span class="prediksi-val-label tabular-nums">95%</span>
+                <span class="prediksi-val-label font-mono-data tabular-nums">95%</span>
                 <div class="prediksi-bar-wrap">
                   <div class="prediksi-bar highlight" id="bar-09" style="height: 95%;" data-hour="09" title="09:00 - 95% Terisi (Puncak)"></div>
                 </div>
-                <span class="prediksi-time-label">09</span>
+                <span class="prediksi-time-label font-mono-data">09</span>
               </div>
 
               <div class="prediksi-col">
-                <span class="prediksi-val-label tabular-nums">97%</span>
+                <span class="prediksi-val-label font-mono-data tabular-nums">97%</span>
                 <div class="prediksi-bar-wrap">
                   <div class="prediksi-bar" id="bar-10" style="height: 97%;" data-hour="10" title="10:00 - 97% Terisi"></div>
                 </div>
-                <span class="prediksi-time-label">10</span>
+                <span class="prediksi-time-label font-mono-data">10</span>
               </div>
 
               <div class="prediksi-col">
-                <span class="prediksi-val-label tabular-nums">90%</span>
+                <span class="prediksi-val-label font-mono-data tabular-nums">90%</span>
                 <div class="prediksi-bar-wrap">
                   <div class="prediksi-bar" id="bar-11" style="height: 90%;" data-hour="11" title="11:00 - 90% Terisi"></div>
                 </div>
-                <span class="prediksi-time-label">11</span>
+                <span class="prediksi-time-label font-mono-data">11</span>
               </div>
 
               <div class="prediksi-col">
-                <span class="prediksi-val-label tabular-nums">85%</span>
+                <span class="prediksi-val-label font-mono-data tabular-nums">85%</span>
                 <div class="prediksi-bar-wrap">
                   <div class="prediksi-bar" id="bar-12" style="height: 85%;" data-hour="12" title="12:00 - 85% Terisi"></div>
                 </div>
-                <span class="prediksi-time-label">12</span>
+                <span class="prediksi-time-label font-mono-data">12</span>
               </div>
 
               <div class="prediksi-col">
-                <span class="prediksi-val-label tabular-nums">80%</span>
+                <span class="prediksi-val-label font-mono-data tabular-nums">80%</span>
                 <div class="prediksi-bar-wrap">
                   <div class="prediksi-bar" id="bar-13" style="height: 80%;" data-hour="13" title="13:00 - 80% Terisi"></div>
                 </div>
-                <span class="prediksi-time-label">13</span>
+                <span class="prediksi-time-label font-mono-data">13</span>
               </div>
 
               <div class="prediksi-col">
-                <span class="prediksi-val-label tabular-nums">70%</span>
+                <span class="prediksi-val-label font-mono-data tabular-nums">70%</span>
                 <div class="prediksi-bar-wrap">
                   <div class="prediksi-bar" id="bar-14" style="height: 70%;" data-hour="14" title="14:00 - 70% Terisi"></div>
                 </div>
-                <span class="prediksi-time-label">14</span>
+                <span class="prediksi-time-label font-mono-data">14</span>
               </div>
 
               <div class="prediksi-col">
-                <span class="prediksi-val-label tabular-nums">55%</span>
+                <span class="prediksi-val-label font-mono-data tabular-nums">55%</span>
                 <div class="prediksi-bar-wrap">
                   <div class="prediksi-bar" id="bar-15" style="height: 55%;" data-hour="15" title="15:00 - 55% Terisi"></div>
                 </div>
-                <span class="prediksi-time-label">15</span>
+                <span class="prediksi-time-label font-mono-data">15</span>
               </div>
 
             </div>
 
-            <p class="text-secondary small mb-0 mt-3" style="font-size: 0.78rem;">
+            <p class="meta-caption mb-0 mt-3">
               Prediksi berdasarkan data historis keterisian parkir.
             </p>
 

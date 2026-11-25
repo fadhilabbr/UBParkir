@@ -1,6 +1,7 @@
 .warning-banner {
   background-color: #FEF3C7;
-  border-radius: 14px;
+  border: 1px solid #FDE68A;
+  border-radius: var(--radius-lg);
   padding: 0.95rem 1.25rem;
   display: flex;
   align-items: center;
@@ -15,35 +16,37 @@
 }
 
 .alt-card {
-  background: var(--surface-white);
-  border-radius: 16px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
   padding: 1.25rem 1.5rem;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(15, 42, 74, 0.05);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-flat);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  gap: 1rem;
+  transition: border-color 140ms var(--ease-out), background-color 140ms var(--ease-out);
 }
 
 .alt-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  border-color: var(--border-hover);
+  background-color: var(--bg-subtle);
 }
 
 .btn-rute {
   background-color: var(--btn-blue);
   color: #FFFFFF;
   border: none;
-  border-radius: var(--radius-control);
+  border-radius: var(--radius-md);
   font-size: 0.86rem;
   font-weight: 600;
   padding: 0.55rem 1.15rem;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
   text-decoration: none;
-  transition: background-color 0.18s ease, transform 0.15s ease;
+  transition: background-color 140ms var(--ease-out), transform 140ms var(--ease-out);
 }
 
 .btn-rute:hover {
@@ -52,28 +55,28 @@
 }
 
 .btn-rute:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .app-card {
-  background: var(--surface-white);
-  border-radius: var(--radius-card);
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
   padding: 1.6rem 1.5rem;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(15, 42, 74, 0.05);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-flat);
 }
 
 .btn-change-nav {
-  background-color: var(--surface-white);
+  background-color: var(--bg-surface);
   color: var(--btn-blue);
   border: 1.5px solid var(--btn-blue);
-  border-radius: var(--radius-control);
+  border-radius: var(--radius-md);
   font-size: 0.88rem;
   font-weight: 600;
   padding: 0.65rem 1rem;
   width: 100%;
   text-align: center;
-  transition: background-color 0.18s ease, color 0.18s ease, transform 0.15s ease;
+  transition: background-color 140ms var(--ease-out), color 140ms var(--ease-out), transform 140ms var(--ease-out);
 }
 
 .btn-change-nav:hover {
@@ -82,5 +85,16 @@
 }
 
 .btn-change-nav:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
+}
+
+@media (max-width: 767.98px) {
+  .alt-card {
+    flex-wrap: wrap;
+  }
+
+  .btn-rute,
+  .btn-change-nav {
+    min-height: 44px;
+  }
 }
