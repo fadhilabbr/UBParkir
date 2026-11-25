@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const areaSelectCards = document.querySelectorAll('.area-select-card');
   const counterDipilihText = document.getElementById('counterDipilihText');
-  const limitWarningBanner = document.getElementById('limitWarningBanner');
   const previewDashList = document.getElementById('previewDashList');
   const badgeSavedStatus = document.getElementById('badgeSavedStatus');
 
@@ -44,11 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
           updateDashboardSettingsView(true);
         } else {
           if (currentCount >= 3) {
-            if (limitWarningBanner) {
-              limitWarningBanner.classList.remove('d-none');
-              limitWarningBanner.style.animation = 'none';
-              void limitWarningBanner.offsetWidth;
-              limitWarningBanner.style.animation = 'pulse 0.4s ease';
+            if (typeof window.showToast === 'function') {
+              window.showToast('Batas 3 area tercapai. Lepas salah satu area terlebih dahulu untuk memilih area lain.', 'warning');
             }
           } else {
             card.classList.add('selected');
@@ -74,14 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (counterDipilihText) {
         counterDipilihText.textContent = `${count} dari 3 dipilih`;
-      }
-
-      if (limitWarningBanner) {
-        if (count >= 3) {
-          limitWarningBanner.classList.remove('d-none');
-        } else {
-          limitWarningBanner.classList.add('d-none');
-        }
       }
 
       if (previewDashList) {
